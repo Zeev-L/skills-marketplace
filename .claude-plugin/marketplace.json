@@ -1,0 +1,11 @@
+{
+  "name": "zeev-playground",
+  "owner": { "name": "Zeev-L" },
+  "plugins": [
+    {
+      "name": "bulletize",
+      "source": "./skills/bulletize",
+      "description": "Converts text into bullet points"
+    }
+  ]
+}
