@@ -6,214 +6,226 @@
 <title>zeev-playground · skill catalog</title>
 <style>
   :root {
-    --bg: #0d1117; --panel: #161b22; --panel2: #1c232c; --border: #2b333d;
-    --fg: #e6edf3; --muted: #9aa7b4; --accent: #6ea8fe; --accent-fg: #08111f;
-    --chip: #21262d; --code: #0b0f14; --ok: #3fb950;
-    --shadow: 0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.25);
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c232c; --border:#2b333d;
+    --fg:#e6edf3; --muted:#9aa7b4; --accent:#6ea8fe; --accent-fg:#08111f;
+    --chip:#21262d; --code:#0b0f14; --ok:#3fb950; --warn:#d29922;
+    --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.25);
   }
   @media (prefers-color-scheme: light) {
-    :root {
-      --bg:#f6f8fa; --panel:#fff; --panel2:#f0f3f6; --border:#d8dee4;
-      --fg:#1f2328; --muted:#59636e; --accent:#0969da; --accent-fg:#fff;
-      --chip:#eaeef2; --code:#f6f8fa; --ok:#1a7f37;
-      --shadow:0 1px 3px rgba(31,35,40,.12), 0 8px 24px rgba(31,35,40,.08);
-    }
+    :root { --bg:#f6f8fa; --panel:#fff; --panel2:#f0f3f6; --border:#d8dee4; --fg:#1f2328;
+      --muted:#59636e; --accent:#0969da; --accent-fg:#fff; --chip:#eaeef2; --code:#f6f8fa;
+      --ok:#1a7f37; --warn:#9a6700; --shadow:0 1px 3px rgba(31,35,40,.12), 0 8px 24px rgba(31,35,40,.08); }
   }
-  * { box-sizing: border-box; }
+  * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--fg);
     font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
   a { color:var(--accent); }
-  .wrap { max-width:1040px; margin:0 auto; padding:0 20px 64px; }
-  header.hero { padding:40px 0 16px; }
-  h1 { margin:0 0 6px; font-size:28px; letter-spacing:-.02em; }
-  .sub { color:var(--muted); margin:0; }
-  .sub code { background:var(--code); padding:2px 6px; border-radius:6px; font-size:.85em; }
-  .install-all { display:flex; align-items:center; flex-wrap:wrap; gap:10px 14px; margin-top:16px; }
-  .copy-all { cursor:pointer; font-size:14px; font-weight:600; padding:10px 16px; border-radius:10px;
-    background:var(--accent); color:var(--accent-fg); border:1px solid var(--accent); white-space:nowrap; }
-  .copy-all:hover { filter:brightness(1.06); }
-  .copy-all.done { background:var(--ok); border-color:var(--ok); }
-  .install-all .hint { color:var(--muted); font-size:12.5px; max-width:560px; }
-  .toolbar { position:sticky; top:0; z-index:5; background:var(--bg);
-    padding:14px 0; border-bottom:1px solid var(--border); margin-bottom:20px; }
-  .search { width:100%; padding:12px 14px; font-size:15px; color:var(--fg);
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px 64px; }
+  header.hero { position:sticky; top:0; z-index:10; background:var(--bg);
+    padding:22px 0 14px; border-bottom:1px solid var(--border); }
+  h1 { margin:0; font-size:22px; letter-spacing:-.02em; cursor:pointer; display:inline-block; }
+  .intro { color:var(--muted); margin:6px 0 0; font-size:13.5px; }
+  .controls { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+  .search { flex:1; min-width:240px; padding:11px 14px; font-size:15px; color:var(--fg);
     background:var(--panel); border:1px solid var(--border); border-radius:10px; outline:none; }
   .search:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent); }
-  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-  .chip { cursor:pointer; user-select:none; padding:6px 12px; border-radius:999px;
-    background:var(--chip); border:1px solid var(--border); color:var(--fg); font-size:13px; }
-  .chip[aria-pressed="true"] { background:var(--accent); color:var(--accent-fg); border-color:var(--accent); font-weight:600; }
-  .chip .n { opacity:.65; font-variant-numeric:tabular-nums; }
-  .count { color:var(--muted); font-size:13px; margin:0 0 14px; }
+  .copy-all { cursor:pointer; font-size:13.5px; font-weight:600; padding:0 16px; border-radius:10px;
+    background:var(--accent); color:var(--accent-fg); border:1px solid var(--accent); white-space:nowrap; }
+  .copy-all:hover { filter:brightness(1.06); } .copy-all.done { background:var(--ok); border-color:var(--ok); }
+  nav.crumbs { padding:14px 0 4px; font-size:13.5px; color:var(--muted); }
+  nav.crumbs a { cursor:pointer; text-decoration:none; }
+  nav.crumbs a:hover { text-decoration:underline; }
+  nav.crumbs .sep { opacity:.5; margin:0 7px; }
+  nav.crumbs .cur { color:var(--fg); font-weight:600; }
+  .clearbtn { cursor:pointer; margin-left:10px; font-size:12px; padding:2px 9px; border-radius:999px;
+    background:var(--chip); border:1px solid var(--border); color:var(--fg); }
+  .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); margin-top:8px; }
+  .rolecard { cursor:pointer; background:var(--panel); border:1px solid var(--border); border-radius:14px;
+    padding:22px; box-shadow:var(--shadow); transition:transform .08s, border-color .08s; }
+  .rolecard:hover { transform:translateY(-2px); border-color:var(--accent); }
+  .rolecard h2 { margin:0; font-size:19px; }
+  .rolecard .n { color:var(--accent); font-weight:700; font-size:28px; line-height:1.1; margin-top:8px; }
+  .rolecard .n small { color:var(--muted); font-weight:500; font-size:13px; }
   .card { background:var(--panel); border:1px solid var(--border); border-radius:12px;
-    padding:16px 18px; margin-bottom:12px; box-shadow:var(--shadow); }
-  .card h3 { margin:0 0 2px; font-size:16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
-  .by { font-size:12.5px; color:var(--muted); margin:0 0 10px; }
-  .by a { color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--border); }
-  .by a:hover { color:var(--accent); border-bottom-color:var(--accent); }
-  .card p { margin:0 0 12px; color:var(--fg); }
-  .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px; }
+    padding:16px 18px; box-shadow:var(--shadow); }
+  .pcard { cursor:pointer; }
+  .pcard:hover { border-color:var(--accent); }
+  .card h3 { margin:0; font-size:16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .row { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+  .cnt { color:var(--muted); font-size:13px; white-space:nowrap; }
+  .pdesc { margin:8px 0 6px; }
+  .by { font-size:12.5px; color:var(--muted); margin:0 0 12px; }
+  .by a { color:var(--muted); }
   .badge { font-size:12px; padding:3px 9px; border-radius:999px; background:var(--panel2);
     border:1px solid var(--border); color:var(--muted); }
-  .badge.role { color:var(--fg); }
-  .badge.ok { color:var(--ok); border-color:color-mix(in srgb,var(--ok) 45%,var(--border)); }
-  .badge.warn { color:#d29922; border-color:#d29922; }
-  @media (prefers-color-scheme: light) { .badge.warn { color:#9a6700; border-color:#d4a72c; } }
-  .setup-note { margin-top:10px; padding:10px 12px; border-radius:8px; font-size:13px;
-    background:color-mix(in srgb,#d29922 12%,transparent); border:1px solid color-mix(in srgb,#d29922 40%,var(--border)); }
-  .setup-note .lead { color:var(--fg); margin:0 0 8px; }
-  .install { display:flex; align-items:stretch; gap:8px; }
+  .badge.role { color:var(--fg); } .badge.warn { color:var(--warn); border-color:var(--warn); }
+  .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:6px 0 12px; }
+  .install { display:flex; gap:8px; align-items:stretch; }
   .install code { flex:1; background:var(--code); border:1px solid var(--border); border-radius:8px;
-    padding:9px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px;
+    padding:9px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
     overflow-x:auto; white-space:nowrap; }
   .copy { cursor:pointer; border:1px solid var(--border); background:var(--panel2); color:var(--fg);
-    border-radius:8px; padding:0 14px; font-size:13px; font-weight:600; white-space:nowrap; }
-  .copy:hover { border-color:var(--accent); }
-  .copy.done { color:var(--accent-fg); background:var(--ok); border-color:var(--ok); }
+    border-radius:8px; padding:0 13px; font-size:12.5px; font-weight:600; white-space:nowrap; }
+  .copy:hover { border-color:var(--accent); } .copy.done { color:var(--accent-fg); background:var(--ok); border-color:var(--ok); }
+  .setup-note { margin-top:10px; padding:10px 12px; border-radius:8px; font-size:12.5px;
+    background:color-mix(in srgb,var(--warn) 12%,transparent); border:1px solid color-mix(in srgb,var(--warn) 40%,var(--border)); }
+  .setup-note .lead { margin:0 0 8px; }
+  .skill { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+  .skill p.d { margin:4px 0 10px; }
+  .sectitle { margin:22px 0 4px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .stack { display:grid; gap:10px; margin-top:8px; }
   .empty { color:var(--muted); text-align:center; padding:48px 0; }
-  footer { color:var(--muted); font-size:13px; margin-top:32px; text-align:center; }
   mark { background:color-mix(in srgb,var(--accent) 45%,transparent); color:inherit; border-radius:3px; }
+  footer { color:var(--muted); font-size:13px; margin-top:36px; text-align:center; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <h1>zeev-playground · skill catalog</h1>
-    <p class="sub" id="subtitle">Loading…</p>
-    <p class="sub" style="margin-top:8px">Add the marketplace: <code>claude plugin marketplace add Zeev-L/playground</code></p>
-    <div class="install-all">
+    <h1 id="home">zeev-playground · skill catalog</h1>
+    <p class="intro" id="intro">Loading…</p>
+    <div class="controls">
+      <input id="search" class="search" type="search" placeholder="Search all skills — by name, description, plugin or author (works from any screen)…" autocomplete="off" />
       <button id="copyAll" class="copy-all">⧉ Copy all install commands</button>
-      <span class="hint">Pastes the marketplace-add command + all <span id="pluginCount">18</span> plugin installs. The whole-repo plugins note the one-time git-HTTPS config.</span>
     </div>
   </header>
-
-  <div class="toolbar">
-    <input id="search" class="search" type="search" placeholder="Search skills, descriptions, plugins…" autocomplete="off" />
-    <div id="chips" class="chips"></div>
-  </div>
-
-  <p id="count" class="count"></p>
-  <div id="results"></div>
-
+  <nav class="crumbs" id="crumbs"></nav>
+  <main id="content"></main>
   <footer>
-    Data-driven from <a href="./skills.json">skills.json</a> · generated by
-    <a href="https://github.com/Zeev-L/playground/blob/main/scripts/generate-catalog.py">generate-catalog.py</a>
-    · <a href="https://github.com/Zeev-L/playground">repo</a>
+    Data-driven from <a href="./skills.json">skills.json</a> ·
+    <a href="https://github.com/Zeev-L/playground">repo</a>
   </footer>
 </div>
 
 <script>
-const state = { data: null, role: "All", q: "" };
-const $ = (s) => document.querySelector(s);
-const esc = (s) => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const state = { data:null, view:"landing", role:null, plugin:null, q:"" };
+const $ = (s)=>document.querySelector(s);
+const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hl = (t,q)=>{ const e=esc(t); if(!q) return e;
+  try{ return e.replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>"); }catch{ return e; } };
 
-function highlight(text, q) {
-  const e = esc(text);
-  if (!q) return e;
-  try {
-    const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
-    return e.replace(re, "<mark>$1</mark>");
-  } catch { return e; }
-}
+const roleSkills = (r)=>state.data.skills.filter(s=>s.role===r);
+const pluginsInRole = (r)=>state.data.plugins.filter(p=>p.roles.includes(r));
+const roleCountForPlugin = (p,r)=>state.data.skills.filter(s=>s.plugin===p.name&&s.role===r).length;
+const skillsInPluginRole = (plugin,role)=>state.data.skills.filter(s=>s.plugin===plugin&&s.role===role);
 
-function buildInstallAll() {
-  const d = state.data;
-  const L = [];
+function buildInstallAll(){
+  const d=state.data, L=[];
   L.push(`# zeev-playground — install everything (${d.total_plugins} plugins, ${d.total_skills} skills)`);
   L.push("# 1) Add the marketplace");
   L.push("claude plugin marketplace add Zeev-L/playground");
   L.push("");
   L.push("# 2) One-time setup, ONLY for the whole-repo plugins marked below, and ONLY on a");
   L.push("#    machine without a GitHub SSH key (otherwise those clones fail). Uncomment to run:");
-  L.push("# " + d.https_setup_cmd);
+  L.push("# "+d.https_setup_cmd);
   L.push("");
   L.push("# 3) Install all plugins");
-  d.plugins.forEach(p => {
-    L.push(p.install + (p.setup === "https" ? "   # whole-repo — needs the git config in step 2" : ""));
-  });
+  d.plugins.forEach(p=>L.push(p.install+(p.setup==="https"?"   # whole-repo — needs the git config in step 2":"")));
   return L.join("\n");
 }
 
-function render() {
-  const { data, role, q } = state;
-  const ql = q.trim().toLowerCase();
-  const rows = data.skills.filter(s => {
-    if (role !== "All" && s.role !== role) return false;
-    if (!ql) return true;
-    return (s.skill + " " + s.description + " " + s.plugin + " " + s.author).toLowerCase().includes(ql);
-  });
-  $("#count").textContent = `${rows.length} skill${rows.length === 1 ? "" : "s"}` +
-    (role === "All" ? "" : ` · ${role}`) + (ql ? ` · “${q}”` : "");
-  if (!rows.length) { $("#results").innerHTML = `<div class="empty">No skills match.</div>`; return; }
-  $("#results").innerHTML = rows.map(s => `
-    <div class="card">
-      <h3>${highlight(s.skill, q)}</h3>
-      <p class="by">by ${highlight(s.author, q)} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">${esc(s.source_repo)}</a></p>
-      <p>${s.description ? highlight(s.description, q) : "<span style='color:var(--muted)'>No description.</span>"}</p>
-      <div class="meta">
-        <span class="badge">plugin: ${highlight(s.plugin, q)}</span>
-        <span class="badge role">${esc(s.role)}</span>
-        ${s.setup === "https"
-          ? `<span class="badge warn">⚠ one-time setup</span>`
-          : `<span class="badge ok">✓ zero setup</span>`}
-      </div>
-      <div class="install">
-        <code>${esc(s.install)}</code>
-        <button class="copy" data-cmd="${esc(s.install)}">Copy</button>
-      </div>
-      ${s.setup === "https" ? `
-      <div class="setup-note">
-        <p class="lead">⚠ Whole-repo plugin — cloned over SSH. On a machine without a GitHub SSH key, run this <strong>once</strong> first:</p>
-        <div class="install">
-          <code>${esc(state.data.https_setup_cmd)}</code>
-          <button class="copy" data-cmd="${esc(state.data.https_setup_cmd)}">Copy</button>
-        </div>
-      </div>` : ""}
+function installBlock(install, setup){
+  return `<div class="install"><code>${esc(install)}</code><button class="copy" data-cmd="${esc(install)}">Copy</button></div>` +
+    (setup==="https" ? `<div class="setup-note"><p class="lead">⚠ Whole-repo plugin — cloned over SSH. On a machine without a GitHub SSH key, run once first:</p>
+      <div class="install"><code>${esc(state.data.https_setup_cmd)}</code><button class="copy" data-cmd="${esc(state.data.https_setup_cmd)}">Copy</button></div></div>` : "");
+}
+
+function skillCard(s, q){
+  return `<div class="skill">
+    <div class="row"><h3>${hl(s.skill,q)}</h3><span class="cnt">${esc(s.plugin)} · ${esc(s.role)}</span></div>
+    <p class="by">by ${hl(s.author,q)} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">${esc(s.source_repo)}</a></p>
+    <p class="d">${s.description?hl(s.description,q):"<span style='color:var(--muted)'>No description.</span>"}</p>
+    ${installBlock(s.install, s.setup)}
+  </div>`;
+}
+
+// ---------- layers ----------
+function renderLanding(){
+  const d=state.data;
+  const cards = d.roles.map(r=>`
+    <div class="rolecard" data-role="${esc(r)}">
+      <h2>${esc(r)}</h2>
+      <div class="n">${roleSkills(r).length} <small>skills</small></div>
     </div>`).join("");
+  $("#content").innerHTML = `<p class="sectitle">What's your role?</p><div class="grid">${cards}</div>`;
 }
 
-function renderChips() {
-  const { data } = state;
-  const counts = {};
-  data.skills.forEach(s => counts[s.role] = (counts[s.role] || 0) + 1);
-  const roles = ["All", ...data.roles];
-  $("#chips").innerHTML = roles.map(r => {
-    const n = r === "All" ? data.skills.length : (counts[r] || 0);
-    return `<button class="chip" data-role="${esc(r)}" aria-pressed="${r === state.role}">${esc(r)} <span class="n">${n}</span></button>`;
+function renderRole(){
+  const r=state.role;
+  const plugs=pluginsInRole(r);
+  const cards=plugs.map(p=>{
+    const n=roleCountForPlugin(p,r);
+    return `<div class="card pcard" data-plugin="${esc(p.name)}">
+      <div class="row"><h3>${esc(p.name)}</h3><span class="cnt">${n} skill${n===1?"":"s"}</span></div>
+      <p class="pdesc">${esc(p.description||"")}</p>
+      <p class="by">by ${esc(p.attribution)} · <a href="${esc(p.source_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${esc(p.upstream)}</a></p>
+      ${installBlock(p.install, p.setup)}
+      <p class="cnt" style="margin-top:10px">▸ Click to view skills</p>
+    </div>`;
   }).join("");
+  $("#content").innerHTML = `<p class="sectitle">${esc(r)} — ${plugs.length} plugin${plugs.length===1?"":"s"}</p><div class="grid">${cards}</div>`;
 }
 
-document.addEventListener("click", (e) => {
-  const all = e.target.closest("#copyAll");
-  if (all) {
-    navigator.clipboard.writeText(buildInstallAll()).then(() => {
-      const t = all.textContent; all.textContent = "✓ Copied all commands!"; all.classList.add("done");
-      setTimeout(() => { all.textContent = t; all.classList.remove("done"); }, 1600);
-    });
+function renderPlugin(){
+  const p=state.data.plugins.find(x=>x.name===state.plugin);
+  const skills=skillsInPluginRole(state.plugin, state.role);
+  $("#content").innerHTML =
+    `<div class="card"><div class="row"><h3>${esc(p.name)}</h3><span class="cnt">${skills.length} ${esc(state.role)} skill${skills.length===1?"":"s"} · ${p.skill_count} total</span></div>
+       <p class="pdesc">${esc(p.description||"")}</p>
+       <p class="by">by ${esc(p.attribution)} · <a href="${esc(p.source_url)}" target="_blank" rel="noopener">${esc(p.upstream)}</a></p>
+       ${installBlock(p.install, p.setup)}</div>
+     <p class="sectitle">Skills</p>
+     <div class="stack">${skills.map(s=>skillCard(s,"")).join("")}</div>`;
+}
+
+function renderSearch(){
+  const q=state.q.trim(), ql=q.toLowerCase();
+  const rows=state.data.skills.filter(s=>(s.skill+" "+s.description+" "+s.plugin+" "+s.author).toLowerCase().includes(ql));
+  $("#content").innerHTML = rows.length
+    ? `<div class="stack">${rows.map(s=>skillCard(s,q)).join("")}</div>`
+    : `<div class="empty">No skills match “${esc(q)}”.</div>`;
+}
+
+function renderCrumbs(){
+  const c=$("#crumbs");
+  if(state.q.trim()){
+    c.innerHTML = `🔎 <span class="cur">Searching all ${state.data.total_skills} skills</span> for “${esc(state.q.trim())}” <span class="clearbtn" id="clearSearch">clear ✕</span>`;
     return;
   }
-  const chip = e.target.closest(".chip");
-  if (chip) { state.role = chip.dataset.role; renderChips(); render(); return; }
-  const btn = e.target.closest(".copy");
-  if (btn) {
-    navigator.clipboard.writeText(btn.dataset.cmd).then(() => {
-      const t = btn.textContent; btn.textContent = "Copied!"; btn.classList.add("done");
-      setTimeout(() => { btn.textContent = t; btn.classList.remove("done"); }, 1400);
-    });
-  }
-});
-$("#search").addEventListener("input", (e) => { state.q = e.target.value; render(); });
+  let h=`<a id="cbHome">Home</a>`;
+  if(state.view==="role") h+=`<span class="sep">/</span><span class="cur">${esc(state.role)}</span>`;
+  if(state.view==="plugin") h+=`<span class="sep">/</span><a id="cbRole">${esc(state.role)}</a><span class="sep">/</span><span class="cur">${esc(state.plugin)}</span>`;
+  c.innerHTML = state.view==="landing" ? "" : h;
+}
 
-fetch("./skills.json").then(r => r.json()).then(d => {
-  state.data = d;
-  $("#subtitle").innerHTML = `<strong>${d.total_skills}</strong> skills across <strong>${d.total_plugins}</strong> plugins` +
-    (d.generated_at ? ` · updated ${esc(d.generated_at.slice(0,10))}` : "");
-  $("#pluginCount").textContent = d.total_plugins;
-  renderChips(); render();
-}).catch(err => {
-  $("#subtitle").textContent = "Failed to load skills.json";
-  $("#results").innerHTML = `<div class="empty">Could not load catalog data: ${esc(String(err))}</div>`;
+function render(){
+  renderCrumbs();
+  if(state.q.trim()) return renderSearch();
+  if(state.view==="plugin") return renderPlugin();
+  if(state.view==="role") return renderRole();
+  return renderLanding();
+}
+
+function go(view, role, plugin){ state.view=view; state.role=role||null; state.plugin=plugin||null; state.q=""; $("#search").value=""; render(); window.scrollTo(0,0); }
+
+// ---------- events ----------
+document.addEventListener("click",(e)=>{
+  const cp=e.target.closest(".copy"); if(cp){ navigator.clipboard.writeText(cp.dataset.cmd).then(()=>{const t=cp.textContent;cp.textContent="Copied!";cp.classList.add("done");setTimeout(()=>{cp.textContent=t;cp.classList.remove("done");},1300);}); return; }
+  const ca=e.target.closest("#copyAll"); if(ca){ navigator.clipboard.writeText(buildInstallAll()).then(()=>{const t=ca.textContent;ca.textContent="✓ Copied all commands!";ca.classList.add("done");setTimeout(()=>{ca.textContent=t;ca.classList.remove("done");},1600);}); return; }
+  if(e.target.closest("#home")||e.target.closest("#cbHome")){ go("landing"); return; }
+  if(e.target.closest("#cbRole")){ go("role", state.role); return; }
+  if(e.target.closest("#clearSearch")){ state.q=""; $("#search").value=""; render(); return; }
+  const rc=e.target.closest(".rolecard"); if(rc){ go("role", rc.dataset.role); return; }
+  const pc=e.target.closest(".pcard"); if(pc){ go("plugin", state.role, pc.dataset.plugin); return; }
 });
+$("#search").addEventListener("input",(e)=>{ state.q=e.target.value; render(); });
+
+fetch("./skills.json").then(r=>r.json()).then(d=>{
+  state.data=d;
+  const sources=new Set(d.plugins.map(p=>p.upstream)).size;
+  $("#intro").innerHTML = `<strong>${d.total_skills}</strong> skills from <strong>${sources}</strong> sources across <strong>${d.total_plugins}</strong> plugins — pick your role below, or search from anywhere.`;
+  render();
+}).catch(err=>{ $("#intro").textContent="Failed to load skills.json"; $("#content").innerHTML=`<div class="empty">${esc(String(err))}</div>`; });
 </script>
 </body>
 </html>

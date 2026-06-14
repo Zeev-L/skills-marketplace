@@ -204,7 +204,8 @@ def main():
                                "upstream": up, "source_repo": src_repo, "setup": setup})
         plugin_roles = sorted(plugin_role_set, key=ROLES_ORDER.index) or [base_role]
         plugins.append({"name": name, "role": " / ".join(plugin_roles), "roles": plugin_roles,
-                        "upstream": up, "attribution": attr, "license": lic, "install": install,
+                        "description": pl.get("description", ""), "upstream": up,
+                        "attribution": attr, "source_url": home, "license": lic, "install": install,
                         "skill_count": len(skills), "setup": setup, "skills": skills})
         print(f"  {name}: {len(skills)} skills", file=sys.stderr)
 

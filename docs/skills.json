@@ -15,8 +15,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "My text manipulation skills (e.g. bulletize).",
       "upstream": "Zeev-L (original)",
       "attribution": "Zeev-L",
+      "source_url": "https://github.com/Zeev-L/playground",
       "license": "—",
       "install": "claude plugin install text-tools@zeev-playground",
       "skill_count": 1,
@@ -37,8 +39,10 @@
         "Software dev",
         "DevOps/SRE"
       ],
+      "description": "Production-grade software-engineering skills (spec, plan, TDD, review, ship). Addy Osmani, via my clone.",
       "upstream": "addyosmani/agent-skills",
       "attribution": "Addy Osmani",
+      "source_url": "https://github.com/addyosmani/agent-skills",
       "license": "MIT",
       "install": "claude plugin install agent-skills@zeev-playground",
       "skill_count": 24,
@@ -197,8 +201,10 @@
         "Software dev",
         "DevOps/SRE"
       ],
+      "description": "Garry Tan's 60+ engineering skills: code review, debugging, QA, deploy, security. Via my clone.",
       "upstream": "garrytan/gstack",
       "attribution": "Garry Tan",
+      "source_url": "https://github.com/garrytan/gstack",
       "license": "MIT",
       "install": "claude plugin install gstack@zeev-playground",
       "skill_count": 59,
@@ -566,8 +572,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "28+ AI-powered PM skills from Lenny's Podcast (menkesu). Via my clone.",
       "upstream": "menkesu/awesome-pm-skills",
       "attribution": "menkesu (Lenny's Podcast)",
+      "source_url": "https://github.com/menkesu/awesome-pm-skills",
       "license": "MIT",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "skill_count": 29,
@@ -755,8 +763,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "Teresa Torres discovery: opportunity-solution trees, assumption tests, interview scripts. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "skill_count": 13,
@@ -848,8 +858,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "Product strategy canvases: Lean/Business-Model, Porter's, SWOT, Ansoff. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "skill_count": 12,
@@ -935,8 +947,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "Core PM toolkit skills. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "skill_count": 4,
@@ -974,8 +988,10 @@
       "roles": [
         "Project mgmt"
       ],
+      "description": "Delivery / project management: sprint planning, retros, OKRs, stakeholder maps. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-execution@zeev-playground",
       "skill_count": 16,
@@ -1085,8 +1101,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "Market and user research skills. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "skill_count": 7,
@@ -1142,8 +1160,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "Shipping AI features: intended-vs-implemented, shipping artifacts. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-ai-shipping@zeev-playground",
       "skill_count": 2,
@@ -1169,8 +1189,10 @@
       "roles": [
         "Product mgmt"
       ],
+      "description": "A/B test analysis, cohort analysis, SQL queries. Pawel Huryn.",
       "upstream": "phuryn/pm-skills",
       "attribution": "Pawel Huryn",
+      "source_url": "https://github.com/phuryn/pm-skills",
       "license": "MIT",
       "install": "claude plugin install pm-data-analytics@zeev-playground",
       "skill_count": 3,
@@ -1202,8 +1224,10 @@
       "roles": [
         "PMM / Biz dev"
       ],
+      "description": "Corey Haines' SaaS PMM + biz-dev stack: GTM/launch, positioning, pricing, sales-enablement, CRO. Via my clone.",
       "upstream": "coreyhaines31/marketingskills",
       "attribution": "Corey Haines",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "skill_count": 44,
@@ -1481,8 +1505,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Post and read tweets on X (Twitter) from Claude Code. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install x@zeev-playground",
       "skill_count": 2,
@@ -1508,8 +1534,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Markdown + LaTeX to a native Google Doc with editable equations. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install gdoc-math@zeev-playground",
       "skill_count": 1,
@@ -1529,8 +1557,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Search past Claude Code conversations by keyword; get session IDs. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install find-session@zeev-playground",
       "skill_count": 1,
@@ -1550,8 +1580,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Install the claude-pulse statusline for token-usage monitoring. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install setup-pulse@zeev-playground",
       "skill_count": 1,
@@ -1571,8 +1603,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Review a project's .claude/ setup against best practices. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install claude-reviewer@zeev-playground",
       "skill_count": 1,
@@ -1592,8 +1626,10 @@
       "roles": [
         "Utilities"
       ],
+      "description": "Evaluate any skill's design quality and flag anti-patterns. Omri Ariav.",
       "upstream": "omriariav/omri-cc-stuff",
       "attribution": "Omri Ariav",
+      "source_url": "https://github.com/omriariav/omri-cc-stuff",
       "license": "MIT",
       "install": "claude plugin install skill-reviewer@zeev-playground",
       "skill_count": 1,
