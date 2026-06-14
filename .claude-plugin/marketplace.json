@@ -47,7 +47,10 @@
         "repo": "Zeev-L/pm-skills",
         "path": "pm-product-discovery"
       },
-      "description": "Teresa Torres discovery: opportunity-solution trees, assumption tests, interview scripts. Pawel Huryn."
+      "description": "Teresa Torres discovery: opportunity-solution trees, assumption tests, interview scripts. Pawel Huryn.",
+      "skills": [
+        "./skills"
+      ]
     },
     {
       "name": "pm-product-strategy",
