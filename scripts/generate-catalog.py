@@ -51,15 +51,15 @@ def role_for(plugin, skill_name, base_role):
         return "DevOps/SRE"
     return base_role
 
-# source clone dir name -> (upstream slug, attribution, license)
+# source clone dir name -> (upstream slug, attribution, license, homepage)
 UPSTREAM = {
-    "addyosmani-agent-skills": ("addyosmani/agent-skills", "Addy Osmani", "MIT"),
-    "gstack": ("garrytan/gstack", "Garry Tan", "MIT"),
-    "awesome-pm-skills": ("menkesu/awesome-pm-skills", "menkesu", "MIT"),
-    "pm-skills": ("phuryn/pm-skills", "Pawel Huryn", "MIT"),
-    "marketingskills": ("coreyhaines31/marketingskills", "Corey Haines", "MIT"),
-    "omri-a.-cc-stuff": ("omriariav/omri-cc-stuff", "Omri Ariav", "MIT"),
-    "_local": ("Zeev-L (original)", "Zeev-L", "—"),
+    "addyosmani-agent-skills": ("addyosmani/agent-skills", "Addy Osmani", "MIT", "https://github.com/addyosmani/agent-skills"),
+    "gstack": ("garrytan/gstack", "Garry Tan", "MIT", "https://github.com/garrytan/gstack"),
+    "awesome-pm-skills": ("menkesu/awesome-pm-skills", "menkesu (Lenny's Podcast)", "MIT", "https://github.com/menkesu/awesome-pm-skills"),
+    "pm-skills": ("phuryn/pm-skills", "Pawel Huryn", "MIT", "https://github.com/phuryn/pm-skills"),
+    "marketingskills": ("coreyhaines31/marketingskills", "Corey Haines", "MIT", "https://github.com/coreyhaines31/marketingskills"),
+    "omri-a.-cc-stuff": ("omriariav/omri-cc-stuff", "Omri Ariav", "MIT", "https://github.com/omriariav/omri-cc-stuff"),
+    "_local": ("Zeev-L (original)", "Zeev-L", "—", "https://github.com/Zeev-L/playground"),
 }
 
 
@@ -87,12 +87,28 @@ def ensure_clone(clones_dir, name, url):
     return dest
 
 
+def _author_from_value(v, lines, i):
+    """Resolve an author/attribution value: inline string, or a nested `name:` mapping."""
+    v = v.strip().strip('"').strip("'")
+    if v and v not in ("|", ">"):
+        return v
+    j = i + 1                                          # mapping form -> find indented name:
+    while j < len(lines) and (lines[j].startswith("  ") or not lines[j].strip()):
+        m = re.match(r"\s+name:\s*(.+)", lines[j])
+        if m:
+            return m.group(1).strip().strip('"').strip("'")
+        if lines[j].strip() and not lines[j].startswith("  "):
+            break
+        j += 1
+    return ""
+
+
 def parse_frontmatter(text, fallback_name):
-    """Return (name, one-line description) from a SKILL.md."""
-    name, desc = fallback_name, ""
+    """Return (name, one-line description, author) from a SKILL.md. author is "" if none."""
+    name, desc, author, attribution = fallback_name, "", "", ""
     lines = text.splitlines()
     if not (lines and lines[0].strip() == "---"):
-        return name, desc
+        return name, desc, ""
     i = 1
     while i < len(lines) and lines[i].strip() != "---":
         ln = lines[i]
@@ -113,11 +129,15 @@ def parse_frontmatter(text, fallback_name):
                 desc = " ".join(buf)
             else:
                 desc = v.strip('"').strip("'")
+        elif re.match(r"\s*author:", ln) and not author:          # top-level or nested (e.g. metadata.author)
+            author = _author_from_value(ln.split(":", 1)[1], lines, i)
+        elif re.match(r"\s*attribution:", ln) and not attribution:
+            attribution = _author_from_value(ln.split(":", 1)[1], lines, i)
         i += 1
     desc = re.sub(r"\s+", " ", desc).strip()
     if len(desc) > 280:
         desc = desc[:277] + "…"
-    return name, desc
+    return name, desc, (author or attribution)
 
 
 def collect_skills(root: Path):
@@ -127,8 +147,8 @@ def collect_skills(root: Path):
             continue
         rel = sk.relative_to(root)
         text = sk.read_text(encoding="utf-8", errors="replace")
-        name, desc = parse_frontmatter(text, sk.parent.name)
-        out.append({"skill": name, "description": desc, "rel_path": str(rel)})
+        name, desc, author = parse_frontmatter(text, sk.parent.name)
+        out.append({"skill": name, "description": desc, "rel_path": str(rel), "fm_author": author})
     # de-dupe by skill name, keep first (sorted) occurrence
     seen, uniq = set(), []
     for s in out:
@@ -158,12 +178,12 @@ def main():
         cdir, url, path = repo_dir_name(pl["source"])
         if cdir is None:                                   # local plugin (text-tools)
             root = playground_root / path
-            up, attr, lic = UPSTREAM["_local"]
+            up, attr, lic, home = UPSTREAM["_local"]
             src_repo = "Zeev-L/playground"
         else:
             repo_root = ensure_clone(clones_dir, cdir, url)
             root = repo_root / path if path not in (".", "") else repo_root
-            up, attr, lic = UPSTREAM.get(cdir, (cdir, "—", "MIT"))
+            up, attr, lic, home = UPSTREAM.get(cdir, (cdir, "—", "MIT", f"https://github.com/{cdir}"))
             src_repo = f"Zeev-L/{cdir}"
         base_role = ROLE.get(name, "Utilities")
         install = f"claude plugin install {name}@zeev-playground"
@@ -176,8 +196,11 @@ def main():
         for s in skills:
             srole = role_for(name, s["skill"], base_role)
             plugin_role_set.add(srole)
+            # author: SKILL.md frontmatter author/attribution if present, else plugin upstream author
+            sauthor = s.get("fm_author") or attr
             all_skills.append({"skill": s["skill"], "description": s["description"],
                                "plugin": name, "role": srole, "install": install,
+                               "author": sauthor, "source_url": home,
                                "upstream": up, "source_repo": src_repo, "setup": setup})
         plugin_roles = sorted(plugin_role_set, key=ROLES_ORDER.index) or [base_role]
         plugins.append({"name": name, "role": " / ".join(plugin_roles), "roles": plugin_roles,
@@ -216,11 +239,12 @@ def main():
         md.append(f"Upstream: **{pl['upstream']}** · License: {pl['license']} · "
                   f"Install: `{pl['install']}`{setup_note}")
         md.append("")
-        md.append("| Skill | Description |")
-        md.append("|---|---|")
+        md.append("| Skill | Author | Description |")
+        md.append("|---|---|---|")
         for s in pl["skills"]:
             desc = s["description"].replace("|", "\\|") or "—"
-            md.append(f"| `{s['skill']}` | {desc} |")
+            author = (s.get("fm_author") or pl["attribution"]).replace("|", "\\|")
+            md.append(f"| `{s['skill']}` | {author} | {desc} |")
         md.append("")
     Path(a.out_md).write_text("\n".join(md))
     print(f"wrote {a.out_json} and {a.out_md} "

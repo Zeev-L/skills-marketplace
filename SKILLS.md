@@ -9,345 +9,345 @@ Plugins marked **⚠ one-time git-HTTPS config needed** are whole-repo `github` 
 
 Upstream: **Zeev-L (original)** · License: — · Install: `claude plugin install text-tools@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `bulletize` | Use when the user wants to convert text into clear, concise bullet points. Rewrites paragraphs or messy text into short, scannable bullets. |
+| Skill | Author | Description |
+|---|---|---|
+| `bulletize` | Zeev-L | Use when the user wants to convert text into clear, concise bullet points. Rewrites paragraphs or messy text into short, scannable bullets. |
 
 ## agent-skills  ·  _Software dev / DevOps/SRE_  (24 skills)
 
 Upstream: **addyosmani/agent-skills** · License: MIT · Install: `claude plugin install agent-skills@zeev-playground` · ⚠ one-time git-HTTPS config needed
 
-| Skill | Description |
-|---|---|
-| `api-and-interface-design` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend. |
-| `browser-testing-with-devtools` | Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires… |
-| `ci-cd-and-automation` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies. |
-| `code-review-and-quality` | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. |
-| `code-simplification` | Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity. |
-| `context-engineering` | Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project. |
-| `debugging-and-error-recovery` | Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing. |
-| `deprecation-and-migration` | Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code. |
-| `documentation-and-adrs` | Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase. |
-| `doubt-driven-development` | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production, security-sensitive logic, irreversible operations), or any time a confid… |
-| `frontend-ui-engineering` | Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated. |
-| `git-workflow-and-versioning` | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. |
-| `idea-refine` | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers … |
-| `incremental-implementation` | Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step. |
-| `interview-me` | Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified ("build me X" without "for whom" or "why now"), when t… |
-| `observability-and-instrumentation` | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works. Use when production issues are reported but you can't tell what hap… |
-| `performance-optimization` | Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing. |
-| `planning-and-task-breakdown` | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible. |
-| `security-and-hardening` | Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. |
-| `shipping-and-launch` | Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy. |
-| `source-driven-development` | Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters. |
-| `spec-driven-development` | Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea. |
-| `test-driven-development` | Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you're about to modify existing functionality. |
-| `using-agent-skills` | Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the meta-skill that governs how all other skills are discovered and invoked. |
+| Skill | Author | Description |
+|---|---|---|
+| `api-and-interface-design` | Addy Osmani | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend. |
+| `browser-testing-with-devtools` | Addy Osmani | Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires… |
+| `ci-cd-and-automation` | Addy Osmani | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies. |
+| `code-review-and-quality` | Addy Osmani | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. |
+| `code-simplification` | Addy Osmani | Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity. |
+| `context-engineering` | Addy Osmani | Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project. |
+| `debugging-and-error-recovery` | Addy Osmani | Guides systematic root-cause debugging. Use when tests fail, builds break, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need a systematic approach to finding and fixing the root cause rather than guessing. |
+| `deprecation-and-migration` | Addy Osmani | Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code. |
+| `documentation-and-adrs` | Addy Osmani | Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase. |
+| `doubt-driven-development` | Addy Osmani | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production, security-sensitive logic, irreversible operations), or any time a confid… |
+| `frontend-ui-engineering` | Addy Osmani | Builds production-quality UIs. Use when building or modifying user-facing interfaces. Use when creating components, implementing layouts, managing state, or when the output needs to look and feel production-quality rather than AI-generated. |
+| `git-workflow-and-versioning` | Addy Osmani | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. |
+| `idea-refine` | Addy Osmani | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers … |
+| `incremental-implementation` | Addy Osmani | Delivers changes incrementally. Use when implementing any feature or change that touches more than one file. Use when you're about to write a large amount of code at once, or when a task feels too big to land in one step. |
+| `interview-me` | Addy Osmani | Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified ("build me X" without "for whom" or "why now"), when t… |
+| `observability-and-instrumentation` | Addy Osmani | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works. Use when production issues are reported but you can't tell what hap… |
+| `performance-optimization` | Addy Osmani | Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing. |
+| `planning-and-task-breakdown` | Addy Osmani | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible. |
+| `security-and-hardening` | Addy Osmani | Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. |
+| `shipping-and-launch` | Addy Osmani | Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy. |
+| `source-driven-development` | Addy Osmani | Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters. |
+| `spec-driven-development` | Addy Osmani | Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when requirements are unclear, ambiguous, or only exist as a vague idea. |
+| `test-driven-development` | Addy Osmani | Drives development with tests. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you're about to modify existing functionality. |
+| `using-agent-skills` | Addy Osmani | Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the meta-skill that governs how all other skills are discovered and invoked. |
 
 ## gstack  ·  _Software dev / DevOps/SRE_  (59 skills)
 
 Upstream: **garrytan/gstack** · License: MIT · Install: `claude plugin install gstack@zeev-playground` · ⚠ one-time git-HTTPS config needed
 
-| Skill | Description |
-|---|---|
-| `gstack` | Fast headless browser for QA testing and site dogfooding. (gstack) |
-| `autoplan` | Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. (gstack) |
-| `benchmark` | Performance regression detection using the browse daemon. (gstack) |
-| `benchmark-models` | Cross-model benchmark for gstack skills. (gstack) |
-| `browse` | Fast headless browser for QA testing and site dogfooding. (gstack) |
-| `hackernews-frontpage` | Scrape the Hacker News front page (titles, points, comment counts). |
-| `canary` | Post-deploy canary monitoring. (gstack) |
-| `careful` | Safety guardrails for destructive commands. (gstack) |
-| `codex` | OpenAI Codex CLI wrapper — three modes. (gstack) |
-| `context-restore` | Restore working context saved earlier by /context-save. (gstack) |
-| `context-save` | Save working context. (gstack) |
-| `cso` | Chief Security Officer mode. (gstack) |
-| `design-consultation` | Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, motion), and generates font+color preview... (gstack) |
-| `design-html` | Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack) |
-| `design-review` | Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. (gstack) |
-| `design-shotgun` | Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack) |
-| `devex-review` | Live developer experience audit. (gstack) |
-| `diagram` | Turn an English description (or mermaid source) into a diagram triplet: the source, an editable .excalidraw file you can open (gstack) |
-| `document-generate` | Generate missing documentation from scratch for a feature, module, or entire project. (gstack) |
-| `document-release` | Post-ship documentation update. (gstack) |
-| `freeze` | Restrict file edits to a specific directory for the session. (gstack) |
-| `gstack-upgrade` | Upgrade gstack to the latest version. |
-| `guard` | Full safety mode: destructive command warnings + directory-scoped edits. (gstack) |
-| `health` | Code quality dashboard. (gstack) |
-| `investigate` | Systematic debugging with root cause investigation. (gstack) |
-| `ios-clean` | Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack) |
-| `ios-design-review` | Visual design audit for iOS apps on real hardware. (gstack) |
-| `ios-fix` | Autonomous iOS bug fixer. (gstack) |
-| `ios-qa` | Live-device iOS QA for SwiftUI apps. (gstack) |
-| `ios-sync` | Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack) |
-| `land-and-deploy` | Land and deploy workflow. (gstack) |
-| `landing-report` | Read-only queue dashboard for workspace-aware ship. (gstack) |
-| `learn` | Manage project learnings. |
-| `make-pdf` | Turn any markdown file into a publication-quality PDF. (gstack) |
-| `office-hours` | YC Office Hours — two modes. (gstack) |
-| `open-gstack-browser` | Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in. |
-| `gstack-openclaw-ceo-review` | Use when asked to review a plan, challenge a proposal, run a CEO review, poke holes in an approach, think bigger about scope, or decide whether to expand or reduce the plan. |
-| `gstack-openclaw-investigate` | Use when asked to debug, fix a bug, investigate an error, or do root cause analysis, and when users report errors, stack traces, unexpected behavior, or say something stopped working. |
-| `gstack-openclaw-office-hours` | Use when asked to brainstorm, evaluate whether an idea is worth building, run office hours, or think through a new product idea or design direction before any code is written. |
-| `gstack-openclaw-retro` | Weekly engineering retrospective. Analyzes commit history, work patterns, and code quality metrics with persistent history and trend tracking. Team-aware with per-person contributions, praise, and growth areas. Use when asked for weekly retro, what shipped this week, or engine… |
-| `pair-agent` | Pair a remote AI agent with your browser. (gstack) |
-| `plan-ceo-review` | CEO/founder-mode plan review. (gstack) |
-| `plan-design-review` | Designer's eye plan review — interactive, like CEO and Eng review. (gstack) |
-| `plan-devex-review` | Interactive developer experience plan review. (gstack) |
-| `plan-eng-review` | Eng manager-mode plan review. (gstack) |
-| `plan-tune` | Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack) |
-| `qa` | Systematically QA test a web application and fix bugs found. (gstack) |
-| `qa-only` | Report-only QA testing. (gstack) |
-| `retro` | Weekly engineering retrospective. (gstack) |
-| `review` | Pre-landing PR review. (gstack) |
-| `scrape` | Pull data from a web page. (gstack) |
-| `setup-browser-cookies` | Import cookies from your real Chromium browser into the headless browse session. (gstack) |
-| `setup-deploy` | Configure deployment settings for /land-and-deploy. |
-| `setup-gbrain` | Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack) |
-| `ship` | Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit, push, create PR. (gstack) |
-| `skillify` | Codify the most recent successful /scrape flow into a permanent browser-skill on disk. (gstack) |
-| `spec` | Turn vague intent into a precise, executable spec in five phases. (gstack) |
-| `sync-gbrain` | Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. Wraps the gstack-gbrain-sync orchestrator with state (gstack) |
-| `unfreeze` | Clear the freeze boundary set by /freeze, allowing edits to all directories again. (gstack) |
+| Skill | Author | Description |
+|---|---|---|
+| `gstack` | Garry Tan | Fast headless browser for QA testing and site dogfooding. (gstack) |
+| `autoplan` | Garry Tan | Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs them sequentially with auto-decisions using 6 decision principles. (gstack) |
+| `benchmark` | Garry Tan | Performance regression detection using the browse daemon. (gstack) |
+| `benchmark-models` | Garry Tan | Cross-model benchmark for gstack skills. (gstack) |
+| `browse` | Garry Tan | Fast headless browser for QA testing and site dogfooding. (gstack) |
+| `hackernews-frontpage` | Garry Tan | Scrape the Hacker News front page (titles, points, comment counts). |
+| `canary` | Garry Tan | Post-deploy canary monitoring. (gstack) |
+| `careful` | Garry Tan | Safety guardrails for destructive commands. (gstack) |
+| `codex` | Garry Tan | OpenAI Codex CLI wrapper — three modes. (gstack) |
+| `context-restore` | Garry Tan | Restore working context saved earlier by /context-save. (gstack) |
+| `context-save` | Garry Tan | Save working context. (gstack) |
+| `cso` | Garry Tan | Chief Security Officer mode. (gstack) |
+| `design-consultation` | Garry Tan | Design consultation: understands your product, researches the landscape, proposes a complete design system (aesthetic, typography, color, layout, spacing, motion), and generates font+color preview... (gstack) |
+| `design-html` | Garry Tan | Design finalization: generates production-quality Pretext-native HTML/CSS. (gstack) |
+| `design-review` | Garry Tan | Designer's eye QA: finds visual inconsistency, spacing issues, hierarchy problems, AI slop patterns, and slow interactions — then fixes them. (gstack) |
+| `design-shotgun` | Garry Tan | Design shotgun: generate multiple AI design variants, open a comparison board, collect structured feedback, and iterate. (gstack) |
+| `devex-review` | Garry Tan | Live developer experience audit. (gstack) |
+| `diagram` | Garry Tan | Turn an English description (or mermaid source) into a diagram triplet: the source, an editable .excalidraw file you can open (gstack) |
+| `document-generate` | Garry Tan | Generate missing documentation from scratch for a feature, module, or entire project. (gstack) |
+| `document-release` | Garry Tan | Post-ship documentation update. (gstack) |
+| `freeze` | Garry Tan | Restrict file edits to a specific directory for the session. (gstack) |
+| `gstack-upgrade` | Garry Tan | Upgrade gstack to the latest version. |
+| `guard` | Garry Tan | Full safety mode: destructive command warnings + directory-scoped edits. (gstack) |
+| `health` | Garry Tan | Code quality dashboard. (gstack) |
+| `investigate` | Garry Tan | Systematic debugging with root cause investigation. (gstack) |
+| `ios-clean` | Garry Tan | Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack) |
+| `ios-design-review` | Garry Tan | Visual design audit for iOS apps on real hardware. (gstack) |
+| `ios-fix` | Garry Tan | Autonomous iOS bug fixer. (gstack) |
+| `ios-qa` | Garry Tan | Live-device iOS QA for SwiftUI apps. (gstack) |
+| `ios-sync` | Garry Tan | Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack) |
+| `land-and-deploy` | Garry Tan | Land and deploy workflow. (gstack) |
+| `landing-report` | Garry Tan | Read-only queue dashboard for workspace-aware ship. (gstack) |
+| `learn` | Garry Tan | Manage project learnings. |
+| `make-pdf` | Garry Tan | Turn any markdown file into a publication-quality PDF. (gstack) |
+| `office-hours` | Garry Tan | YC Office Hours — two modes. (gstack) |
+| `open-gstack-browser` | Garry Tan | Launch GStack Browser — AI-controlled Chromium with the sidebar extension baked in. |
+| `gstack-openclaw-ceo-review` | Garry Tan | Use when asked to review a plan, challenge a proposal, run a CEO review, poke holes in an approach, think bigger about scope, or decide whether to expand or reduce the plan. |
+| `gstack-openclaw-investigate` | Garry Tan | Use when asked to debug, fix a bug, investigate an error, or do root cause analysis, and when users report errors, stack traces, unexpected behavior, or say something stopped working. |
+| `gstack-openclaw-office-hours` | Garry Tan | Use when asked to brainstorm, evaluate whether an idea is worth building, run office hours, or think through a new product idea or design direction before any code is written. |
+| `gstack-openclaw-retro` | Garry Tan | Weekly engineering retrospective. Analyzes commit history, work patterns, and code quality metrics with persistent history and trend tracking. Team-aware with per-person contributions, praise, and growth areas. Use when asked for weekly retro, what shipped this week, or engine… |
+| `pair-agent` | Garry Tan | Pair a remote AI agent with your browser. (gstack) |
+| `plan-ceo-review` | Garry Tan | CEO/founder-mode plan review. (gstack) |
+| `plan-design-review` | Garry Tan | Designer's eye plan review — interactive, like CEO and Eng review. (gstack) |
+| `plan-devex-review` | Garry Tan | Interactive developer experience plan review. (gstack) |
+| `plan-eng-review` | Garry Tan | Eng manager-mode plan review. (gstack) |
+| `plan-tune` | Garry Tan | Self-tuning question sensitivity + developer psychographic for gstack (v1: observational). (gstack) |
+| `qa` | Garry Tan | Systematically QA test a web application and fix bugs found. (gstack) |
+| `qa-only` | Garry Tan | Report-only QA testing. (gstack) |
+| `retro` | Garry Tan | Weekly engineering retrospective. (gstack) |
+| `review` | Garry Tan | Pre-landing PR review. (gstack) |
+| `scrape` | Garry Tan | Pull data from a web page. (gstack) |
+| `setup-browser-cookies` | Garry Tan | Import cookies from your real Chromium browser into the headless browse session. (gstack) |
+| `setup-deploy` | Garry Tan | Configure deployment settings for /land-and-deploy. |
+| `setup-gbrain` | Garry Tan | Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase brain, register MCP, capture per-remote trust policy. (gstack) |
+| `ship` | Garry Tan | Ship workflow: detect + merge base branch, run tests, review diff, bump VERSION, update CHANGELOG, commit, push, create PR. (gstack) |
+| `skillify` | Garry Tan | Codify the most recent successful /scrape flow into a permanent browser-skill on disk. (gstack) |
+| `spec` | Garry Tan | Turn vague intent into a precise, executable spec in five phases. (gstack) |
+| `sync-gbrain` | Garry Tan | Keep gbrain current with this repo's code and refresh agent search guidance in CLAUDE.md. Wraps the gstack-gbrain-sync orchestrator with state (gstack) |
+| `unfreeze` | Garry Tan | Clear the freeze boundary set by /freeze, allowing edits to all directories again. (gstack) |
 
 ## awesome-pm-skills  ·  _Product mgmt_  (29 skills)
 
 Upstream: **menkesu/awesome-pm-skills** · License: MIT · Install: `claude plugin install awesome-pm-skills@zeev-playground` · ⚠ one-time git-HTTPS config needed
 
-| Skill | Description |
-|---|---|
-| `ai-product-patterns` | Builds AI-native products using OpenAI's development philosophy and modern AI UX patterns. Use when integrating AI features, designing for model improvements, implementing evals as product specs, or creating AI-first experiences. Based on Kevin Weil (OpenAI CPO) on building fo… |
-| `ai-startup-building` | Builds AI-native products using Dan Shipper's 5-product playbook and Brandon Chu's AI product frameworks. Use when implementing prompt engineering, creating AI-native UX, scaling AI products, or optimizing costs. Focuses on 2025+ best practices. |
-| `career-growth` | Plans PM career growth using frameworks from 40+ career episodes and Ami Vora's advancement strategies. Use when planning promotions, identifying skill gaps, navigating career transitions, or choosing between IC and management paths. |
-| `confident-speaking` | Structures presentations and verbal pitches using Matt Abrahams' WHAT-SO WHAT-NOW WHAT framework and impromptu speaking techniques. Use when preparing presentations, creating talking points, or practicing difficult conversations. |
-| `continuous-discovery` | Implements Teresa Torres' continuous discovery habits for weekly customer contact, opportunity solution trees, and assumption testing. Use when building discovery processes, conducting user research, validating assumptions, or establishing product trio workflows. |
-| `culture-craft` | Designs team culture and sets standards of excellence using David Singleton (Stripe) and Dharmesh Shah (HubSpot) frameworks. Use when building teams, setting cultural values, creating rituals, or establishing excellence standards. |
-| `decision-frameworks` | Structures difficult decisions using Annie Duke's probabilistic thinking and Ben Horowitz's hard decisions frameworks. Use when facing tough choices, applying expected value thinking, or reducing decision paralysis with regret minimization and pre-mortems. |
-| `design-first-dev` | Follows Airbnb's design-led development and Figma's craft quality standards. Use when building user-facing features, making UI/UX decisions, determining when details matter, or applying design system thinking. Guides when to move fast vs when quality creates moats. Based on Br… |
-| `exec-comms` | Drafts executive memos and stakeholder communications using Amazon's 6-pager structure, Stripe's memo format, and SCQA framework. Use when writing board updates, executive summaries, or strategic documents. |
-| `exp-driven-dev` | Builds features with A/B testing in mind using Ronny Kohavi's frameworks and Netflix/Airbnb experimentation culture. Use when implementing feature flags, choosing metrics, designing experiments, or building for fast iteration. Focuses on guardrail metrics, statistical signific… |
-| `growth-embedded` | Builds growth loops into products from day 1 using YC playbook (Gustaf Alstromer), Casey Winters growth frameworks, and Elena Verna's retention-first approach. Use when adding viral mechanics, instrumenting analytics, creating referral systems, or optimizing for retention over… |
-| `influence-craft` | Maps organizational power dynamics and builds influence without authority using Jeffrey Pfeffer's power frameworks. Use when getting buy-in for ideas, navigating company politics, managing up, or building coalitions across teams. |
-| `jtbd-building` | Builds features based on Jobs-to-be-Done theory using Bob Moesta's frameworks. Use when designing features, identifying customer jobs, understanding push/pull forces, or uncovering hidden needs beyond stated feature requests. |
-| `launch-execution` | Helps write launch copy, position products, and create go-to-market materials using April Dunford's positioning framework and Airbnb's product marketing approach. Use when launching features, writing announcements, creating marketing materials, or positioning products. |
-| `metrics-frameworks` | Defines right metrics using North Star framework, AARRR, and leading vs lagging indicators. Use when choosing metrics, instrumenting products, creating dashboards, or distinguishing vanity metrics from actionable ones. |
-| `okr-frameworks` | Writes effective OKRs using Christina Wodtke's best practices and Google's OKR methodology. Use when setting goals, aligning teams, creating measurement frameworks, or tracking quarterly progress. |
-| `one-step-better-ai-pm` | Get one actionable improvement for your AI product based on the latest GenAI PM briefs. Fetch the last 5 days of curated AI PM insights from genaipm.com, analyze the current repo/project, find synergy between trending topics and the user's work, then research the source materi… |
-| `positioning-craft` | Crafts product positioning using April Dunford's positioning framework. Use when defining target customers, choosing categories, identifying alternatives, or articulating differentiated value. Based on Obviously Awesome methodology. |
-| `prioritization-craft` | Applies prioritization frameworks including RICE, ICE, Value vs Effort, and Kano model. Use when prioritizing features, managing backlog, making tradeoffs, or saying no gracefully. Based on Shreyas Doshi and Intercom frameworks. |
-| `quality-speed` | Decides when quality matters vs move fast, based on Dylan Field (Figma) craft philosophy and Brian Chesky (Airbnb) details obsession. Use when balancing shipping speed with excellence, deciding if refactoring is needed, or determining which details create moats vs which to skip. |
-| `ship-decisions` | Guides "ship or iterate?" decisions using Shreyas Doshi's frameworks, Marty Cagan's shipping philosophy, and Tobi Lutke's reversible decision-making. Use when deciding if feature is ready, preventing perfectionism paralysis, applying one-way vs two-way door thinking, or balanc… |
-| `stakeholder-craft` | Manages stakeholder relationships using Kim Scott's Radical Candor and Carole Robin's interpersonal dynamics. Use when giving/receiving feedback, navigating difficult conversations, or building trust across teams. |
-| `strategic-build` | Distinguishes strategic vs tactical work during development using Shreyas Doshi's frameworks and Marty Cagan's empowered teams principles. Use when making architectural decisions, choosing what to build, preventing "product theater", or applying the LNO framework (Leverage, Ne… |
-| `strategic-pm` | Shifts thinking from tactical to strategic using Anneka Gupta's frameworks for becoming more strategic. Use when escaping feature factory, moving from output to outcomes, or communicating strategic value. |
-| `strategic-storytelling` | Crafts product narratives using Andy Raskin's strategic narrative structure and Nancy Duarte's presentation frameworks. Use when writing pitches, creating presentations, framing features as stories, or building compelling product narratives. |
-| `strategy-frameworks` | Creates product strategies using Crossing the Chasm, Playing to Win, and strategic canvas frameworks. Use when defining where to play and how to win, choosing beachhead markets, or connecting tactics to strategy. |
-| `user-feedback-system` | Builds feedback collection systems using Superhuman's PMF framework and YC's "talk to users" methodology. Use when implementing NPS surveys, scheduling user interviews, or measuring product-market fit. |
-| `workplace-navigation` | Handles difficult colleagues and resolves conflicts using frameworks from Anneka Gupta and workplace dynamics research. Use when dealing with blocking colleagues, toxic dynamics, or maintaining relationships under stress. |
-| `zero-to-launch` | Guides Claude from idea to working prototype using frameworks from OpenAI, Figma, and Airbnb. Use when starting new product features, planning MVP scope, making build-vs-buy decisions, or guiding users from concept to shippable prototype. Applies AI-first thinking (Kevin Weil)… |
+| Skill | Author | Description |
+|---|---|---|
+| `ai-product-patterns` | menkesu (Lenny's Podcast) | Builds AI-native products using OpenAI's development philosophy and modern AI UX patterns. Use when integrating AI features, designing for model improvements, implementing evals as product specs, or creating AI-first experiences. Based on Kevin Weil (OpenAI CPO) on building fo… |
+| `ai-startup-building` | menkesu (Lenny's Podcast) | Builds AI-native products using Dan Shipper's 5-product playbook and Brandon Chu's AI product frameworks. Use when implementing prompt engineering, creating AI-native UX, scaling AI products, or optimizing costs. Focuses on 2025+ best practices. |
+| `career-growth` | menkesu (Lenny's Podcast) | Plans PM career growth using frameworks from 40+ career episodes and Ami Vora's advancement strategies. Use when planning promotions, identifying skill gaps, navigating career transitions, or choosing between IC and management paths. |
+| `confident-speaking` | menkesu (Lenny's Podcast) | Structures presentations and verbal pitches using Matt Abrahams' WHAT-SO WHAT-NOW WHAT framework and impromptu speaking techniques. Use when preparing presentations, creating talking points, or practicing difficult conversations. |
+| `continuous-discovery` | menkesu (Lenny's Podcast) | Implements Teresa Torres' continuous discovery habits for weekly customer contact, opportunity solution trees, and assumption testing. Use when building discovery processes, conducting user research, validating assumptions, or establishing product trio workflows. |
+| `culture-craft` | menkesu (Lenny's Podcast) | Designs team culture and sets standards of excellence using David Singleton (Stripe) and Dharmesh Shah (HubSpot) frameworks. Use when building teams, setting cultural values, creating rituals, or establishing excellence standards. |
+| `decision-frameworks` | menkesu (Lenny's Podcast) | Structures difficult decisions using Annie Duke's probabilistic thinking and Ben Horowitz's hard decisions frameworks. Use when facing tough choices, applying expected value thinking, or reducing decision paralysis with regret minimization and pre-mortems. |
+| `design-first-dev` | menkesu (Lenny's Podcast) | Follows Airbnb's design-led development and Figma's craft quality standards. Use when building user-facing features, making UI/UX decisions, determining when details matter, or applying design system thinking. Guides when to move fast vs when quality creates moats. Based on Br… |
+| `exec-comms` | menkesu (Lenny's Podcast) | Drafts executive memos and stakeholder communications using Amazon's 6-pager structure, Stripe's memo format, and SCQA framework. Use when writing board updates, executive summaries, or strategic documents. |
+| `exp-driven-dev` | menkesu (Lenny's Podcast) | Builds features with A/B testing in mind using Ronny Kohavi's frameworks and Netflix/Airbnb experimentation culture. Use when implementing feature flags, choosing metrics, designing experiments, or building for fast iteration. Focuses on guardrail metrics, statistical signific… |
+| `growth-embedded` | menkesu (Lenny's Podcast) | Builds growth loops into products from day 1 using YC playbook (Gustaf Alstromer), Casey Winters growth frameworks, and Elena Verna's retention-first approach. Use when adding viral mechanics, instrumenting analytics, creating referral systems, or optimizing for retention over… |
+| `influence-craft` | menkesu (Lenny's Podcast) | Maps organizational power dynamics and builds influence without authority using Jeffrey Pfeffer's power frameworks. Use when getting buy-in for ideas, navigating company politics, managing up, or building coalitions across teams. |
+| `jtbd-building` | menkesu (Lenny's Podcast) | Builds features based on Jobs-to-be-Done theory using Bob Moesta's frameworks. Use when designing features, identifying customer jobs, understanding push/pull forces, or uncovering hidden needs beyond stated feature requests. |
+| `launch-execution` | menkesu (Lenny's Podcast) | Helps write launch copy, position products, and create go-to-market materials using April Dunford's positioning framework and Airbnb's product marketing approach. Use when launching features, writing announcements, creating marketing materials, or positioning products. |
+| `metrics-frameworks` | menkesu (Lenny's Podcast) | Defines right metrics using North Star framework, AARRR, and leading vs lagging indicators. Use when choosing metrics, instrumenting products, creating dashboards, or distinguishing vanity metrics from actionable ones. |
+| `okr-frameworks` | menkesu (Lenny's Podcast) | Writes effective OKRs using Christina Wodtke's best practices and Google's OKR methodology. Use when setting goals, aligning teams, creating measurement frameworks, or tracking quarterly progress. |
+| `one-step-better-ai-pm` | menkesu (Lenny's Podcast) | Get one actionable improvement for your AI product based on the latest GenAI PM briefs. Fetch the last 5 days of curated AI PM insights from genaipm.com, analyze the current repo/project, find synergy between trending topics and the user's work, then research the source materi… |
+| `positioning-craft` | menkesu (Lenny's Podcast) | Crafts product positioning using April Dunford's positioning framework. Use when defining target customers, choosing categories, identifying alternatives, or articulating differentiated value. Based on Obviously Awesome methodology. |
+| `prioritization-craft` | menkesu (Lenny's Podcast) | Applies prioritization frameworks including RICE, ICE, Value vs Effort, and Kano model. Use when prioritizing features, managing backlog, making tradeoffs, or saying no gracefully. Based on Shreyas Doshi and Intercom frameworks. |
+| `quality-speed` | menkesu (Lenny's Podcast) | Decides when quality matters vs move fast, based on Dylan Field (Figma) craft philosophy and Brian Chesky (Airbnb) details obsession. Use when balancing shipping speed with excellence, deciding if refactoring is needed, or determining which details create moats vs which to skip. |
+| `ship-decisions` | menkesu (Lenny's Podcast) | Guides "ship or iterate?" decisions using Shreyas Doshi's frameworks, Marty Cagan's shipping philosophy, and Tobi Lutke's reversible decision-making. Use when deciding if feature is ready, preventing perfectionism paralysis, applying one-way vs two-way door thinking, or balanc… |
+| `stakeholder-craft` | menkesu (Lenny's Podcast) | Manages stakeholder relationships using Kim Scott's Radical Candor and Carole Robin's interpersonal dynamics. Use when giving/receiving feedback, navigating difficult conversations, or building trust across teams. |
+| `strategic-build` | menkesu (Lenny's Podcast) | Distinguishes strategic vs tactical work during development using Shreyas Doshi's frameworks and Marty Cagan's empowered teams principles. Use when making architectural decisions, choosing what to build, preventing "product theater", or applying the LNO framework (Leverage, Ne… |
+| `strategic-pm` | menkesu (Lenny's Podcast) | Shifts thinking from tactical to strategic using Anneka Gupta's frameworks for becoming more strategic. Use when escaping feature factory, moving from output to outcomes, or communicating strategic value. |
+| `strategic-storytelling` | menkesu (Lenny's Podcast) | Crafts product narratives using Andy Raskin's strategic narrative structure and Nancy Duarte's presentation frameworks. Use when writing pitches, creating presentations, framing features as stories, or building compelling product narratives. |
+| `strategy-frameworks` | menkesu (Lenny's Podcast) | Creates product strategies using Crossing the Chasm, Playing to Win, and strategic canvas frameworks. Use when defining where to play and how to win, choosing beachhead markets, or connecting tactics to strategy. |
+| `user-feedback-system` | menkesu (Lenny's Podcast) | Builds feedback collection systems using Superhuman's PMF framework and YC's "talk to users" methodology. Use when implementing NPS surveys, scheduling user interviews, or measuring product-market fit. |
+| `workplace-navigation` | menkesu (Lenny's Podcast) | Handles difficult colleagues and resolves conflicts using frameworks from Anneka Gupta and workplace dynamics research. Use when dealing with blocking colleagues, toxic dynamics, or maintaining relationships under stress. |
+| `zero-to-launch` | menkesu (Lenny's Podcast) | Guides Claude from idea to working prototype using frameworks from OpenAI, Figma, and Airbnb. Use when starting new product features, planning MVP scope, making build-vs-buy decisions, or guiding users from concept to shippable prototype. Applies AI-first thinking (Kevin Weil)… |
 
 ## pm-product-discovery  ·  _Product mgmt_  (13 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-product-discovery@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `analyze-feature-requests` | Analyze and prioritize a list of feature requests by theme, strategic alignment, impact, effort, and risk. Use when reviewing customer feature requests, triaging a backlog, or making prioritization decisions. |
-| `brainstorm-experiments-existing` | Design experiments to test assumptions for an existing product — prototypes, A/B tests, spikes, and other low-effort validation methods. Use when validating assumptions, testing feature ideas cheaply, or planning product experiments. |
-| `brainstorm-experiments-new` | Design lean startup experiments (pretotypes) for a new product. Creates XYZ hypotheses and suggests low-effort validation methods like landing pages, explainer videos, and pre-orders. Use when validating a new product idea, creating pretotypes, or testing market demand. |
-| `brainstorm-ideas-existing` | Brainstorm product ideas for an existing product using multi-perspective ideation from PM, Designer, and Engineer viewpoints. Use when generating new feature ideas, brainstorming solutions for an identified opportunity, or ideating with a product trio. |
-| `brainstorm-ideas-new` | Brainstorm feature ideas for a new product in initial discovery from PM, Designer, and Engineer perspectives. Use when starting product discovery for a new product, exploring features for a startup idea, or doing initial ideation. |
-| `identify-assumptions-existing` | Identify risky assumptions for a feature idea in an existing product across Value, Usability, Viability, and Feasibility. Uses multi-perspective devil's advocate thinking. Use when stress-testing a feature idea, doing risk assessment, or preparing for assumption mapping. |
-| `identify-assumptions-new` | Identify risky assumptions for a new product idea across 8 risk categories including Go-to-Market, Strategy, and Team. Use when evaluating startup risks, assessing a new product concept, or mapping assumptions for a new venture. |
-| `interview-script` | Create a structured customer interview script with JTBD probing questions, warm-up, core exploration, and wrap-up sections. Follows The Mom Test principles — no leading questions, no pitching, focus on past behavior. Use when preparing for user interviews, creating interview g… |
-| `metrics-dashboard` | Define and design a product metrics dashboard with key metrics, data sources, visualization types, and alert thresholds. Use when creating a metrics dashboard, defining KPIs, setting up product analytics, or building a data monitoring plan. |
-| `opportunity-solution-tree` | Build an Opportunity Solution Tree (OST) to structure product discovery — map a desired outcome to opportunities, solutions, and experiments. Based on Teresa Torres' Continuous Discovery Habits. Use when structuring discovery work, mapping opportunities to solutions, or decidi… |
-| `prioritize-assumptions` | Prioritize assumptions using an Impact × Risk matrix and suggest experiments for each. Use when triaging a list of assumptions, deciding what to test first, or applying the assumption prioritization canvas. |
-| `prioritize-features` | Prioritize a backlog of feature ideas based on impact, effort, risk, and strategic alignment with top 5 recommendations. Use when prioritizing a feature backlog, making scope decisions, or ranking product ideas. |
-| `summarize-interview` | Summarize a customer interview transcript into a structured template with JTBD, satisfaction signals, and action items. Use when processing interview recordings or transcripts, synthesizing discovery interviews, or creating interview summaries. |
+| Skill | Author | Description |
+|---|---|---|
+| `analyze-feature-requests` | Pawel Huryn | Analyze and prioritize a list of feature requests by theme, strategic alignment, impact, effort, and risk. Use when reviewing customer feature requests, triaging a backlog, or making prioritization decisions. |
+| `brainstorm-experiments-existing` | Pawel Huryn | Design experiments to test assumptions for an existing product — prototypes, A/B tests, spikes, and other low-effort validation methods. Use when validating assumptions, testing feature ideas cheaply, or planning product experiments. |
+| `brainstorm-experiments-new` | Pawel Huryn | Design lean startup experiments (pretotypes) for a new product. Creates XYZ hypotheses and suggests low-effort validation methods like landing pages, explainer videos, and pre-orders. Use when validating a new product idea, creating pretotypes, or testing market demand. |
+| `brainstorm-ideas-existing` | Pawel Huryn | Brainstorm product ideas for an existing product using multi-perspective ideation from PM, Designer, and Engineer viewpoints. Use when generating new feature ideas, brainstorming solutions for an identified opportunity, or ideating with a product trio. |
+| `brainstorm-ideas-new` | Pawel Huryn | Brainstorm feature ideas for a new product in initial discovery from PM, Designer, and Engineer perspectives. Use when starting product discovery for a new product, exploring features for a startup idea, or doing initial ideation. |
+| `identify-assumptions-existing` | Pawel Huryn | Identify risky assumptions for a feature idea in an existing product across Value, Usability, Viability, and Feasibility. Uses multi-perspective devil's advocate thinking. Use when stress-testing a feature idea, doing risk assessment, or preparing for assumption mapping. |
+| `identify-assumptions-new` | Pawel Huryn | Identify risky assumptions for a new product idea across 8 risk categories including Go-to-Market, Strategy, and Team. Use when evaluating startup risks, assessing a new product concept, or mapping assumptions for a new venture. |
+| `interview-script` | Pawel Huryn | Create a structured customer interview script with JTBD probing questions, warm-up, core exploration, and wrap-up sections. Follows The Mom Test principles — no leading questions, no pitching, focus on past behavior. Use when preparing for user interviews, creating interview g… |
+| `metrics-dashboard` | Pawel Huryn | Define and design a product metrics dashboard with key metrics, data sources, visualization types, and alert thresholds. Use when creating a metrics dashboard, defining KPIs, setting up product analytics, or building a data monitoring plan. |
+| `opportunity-solution-tree` | Pawel Huryn | Build an Opportunity Solution Tree (OST) to structure product discovery — map a desired outcome to opportunities, solutions, and experiments. Based on Teresa Torres' Continuous Discovery Habits. Use when structuring discovery work, mapping opportunities to solutions, or decidi… |
+| `prioritize-assumptions` | Pawel Huryn | Prioritize assumptions using an Impact × Risk matrix and suggest experiments for each. Use when triaging a list of assumptions, deciding what to test first, or applying the assumption prioritization canvas. |
+| `prioritize-features` | Pawel Huryn | Prioritize a backlog of feature ideas based on impact, effort, risk, and strategic alignment with top 5 recommendations. Use when prioritizing a feature backlog, making scope decisions, or ranking product ideas. |
+| `summarize-interview` | Pawel Huryn | Summarize a customer interview transcript into a structured template with JTBD, satisfaction signals, and action items. Use when processing interview recordings or transcripts, synthesizing discovery interviews, or creating interview summaries. |
 
 ## pm-product-strategy  ·  _Product mgmt_  (12 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-product-strategy@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `ansoff-matrix` | Generate an Ansoff Matrix analysis mapping growth strategies across market penetration, market development, product development, and diversification. Use when considering growth options, planning market expansion, or evaluating strategic growth paths. |
-| `business-model` | Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model, documenting how a business creates value, or analyzing an existing business model. |
-| `lean-canvas` | Generate a Lean Canvas with problem, solution, metrics, cost structure, UVP, unfair advantage, channels, segments, and revenue. Use when exploring a lean startup canvas, testing a business hypothesis, or modeling a new venture. |
-| `monetization-strategy` | Brainstorm 3-5 monetization strategies with audience fit, risks, and validation experiments. Use when exploring revenue models, evaluating pricing strategies, or deciding how to monetize a product. |
-| `pestle-analysis` | Perform a PESTLE analysis covering Political, Economic, Social, Technological, Legal, and Environmental factors. Use when assessing the macro environment, doing strategic planning, or evaluating external factors affecting your business. |
-| `porters-five-forces` | Perform Porter's Five Forces analysis — competitive rivalry, supplier power, buyer power, threat of substitutes, and threat of new entrants. Use when analyzing industry dynamics, assessing competitive forces, or evaluating market attractiveness. |
-| `pricing-strategy` | Analyze and design pricing strategies including pricing models, competitive pricing analysis, willingness-to-pay estimation, and price elasticity. Use when setting prices, evaluating pricing models, preparing for a pricing change, or comparing freemium vs paid approaches. |
-| `product-strategy` | Create a comprehensive product strategy using the 9-section Product Strategy Canvas — vision, segments, costs, value propositions, trade-offs, metrics, growth, capabilities, and defensibility. Use when building a product strategy, creating a strategic plan, or defining product… |
-| `product-vision` | Brainstorm an inspiring, achievable, and emotional product vision that motivates teams and aligns stakeholders. Use when defining or refining a product vision, creating a vision statement, or aligning the team around a shared direction. |
-| `startup-canvas` | Generate a Startup Canvas combining Product Strategy (9 sections) and Business Model (costs + revenue) for a new product. An alternative to BMC and Lean Canvas that separates strategy from business model. Use when launching a new product or evaluating a startup concept. |
-| `swot-analysis` | Perform a detailed SWOT analysis — strengths, weaknesses, opportunities, and threats with actionable recommendations. Use when doing strategic assessment, competitive analysis, or evaluating a product or business position. |
-| `value-proposition` | Design a detailed value proposition using a 6-part JTBD template — Who, Why, What before, How, What after, Alternatives. Use when creating a value proposition, analyzing customer value delivery, or articulating why customers should choose your product. |
+| Skill | Author | Description |
+|---|---|---|
+| `ansoff-matrix` | Pawel Huryn | Generate an Ansoff Matrix analysis mapping growth strategies across market penetration, market development, product development, and diversification. Use when considering growth options, planning market expansion, or evaluating strategic growth paths. |
+| `business-model` | Pawel Huryn | Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model, documenting how a business creates value, or analyzing an existing business model. |
+| `lean-canvas` | Pawel Huryn | Generate a Lean Canvas with problem, solution, metrics, cost structure, UVP, unfair advantage, channels, segments, and revenue. Use when exploring a lean startup canvas, testing a business hypothesis, or modeling a new venture. |
+| `monetization-strategy` | Pawel Huryn | Brainstorm 3-5 monetization strategies with audience fit, risks, and validation experiments. Use when exploring revenue models, evaluating pricing strategies, or deciding how to monetize a product. |
+| `pestle-analysis` | Pawel Huryn | Perform a PESTLE analysis covering Political, Economic, Social, Technological, Legal, and Environmental factors. Use when assessing the macro environment, doing strategic planning, or evaluating external factors affecting your business. |
+| `porters-five-forces` | Pawel Huryn | Perform Porter's Five Forces analysis — competitive rivalry, supplier power, buyer power, threat of substitutes, and threat of new entrants. Use when analyzing industry dynamics, assessing competitive forces, or evaluating market attractiveness. |
+| `pricing-strategy` | Pawel Huryn | Analyze and design pricing strategies including pricing models, competitive pricing analysis, willingness-to-pay estimation, and price elasticity. Use when setting prices, evaluating pricing models, preparing for a pricing change, or comparing freemium vs paid approaches. |
+| `product-strategy` | Pawel Huryn | Create a comprehensive product strategy using the 9-section Product Strategy Canvas — vision, segments, costs, value propositions, trade-offs, metrics, growth, capabilities, and defensibility. Use when building a product strategy, creating a strategic plan, or defining product… |
+| `product-vision` | Pawel Huryn | Brainstorm an inspiring, achievable, and emotional product vision that motivates teams and aligns stakeholders. Use when defining or refining a product vision, creating a vision statement, or aligning the team around a shared direction. |
+| `startup-canvas` | Pawel Huryn | Generate a Startup Canvas combining Product Strategy (9 sections) and Business Model (costs + revenue) for a new product. An alternative to BMC and Lean Canvas that separates strategy from business model. Use when launching a new product or evaluating a startup concept. |
+| `swot-analysis` | Pawel Huryn | Perform a detailed SWOT analysis — strengths, weaknesses, opportunities, and threats with actionable recommendations. Use when doing strategic assessment, competitive analysis, or evaluating a product or business position. |
+| `value-proposition` | Pawel Huryn | Design a detailed value proposition using a 6-part JTBD template — Who, Why, What before, How, What after, Alternatives. Use when creating a value proposition, analyzing customer value delivery, or articulating why customers should choose your product. |
 
 ## pm-toolkit  ·  _Product mgmt_  (4 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-toolkit@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `draft-nda` | Draft a detailed Non-Disclosure Agreement between two parties covering information types, jurisdiction, and clauses needing legal review. Use when creating confidentiality agreements or preparing an NDA for a partnership. |
-| `grammar-check` | Identify grammar, logical, and flow errors in text and suggest targeted fixes without rewriting the entire text. Use when proofreading content, checking writing quality, or reviewing a draft. |
-| `privacy-policy` | Draft a detailed privacy policy covering data types, jurisdiction, GDPR and compliance considerations, and clauses needing legal review. Use when creating a privacy policy, updating data protection documentation, or preparing for compliance. |
-| `review-resume` | Comprehensive PM resume review and tailoring against 10 best practices including XYZ+S formula, keyword optimization, job-specific tailoring, and structure. Use when reviewing a PM resume, preparing for job applications, or improving resume impact. |
+| Skill | Author | Description |
+|---|---|---|
+| `draft-nda` | Pawel Huryn | Draft a detailed Non-Disclosure Agreement between two parties covering information types, jurisdiction, and clauses needing legal review. Use when creating confidentiality agreements or preparing an NDA for a partnership. |
+| `grammar-check` | Pawel Huryn | Identify grammar, logical, and flow errors in text and suggest targeted fixes without rewriting the entire text. Use when proofreading content, checking writing quality, or reviewing a draft. |
+| `privacy-policy` | Pawel Huryn | Draft a detailed privacy policy covering data types, jurisdiction, GDPR and compliance considerations, and clauses needing legal review. Use when creating a privacy policy, updating data protection documentation, or preparing for compliance. |
+| `review-resume` | Pawel Huryn | Comprehensive PM resume review and tailoring against 10 best practices including XYZ+S formula, keyword optimization, job-specific tailoring, and structure. Use when reviewing a PM resume, preparing for job applications, or improving resume impact. |
 
 ## pm-execution  ·  _Project mgmt_  (16 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-execution@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `brainstorm-okrs` | Brainstorm team-level OKRs aligned with company objectives — qualitative objectives with measurable key results. Use when setting quarterly OKRs, aligning team goals with company strategy, drafting objectives, or learning how to write effective OKRs. |
-| `create-prd` | Create a Product Requirements Document using a comprehensive 8-section template covering problem, objectives, segments, value propositions, solution, and release planning. Use when writing a PRD, documenting product requirements, preparing a feature spec, or reviewing an exist… |
-| `dummy-dataset` | Generate realistic dummy datasets for testing with customizable columns, constraints, and output formats (CSV, JSON, SQL, Python script). Use when creating test data, building mock datasets, or generating sample data for development and demos. |
-| `job-stories` | Create job stories using the 'When [situation], I want to [motivation], so I can [outcome]' format with detailed acceptance criteria. Use when writing job stories, creating JTBD-style backlog items, or expressing user situations and motivations. |
-| `outcome-roadmap` | Transform an output-focused roadmap into an outcome-focused one that communicates strategic intent. Rewrites initiatives as outcome statements reflecting user and business impacts. Use when shifting to outcome roadmaps, making a roadmap more strategic, or rewriting feature lis… |
-| `pre-mortem` | Run a pre-mortem risk analysis on a PRD or launch plan. Categorizes risks as Tigers (real problems), Paper Tigers (overblown concerns), and Elephants (unspoken worries), then classifies as launch-blocking, fast-follow, or track. Use when preparing for launch, stress-testing a … |
-| `prioritization-frameworks` | Reference guide to 9 prioritization frameworks with formulas, when-to-use guidance, and templates — RICE, ICE, Kano, MoSCoW, Opportunity Score, and more. Use when selecting a prioritization method, comparing frameworks like RICE vs ICE, or learning how different prioritization… |
-| `release-notes` | Generate user-facing release notes from tickets, PRDs, or changelogs. Creates clear, engaging summaries organized by category (new features, improvements, fixes). Use when writing release notes, creating changelogs, announcing product updates, or summarizing what shipped. |
-| `retro` | Facilitate a structured sprint retrospective — what went well, what didn't, and prioritized action items with owners and deadlines. Use when running a retrospective, reflecting on a sprint, creating action items from team feedback, or learning how to run effective retros. |
-| `sprint-plan` | Plan a sprint with capacity estimation, story selection, dependency mapping, and risk identification. Use when preparing for sprint planning, estimating team capacity, selecting stories, or balancing sprint scope against velocity. |
-| `stakeholder-map` | Build a stakeholder map using a power/interest grid, identify communication strategies per quadrant, and generate a communication plan. Use when managing stakeholders, preparing for a launch, aligning cross-functional teams, or planning stakeholder engagement. |
-| `strategy-red-team` | Red-team a PRD, roadmap, or strategy by attacking its load-bearing assumptions before reality does. Steelmans then attacks each claim, ranks failure modes by impact × likelihood × cheapness-to-test, and returns the cheapest test and kill criteria for each. Use when stress-test… |
-| `summarize-meeting` | Summarize a meeting transcript into structured notes with date, participants, topic, key decisions, summary points, and action items. Use when processing meeting recordings, creating meeting notes, writing meeting minutes, or recapping discussions. |
-| `test-scenarios` | Create comprehensive test scenarios from user stories with test objectives, starting conditions, user roles, step-by-step actions, and expected outcomes. Use when writing QA test cases, creating test plans, defining acceptance tests, or preparing for feature validation. |
-| `user-stories` | Create user stories following the 3 C's (Card, Conversation, Confirmation) and INVEST criteria with descriptions, design links, and acceptance criteria. Use when writing user stories, breaking down features into backlog items, or defining acceptance criteria. |
-| `wwas` | Create product backlog items in Why-What-Acceptance format — independent, valuable, testable items with strategic context. Use when writing structured backlog items, breaking features into work items, or using the WWA format. |
+| Skill | Author | Description |
+|---|---|---|
+| `brainstorm-okrs` | Pawel Huryn | Brainstorm team-level OKRs aligned with company objectives — qualitative objectives with measurable key results. Use when setting quarterly OKRs, aligning team goals with company strategy, drafting objectives, or learning how to write effective OKRs. |
+| `create-prd` | Pawel Huryn | Create a Product Requirements Document using a comprehensive 8-section template covering problem, objectives, segments, value propositions, solution, and release planning. Use when writing a PRD, documenting product requirements, preparing a feature spec, or reviewing an exist… |
+| `dummy-dataset` | Pawel Huryn | Generate realistic dummy datasets for testing with customizable columns, constraints, and output formats (CSV, JSON, SQL, Python script). Use when creating test data, building mock datasets, or generating sample data for development and demos. |
+| `job-stories` | Pawel Huryn | Create job stories using the 'When [situation], I want to [motivation], so I can [outcome]' format with detailed acceptance criteria. Use when writing job stories, creating JTBD-style backlog items, or expressing user situations and motivations. |
+| `outcome-roadmap` | Pawel Huryn | Transform an output-focused roadmap into an outcome-focused one that communicates strategic intent. Rewrites initiatives as outcome statements reflecting user and business impacts. Use when shifting to outcome roadmaps, making a roadmap more strategic, or rewriting feature lis… |
+| `pre-mortem` | Pawel Huryn | Run a pre-mortem risk analysis on a PRD or launch plan. Categorizes risks as Tigers (real problems), Paper Tigers (overblown concerns), and Elephants (unspoken worries), then classifies as launch-blocking, fast-follow, or track. Use when preparing for launch, stress-testing a … |
+| `prioritization-frameworks` | Pawel Huryn | Reference guide to 9 prioritization frameworks with formulas, when-to-use guidance, and templates — RICE, ICE, Kano, MoSCoW, Opportunity Score, and more. Use when selecting a prioritization method, comparing frameworks like RICE vs ICE, or learning how different prioritization… |
+| `release-notes` | Pawel Huryn | Generate user-facing release notes from tickets, PRDs, or changelogs. Creates clear, engaging summaries organized by category (new features, improvements, fixes). Use when writing release notes, creating changelogs, announcing product updates, or summarizing what shipped. |
+| `retro` | Pawel Huryn | Facilitate a structured sprint retrospective — what went well, what didn't, and prioritized action items with owners and deadlines. Use when running a retrospective, reflecting on a sprint, creating action items from team feedback, or learning how to run effective retros. |
+| `sprint-plan` | Pawel Huryn | Plan a sprint with capacity estimation, story selection, dependency mapping, and risk identification. Use when preparing for sprint planning, estimating team capacity, selecting stories, or balancing sprint scope against velocity. |
+| `stakeholder-map` | Pawel Huryn | Build a stakeholder map using a power/interest grid, identify communication strategies per quadrant, and generate a communication plan. Use when managing stakeholders, preparing for a launch, aligning cross-functional teams, or planning stakeholder engagement. |
+| `strategy-red-team` | Pawel Huryn | Red-team a PRD, roadmap, or strategy by attacking its load-bearing assumptions before reality does. Steelmans then attacks each claim, ranks failure modes by impact × likelihood × cheapness-to-test, and returns the cheapest test and kill criteria for each. Use when stress-test… |
+| `summarize-meeting` | Pawel Huryn | Summarize a meeting transcript into structured notes with date, participants, topic, key decisions, summary points, and action items. Use when processing meeting recordings, creating meeting notes, writing meeting minutes, or recapping discussions. |
+| `test-scenarios` | Pawel Huryn | Create comprehensive test scenarios from user stories with test objectives, starting conditions, user roles, step-by-step actions, and expected outcomes. Use when writing QA test cases, creating test plans, defining acceptance tests, or preparing for feature validation. |
+| `user-stories` | Pawel Huryn | Create user stories following the 3 C's (Card, Conversation, Confirmation) and INVEST criteria with descriptions, design links, and acceptance criteria. Use when writing user stories, breaking down features into backlog items, or defining acceptance criteria. |
+| `wwas` | Pawel Huryn | Create product backlog items in Why-What-Acceptance format — independent, valuable, testable items with strategic context. Use when writing structured backlog items, breaking features into work items, or using the WWA format. |
 
 ## pm-market-research  ·  _Product mgmt_  (7 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-market-research@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `competitor-analysis` | Analyze competitors with strengths, weaknesses, and differentiation opportunities. Identifies direct competitors and maps the competitive landscape. Use when doing competitive research, preparing a competitive brief, or finding differentiation opportunities. |
-| `customer-journey-map` | Create an end-to-end customer journey map with stages, touchpoints, emotions, pain points, and opportunities. Use when mapping the customer experience, identifying friction points, improving onboarding, or visualizing the user journey. |
-| `market-segments` | Identify 3-5 potential customer segments with demographics, JTBD, and product fit analysis. Use when exploring market segments, identifying target audiences, evaluating new markets, or learning how to segment a market. |
-| `market-sizing` | Estimate market size using TAM, SAM, and SOM with top-down and bottom-up approaches. Use when sizing a market opportunity, estimating addressable market, preparing for investor pitches, or evaluating market entry. |
-| `sentiment-analysis` | Analyze user feedback data to identify segments with sentiment scores, JTBD, and product satisfaction insights. Use when analyzing user feedback at scale, running sentiment analysis on reviews or surveys, or identifying satisfaction patterns. |
-| `user-personas` | Create refined user personas from research data — 3 personas with JTBD, pains, gains, and unexpected insights. Use when building personas from survey data, creating user profiles from research, or segmenting users for product decisions. |
-| `user-segmentation` | Segment users from feedback data based on behavior, JTBD, and needs. Identifies at least 3 distinct user segments. Use when segmenting a user base, analyzing diverse user feedback, or building a segmentation model. |
+| Skill | Author | Description |
+|---|---|---|
+| `competitor-analysis` | Pawel Huryn | Analyze competitors with strengths, weaknesses, and differentiation opportunities. Identifies direct competitors and maps the competitive landscape. Use when doing competitive research, preparing a competitive brief, or finding differentiation opportunities. |
+| `customer-journey-map` | Pawel Huryn | Create an end-to-end customer journey map with stages, touchpoints, emotions, pain points, and opportunities. Use when mapping the customer experience, identifying friction points, improving onboarding, or visualizing the user journey. |
+| `market-segments` | Pawel Huryn | Identify 3-5 potential customer segments with demographics, JTBD, and product fit analysis. Use when exploring market segments, identifying target audiences, evaluating new markets, or learning how to segment a market. |
+| `market-sizing` | Pawel Huryn | Estimate market size using TAM, SAM, and SOM with top-down and bottom-up approaches. Use when sizing a market opportunity, estimating addressable market, preparing for investor pitches, or evaluating market entry. |
+| `sentiment-analysis` | Pawel Huryn | Analyze user feedback data to identify segments with sentiment scores, JTBD, and product satisfaction insights. Use when analyzing user feedback at scale, running sentiment analysis on reviews or surveys, or identifying satisfaction patterns. |
+| `user-personas` | Pawel Huryn | Create refined user personas from research data — 3 personas with JTBD, pains, gains, and unexpected insights. Use when building personas from survey data, creating user profiles from research, or segmenting users for product decisions. |
+| `user-segmentation` | Pawel Huryn | Segment users from feedback data based on behavior, JTBD, and needs. Identifies at least 3 distinct user segments. Use when segmenting a user base, analyzing diverse user feedback, or building a segmentation model. |
 
 ## pm-ai-shipping  ·  _Product mgmt_  (2 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-ai-shipping@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `intended-vs-implemented` | The method for finding the gap between what a system is supposed to do and what the code actually does — the class of bug generic scanners miss because they have no model of intent. Defines what counts as documented intent, what counts as implementation evidence, which mismatc… |
-| `shipping-artifacts` | The durable documentation set that makes an AI-built (vibe-coded) app reviewable before shipping. A small core every app needs — architecture, user/permission flows, permissions, variables/secrets, and a test-coverage map — plus conditional docs added only when they apply: ema… |
+| Skill | Author | Description |
+|---|---|---|
+| `intended-vs-implemented` | Pawel Huryn | The method for finding the gap between what a system is supposed to do and what the code actually does — the class of bug generic scanners miss because they have no model of intent. Defines what counts as documented intent, what counts as implementation evidence, which mismatc… |
+| `shipping-artifacts` | Pawel Huryn | The durable documentation set that makes an AI-built (vibe-coded) app reviewable before shipping. A small core every app needs — architecture, user/permission flows, permissions, variables/secrets, and a test-coverage map — plus conditional docs added only when they apply: ema… |
 
 ## pm-data-analytics  ·  _Product mgmt_  (3 skills)
 
 Upstream: **phuryn/pm-skills** · License: MIT · Install: `claude plugin install pm-data-analytics@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `ab-test-analysis` | Analyze A/B test results with statistical significance, sample size validation, confidence intervals, and ship/extend/stop recommendations. Use when evaluating experiment results, checking if a test reached significance, interpreting split test data, or deciding whether to shi… |
-| `cohort-analysis` | Perform cohort analysis on user engagement data — retention curves, feature adoption trends, and segment-level insights. Use when analyzing user retention by cohort, studying feature adoption over time, investigating churn patterns, or identifying engagement trends. |
-| `sql-queries` | Generate SQL queries from natural language descriptions. Supports BigQuery, PostgreSQL, MySQL, and other dialects. Reads database schemas from uploaded diagrams or documentation. Use when writing SQL, building data reports, exploring databases, or translating business question… |
+| Skill | Author | Description |
+|---|---|---|
+| `ab-test-analysis` | Pawel Huryn | Analyze A/B test results with statistical significance, sample size validation, confidence intervals, and ship/extend/stop recommendations. Use when evaluating experiment results, checking if a test reached significance, interpreting split test data, or deciding whether to shi… |
+| `cohort-analysis` | Pawel Huryn | Perform cohort analysis on user engagement data — retention curves, feature adoption trends, and segment-level insights. Use when analyzing user retention by cohort, studying feature adoption over time, investigating churn patterns, or identifying engagement trends. |
+| `sql-queries` | Pawel Huryn | Generate SQL queries from natural language descriptions. Supports BigQuery, PostgreSQL, MySQL, and other dialects. Reads database schemas from uploaded diagrams or documentation. Use when writing SQL, building data reports, exploring databases, or translating business question… |
 
 ## marketing-skills  ·  _PMM / Biz dev_  (44 skills)
 
 Upstream: **coreyhaines31/marketingskills** · License: MIT · Install: `claude plugin install marketing-skills@zeev-playground` · ⚠ one-time git-HTTPS config needed
 
-| Skill | Description |
-|---|---|
-| `ab-testing` | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test… |
-| `ad-creative` | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk … |
-| `ads` | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' … |
-| `ai-seo` | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overview… |
-| `analytics` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "trac… |
-| `aso` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user mentions 'ASO audit,' 'app store optimization,' 'optimize my app listing,' 'improve app visibility,' 'app store ranking,' 'audit my listing,' 'why aren't people downloading my … |
-| `churn-prevention` | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,'… |
-| `co-marketing` | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborat… |
-| `cold-email` | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Also use when the user mentions "cold outreach," "prospecting email," "outb… |
-| `community-marketing` | Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or Slack community, manage a forum or subreddit, build brand advocates, increase word-of-mouth, drive community-led growth, e… |
-| `competitor-profiling` | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep d… |
-| `competitors` | When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive lan… |
-| `content-strategy` | When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editoria… |
-| `copy-editing` | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this rea… |
-| `copywriting` | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing co… |
-| `cro` | When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this pag… |
-| `customer-research` | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC,… |
-| `directory-submissions` | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks, domain rating, and discovery. Also use when the user mentions "directory submissions," "submit to directories," "backlinks from directories," "list my pr… |
-| `emails` | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails,"… |
-| `free-tools` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions "engineering as marketing," "free tool," "marketing tool," "calculator," "generator," "interactive tool," "lead … |
-| `image` | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. Also use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' '… |
-| `launch` | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch t… |
-| `lead-magnets` | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie,… |
-| `marketing-ideas` | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' 'ideas to grow,' 'what else c… |
-| `marketing-plan` | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product. Also use when the user mentions "marketing plan," "growth plan," "GTM plan," "go-to-market plan," "AARRR plan," "90-day marketing plan," "12-month marketing roadmap," … |
-| `marketing-psychology` | When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavio… |
-| `onboarding` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment… |
-| `paywalls` | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration… |
-| `popups` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions "exit intent," "popup conversions," "modal optimization," "lead capture popup," "email popup," "announcement banner," "overlay," "… |
-| `pricing` | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'h… |
-| `product-marketing` | When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wa… |
-| `programmatic-seo` | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "… |
-| `prospecting` | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B SaaS, general B2B, or local small businesses. Also use when the user mentions "prospecting," "build a prospect list," "find prospects," "find leads," "lead gen list," "find SaaS co… |
-| `public-relations` | When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'public relations,' 'press,' 'press release,' 'press coverage,' 'media outreach,' 'pitch a journalist… |
-| `referrals` | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,… |
-| `revops` | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,'… |
-| `sales-enablement` | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk … |
-| `schema` | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions "schema markup," "structured data," "JSON-LD," "rich snippets," "schema.org," "FAQ schema," "product schema," "review schema," "breadcrumb schema," "Go… |
-| `seo-audit` | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not sh… |
-| `signup` | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," "account creation flow," … |
-| `site-architecture` | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions "sitemap," "site map," "visual sitemap," "site structure," "page hierarchy," "information architecture," "IA," "navi… |
-| `sms` | When the user wants to plan, build, or optimize SMS or MMS marketing — including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or transactional/auth SMS. Also use when the user mentions "SMS marketing," "text message campaigns," "SMS sequence… |
-| `social` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,'… |
-| `video` | When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remotion,' 'Hyperframes,' 'HeyGen,' 'Synthesia,' 'Veo,' 'Sora,' 'Runway,' 'Kling,' 'Seedance,' 'Hailuo,… |
+| Skill | Author | Description |
+|---|---|---|
+| `ab-testing` | Corey Haines | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test… |
+| `ad-creative` | Corey Haines | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk … |
+| `ads` | Corey Haines | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' … |
+| `ai-seo` | Corey Haines | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overview… |
+| `analytics` | Corey Haines | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "trac… |
+| `aso` | Corey Haines | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user mentions 'ASO audit,' 'app store optimization,' 'optimize my app listing,' 'improve app visibility,' 'app store ranking,' 'audit my listing,' 'why aren't people downloading my … |
+| `churn-prevention` | Corey Haines | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies. Also use when the user mentions 'churn,' 'cancel flow,' 'offboarding,' 'save offer,' 'dunning,' 'failed payment recovery,' 'win-back,'… |
+| `co-marketing` | Corey Haines | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborat… |
+| `cold-email` | Corey Haines | Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Also use when the user mentions "cold outreach," "prospecting email," "outb… |
+| `community-marketing` | Corey Haines | Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or Slack community, manage a forum or subreddit, build brand advocates, increase word-of-mouth, drive community-led growth, e… |
+| `competitor-profiling` | Corey Haines | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep d… |
+| `competitors` | Corey Haines | When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive lan… |
+| `content-strategy` | Corey Haines | When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editoria… |
+| `copy-editing` | Corey Haines | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' 'copy sweep,' 'tighten this up,' 'this rea… |
+| `copywriting` | Corey Haines | When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing co… |
+| `cro` | Corey Haines | When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this pag… |
+| `customer-research` | Corey Haines | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer research," "ICP research," "talk to customers," "analyze transcripts," "customer interviews," "survey analysis," "support ticket analysis," "voice of customer," "VOC,… |
+| `directory-submissions` | Corey Haines | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks, domain rating, and discovery. Also use when the user mentions "directory submissions," "submit to directories," "backlinks from directories," "list my pr… |
+| `emails` | Corey Haines | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails,"… |
+| `free-tools` | Corey Haines | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions "engineering as marketing," "free tool," "marketing tool," "calculator," "generator," "interactive tool," "lead … |
+| `image` | Corey Haines | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. Also use when the user mentions 'AI image generation,' 'generate an image,' 'create a graphic,' '… |
+| `launch` | Corey Haines | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'how do I launch t… |
+| `lead-magnets` | Corey Haines | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie,… |
+| `marketing-ideas` | Corey Haines | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' 'ideas to grow,' 'what else c… |
+| `marketing-plan` | Corey Haines | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product. Also use when the user mentions "marketing plan," "growth plan," "GTM plan," "go-to-market plan," "AARRR plan," "90-day marketing plan," "12-month marketing roadmap," … |
+| `marketing-psychology` | Corey Haines | When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavio… |
+| `onboarding` | Corey Haines | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment… |
+| `paywalls` | Corey Haines | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration… |
+| `popups` | Corey Haines | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions "exit intent," "popup conversions," "modal optimization," "lead capture popup," "email popup," "announcement banner," "overlay," "… |
+| `pricing` | Corey Haines | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'h… |
+| `product-marketing` | Corey Haines | When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wa… |
+| `programmatic-seo` | Corey Haines | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "… |
+| `prospecting` | Corey Haines | When the user wants to find, qualify, and build a list of prospects to reach out to — across B2B SaaS, general B2B, or local small businesses. Also use when the user mentions "prospecting," "build a prospect list," "find prospects," "find leads," "lead gen list," "find SaaS co… |
+| `public-relations` | Corey Haines | When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'public relations,' 'press,' 'press release,' 'press coverage,' 'media outreach,' 'pitch a journalist… |
+| `referrals` | Corey Haines | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,… |
+| `revops` | Corey Haines | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,'… |
+| `sales-enablement` | Corey Haines | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk … |
+| `schema` | Corey Haines | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions "schema markup," "structured data," "JSON-LD," "rich snippets," "schema.org," "FAQ schema," "product schema," "review schema," "breadcrumb schema," "Go… |
+| `seo-audit` | Corey Haines | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," "SEO health check," "my traffic dropped," "lost rankings," "not sh… |
+| `signup` | Corey Haines | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," "account creation flow," … |
+| `site-architecture` | Corey Haines | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions "sitemap," "site map," "visual sitemap," "site structure," "page hierarchy," "information architecture," "IA," "navi… |
+| `sms` | Corey Haines | When the user wants to plan, build, or optimize SMS or MMS marketing — including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or transactional/auth SMS. Also use when the user mentions "SMS marketing," "text message campaigns," "SMS sequence… |
+| `social` | Corey Haines | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms, or wants to do social listening and engagement triage. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,'… |
+| `video` | Corey Haines | When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remotion,' 'Hyperframes,' 'HeyGen,' 'Synthesia,' 'Veo,' 'Sora,' 'Runway,' 'Kling,' 'Seedance,' 'Hailuo,… |
 
 ## x  ·  _Utilities_  (2 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install x@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `read` | Read a tweet from X (Twitter) by URL or ID and load it into the conversation. Use when user says "/x:read <url>", "read this tweet", "what does this tweet say", or pastes an x.com / twitter.com status link and wants to discuss, summarize, or reply to it. NOT for posting (use /… |
-| `tweet` | Post tweets to X (Twitter) from Claude Code. Supports single tweets, threads (auto-split or manual), and replies. Use when user says "/x:tweet", "post a tweet", "tweet this", "post a thread", "reply to this tweet". NOT for reading tweets, analytics, scheduling, or DMs. |
+| Skill | Author | Description |
+|---|---|---|
+| `read` | Omri Ariav | Read a tweet from X (Twitter) by URL or ID and load it into the conversation. Use when user says "/x:read <url>", "read this tweet", "what does this tweet say", or pastes an x.com / twitter.com status link and wants to discuss, summarize, or reply to it. NOT for posting (use /… |
+| `tweet` | Omri Ariav | Post tweets to X (Twitter) from Claude Code. Supports single tweets, threads (auto-split or manual), and replies. Use when user says "/x:tweet", "post a tweet", "tweet this", "post a thread", "reply to this tweet". NOT for reading tweets, analytics, scheduling, or DMs. |
 
 ## gdoc-math  ·  _Utilities_  (1 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install gdoc-math@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `gdoc-math` | Convert Markdown with LaTeX math into a native Google Doc whose equations are real, editable equation objects (not images, not literal $$ text). Use when: "/gdoc-math", "turn this markdown into a Google Doc with editable equations", "convert this LaTeX/formulas to a Google Doc… |
+| Skill | Author | Description |
+|---|---|---|
+| `gdoc-math` | Omri Ariav | Convert Markdown with LaTeX math into a native Google Doc whose equations are real, editable equation objects (not images, not literal $$ text). Use when: "/gdoc-math", "turn this markdown into a Google Doc with editable equations", "convert this LaTeX/formulas to a Google Doc… |
 
 ## find-session  ·  _Utilities_  (1 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install find-session@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `find-session` | Search past Claude Code conversations by keyword and return session IDs for resuming. Use when the user asks to find, locate, or look for a past/previous conversation, or needs a session ID to resume a conversation with claude --resume. NOT for searching within a conversation … |
+| Skill | Author | Description |
+|---|---|---|
+| `find-session` | Omri Ariav | Search past Claude Code conversations by keyword and return session IDs for resuming. Use when the user asks to find, locate, or look for a past/previous conversation, or needs a session ID to resume a conversation with claude --resume. NOT for searching within a conversation … |
 
 ## setup-pulse  ·  _Utilities_  (1 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install setup-pulse@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `setup-pulse` | Install claude-pulse statusline for real-time token usage monitoring. Use when user says "/setup-pulse", "install statusline", "setup pulse". |
+| Skill | Author | Description |
+|---|---|---|
+| `setup-pulse` | Omri Ariav | Install claude-pulse statusline for real-time token usage monitoring. Use when user says "/setup-pulse", "install statusline", "setup pulse". |
 
 ## claude-reviewer  ·  _Utilities_  (1 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install claude-reviewer@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `claude-reviewer` | Review any project's .claude/ setup against Claude Code best practices and produce an actionable improvement report. Use when: "/claude-reviewer", "review my claude config", "audit .claude setup", "check my CLAUDE.md", "how good is my claude config", "rate this project's claud… |
+| Skill | Author | Description |
+|---|---|---|
+| `claude-reviewer` | Omri Ariav | Review any project's .claude/ setup against Claude Code best practices and produce an actionable improvement report. Use when: "/claude-reviewer", "review my claude config", "audit .claude setup", "check my CLAUDE.md", "how good is my claude config", "rate this project's claud… |
 
 ## skill-reviewer  ·  _Utilities_  (1 skills)
 
 Upstream: **omriariav/omri-cc-stuff** · License: MIT · Install: `claude plugin install skill-reviewer@zeev-playground` · ✓ zero setup
 
-| Skill | Description |
-|---|---|
-| `skill-reviewer` | Evaluate any skill's design quality against best practices and flag anti-patterns. Use when: "/skill-reviewer", "review this skill", "evaluate skill quality", "audit skill", "how good is this skill", "rate this skill". NOT for: conversation-level reflection (use /reflect), cod… |
+| Skill | Author | Description |
+|---|---|---|
+| `skill-reviewer` | Omri Ariav | Evaluate any skill's design quality against best practices and flag anti-patterns. Use when: "/skill-reviewer", "review this skill", "evaluate skill quality", "audit skill", "how good is this skill", "rate this skill". NOT for: conversation-level reflection (use /reflect), cod… |

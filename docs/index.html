@@ -41,7 +41,10 @@
   .count { color:var(--muted); font-size:13px; margin:0 0 14px; }
   .card { background:var(--panel); border:1px solid var(--border); border-radius:12px;
     padding:16px 18px; margin-bottom:12px; box-shadow:var(--shadow); }
-  .card h3 { margin:0 0 6px; font-size:16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .card h3 { margin:0 0 2px; font-size:16px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .by { font-size:12.5px; color:var(--muted); margin:0 0 10px; }
+  .by a { color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--border); }
+  .by a:hover { color:var(--accent); border-bottom-color:var(--accent); }
   .card p { margin:0 0 12px; color:var(--fg); }
   .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px; }
   .badge { font-size:12px; padding:3px 9px; border-radius:999px; background:var(--panel2);
@@ -109,7 +112,7 @@ function render() {
   const rows = data.skills.filter(s => {
     if (role !== "All" && s.role !== role) return false;
     if (!ql) return true;
-    return (s.skill + " " + s.description + " " + s.plugin).toLowerCase().includes(ql);
+    return (s.skill + " " + s.description + " " + s.plugin + " " + s.author).toLowerCase().includes(ql);
   });
   $("#count").textContent = `${rows.length} skill${rows.length === 1 ? "" : "s"}` +
     (role === "All" ? "" : ` · ${role}`) + (ql ? ` · “${q}”` : "");
@@ -117,11 +120,11 @@ function render() {
   $("#results").innerHTML = rows.map(s => `
     <div class="card">
       <h3>${highlight(s.skill, q)}</h3>
+      <p class="by">by ${highlight(s.author, q)} · <a href="${esc(s.source_url)}" target="_blank" rel="noopener">${esc(s.source_repo)}</a></p>
       <p>${s.description ? highlight(s.description, q) : "<span style='color:var(--muted)'>No description.</span>"}</p>
       <div class="meta">
         <span class="badge">plugin: ${highlight(s.plugin, q)}</span>
         <span class="badge role">${esc(s.role)}</span>
-        <span class="badge">${esc(s.upstream)}</span>
         ${s.setup === "https"
           ? `<span class="badge warn">⚠ one-time setup</span>`
           : `<span class="badge ok">✓ zero setup</span>`}
