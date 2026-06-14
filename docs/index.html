@@ -47,6 +47,12 @@
   .badge { font-size:12px; padding:3px 9px; border-radius:999px; background:var(--panel2);
     border:1px solid var(--border); color:var(--muted); }
   .badge.role { color:var(--fg); }
+  .badge.ok { color:var(--ok); border-color:color-mix(in srgb,var(--ok) 45%,var(--border)); }
+  .badge.warn { color:#d29922; border-color:#d29922; }
+  @media (prefers-color-scheme: light) { .badge.warn { color:#9a6700; border-color:#d4a72c; } }
+  .setup-note { margin-top:10px; padding:10px 12px; border-radius:8px; font-size:13px;
+    background:color-mix(in srgb,#d29922 12%,transparent); border:1px solid color-mix(in srgb,#d29922 40%,var(--border)); }
+  .setup-note .lead { color:var(--fg); margin:0 0 8px; }
   .install { display:flex; align-items:stretch; gap:8px; }
   .install code { flex:1; background:var(--code); border:1px solid var(--border); border-radius:8px;
     padding:9px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px;
@@ -116,11 +122,22 @@ function render() {
         <span class="badge">plugin: ${highlight(s.plugin, q)}</span>
         <span class="badge role">${esc(s.role)}</span>
         <span class="badge">${esc(s.upstream)}</span>
+        ${s.setup === "https"
+          ? `<span class="badge warn">⚠ one-time setup</span>`
+          : `<span class="badge ok">✓ zero setup</span>`}
       </div>
       <div class="install">
         <code>${esc(s.install)}</code>
         <button class="copy" data-cmd="${esc(s.install)}">Copy</button>
       </div>
+      ${s.setup === "https" ? `
+      <div class="setup-note">
+        <p class="lead">⚠ Whole-repo plugin — cloned over SSH. On a machine without a GitHub SSH key, run this <strong>once</strong> first:</p>
+        <div class="install">
+          <code>${esc(state.data.https_setup_cmd)}</code>
+          <button class="copy" data-cmd="${esc(state.data.https_setup_cmd)}">Copy</button>
+        </div>
+      </div>` : ""}
     </div>`).join("");
 }
 

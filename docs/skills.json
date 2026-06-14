@@ -16,6 +16,7 @@
       "license": "—",
       "install": "claude plugin install text-tools@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "bulletize",
@@ -32,6 +33,7 @@
       "license": "MIT",
       "install": "claude plugin install agent-skills@zeev-playground",
       "skill_count": 24,
+      "setup": "https",
       "skills": [
         {
           "skill": "api-and-interface-design",
@@ -163,6 +165,7 @@
       "license": "MIT",
       "install": "claude plugin install gstack@zeev-playground",
       "skill_count": 59,
+      "setup": "https",
       "skills": [
         {
           "skill": "gstack",
@@ -469,6 +472,7 @@
       "license": "MIT",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "skill_count": 29,
+      "setup": "https",
       "skills": [
         {
           "skill": "ai-product-patterns",
@@ -625,6 +629,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "skill_count": 13,
+      "setup": "zero",
       "skills": [
         {
           "skill": "analyze-feature-requests",
@@ -701,6 +706,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "skill_count": 12,
+      "setup": "zero",
       "skills": [
         {
           "skill": "ansoff-matrix",
@@ -772,6 +778,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "skill_count": 4,
+      "setup": "zero",
       "skills": [
         {
           "skill": "draft-nda",
@@ -803,6 +810,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-execution@zeev-playground",
       "skill_count": 16,
+      "setup": "zero",
       "skills": [
         {
           "skill": "brainstorm-okrs",
@@ -894,6 +902,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "skill_count": 7,
+      "setup": "zero",
       "skills": [
         {
           "skill": "competitor-analysis",
@@ -940,6 +949,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-ai-shipping@zeev-playground",
       "skill_count": 2,
+      "setup": "zero",
       "skills": [
         {
           "skill": "intended-vs-implemented",
@@ -961,6 +971,7 @@
       "license": "MIT",
       "install": "claude plugin install pm-data-analytics@zeev-playground",
       "skill_count": 3,
+      "setup": "zero",
       "skills": [
         {
           "skill": "ab-test-analysis",
@@ -987,6 +998,7 @@
       "license": "MIT",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "skill_count": 44,
+      "setup": "https",
       "skills": [
         {
           "skill": "ab-testing",
@@ -1218,6 +1230,7 @@
       "license": "MIT",
       "install": "claude plugin install x@zeev-playground",
       "skill_count": 2,
+      "setup": "zero",
       "skills": [
         {
           "skill": "read",
@@ -1239,6 +1252,7 @@
       "license": "MIT",
       "install": "claude plugin install gdoc-math@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "gdoc-math",
@@ -1255,6 +1269,7 @@
       "license": "MIT",
       "install": "claude plugin install find-session@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "find-session",
@@ -1271,6 +1286,7 @@
       "license": "MIT",
       "install": "claude plugin install setup-pulse@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "setup-pulse",
@@ -1287,6 +1303,7 @@
       "license": "MIT",
       "install": "claude plugin install claude-reviewer@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "claude-reviewer",
@@ -1303,6 +1320,7 @@
       "license": "MIT",
       "install": "claude plugin install skill-reviewer@zeev-playground",
       "skill_count": 1,
+      "setup": "zero",
       "skills": [
         {
           "skill": "skill-reviewer",
@@ -1320,7 +1338,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "browser-testing-with-devtools",
@@ -1329,7 +1348,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "ci-cd-and-automation",
@@ -1338,7 +1358,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "code-review-and-quality",
@@ -1347,7 +1368,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "code-simplification",
@@ -1356,7 +1378,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "context-engineering",
@@ -1365,7 +1388,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "debugging-and-error-recovery",
@@ -1374,7 +1398,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "deprecation-and-migration",
@@ -1383,7 +1408,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "documentation-and-adrs",
@@ -1392,7 +1418,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "doubt-driven-development",
@@ -1401,7 +1428,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "frontend-ui-engineering",
@@ -1410,7 +1438,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "git-workflow-and-versioning",
@@ -1419,7 +1448,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "idea-refine",
@@ -1428,7 +1458,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "incremental-implementation",
@@ -1437,7 +1468,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "interview-me",
@@ -1446,7 +1478,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "observability-and-instrumentation",
@@ -1455,7 +1488,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "performance-optimization",
@@ -1464,7 +1498,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "planning-and-task-breakdown",
@@ -1473,7 +1508,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "security-and-hardening",
@@ -1482,7 +1518,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "shipping-and-launch",
@@ -1491,7 +1528,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "source-driven-development",
@@ -1500,7 +1538,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "spec-driven-development",
@@ -1509,7 +1548,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "test-driven-development",
@@ -1518,7 +1558,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "using-agent-skills",
@@ -1527,7 +1568,8 @@
       "role": "Software dev",
       "install": "claude plugin install agent-skills@zeev-playground",
       "upstream": "addyosmani/agent-skills",
-      "source_repo": "Zeev-L/addyosmani-agent-skills"
+      "source_repo": "Zeev-L/addyosmani-agent-skills",
+      "setup": "https"
     },
     {
       "skill": "ai-product-patterns",
@@ -1536,7 +1578,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "ai-startup-building",
@@ -1545,7 +1588,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "career-growth",
@@ -1554,7 +1598,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "confident-speaking",
@@ -1563,7 +1608,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "continuous-discovery",
@@ -1572,7 +1618,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "culture-craft",
@@ -1581,7 +1628,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "decision-frameworks",
@@ -1590,7 +1638,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "design-first-dev",
@@ -1599,7 +1648,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "exec-comms",
@@ -1608,7 +1658,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "exp-driven-dev",
@@ -1617,7 +1668,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "growth-embedded",
@@ -1626,7 +1678,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "influence-craft",
@@ -1635,7 +1688,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "jtbd-building",
@@ -1644,7 +1698,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "launch-execution",
@@ -1653,7 +1708,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "metrics-frameworks",
@@ -1662,7 +1718,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "okr-frameworks",
@@ -1671,7 +1728,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "one-step-better-ai-pm",
@@ -1680,7 +1738,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "positioning-craft",
@@ -1689,7 +1748,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "prioritization-craft",
@@ -1698,7 +1758,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "quality-speed",
@@ -1707,7 +1768,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "ship-decisions",
@@ -1716,7 +1778,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "stakeholder-craft",
@@ -1725,7 +1788,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "strategic-build",
@@ -1734,7 +1798,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "strategic-pm",
@@ -1743,7 +1808,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "strategic-storytelling",
@@ -1752,7 +1818,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "strategy-frameworks",
@@ -1761,7 +1828,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "user-feedback-system",
@@ -1770,7 +1838,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "workplace-navigation",
@@ -1779,7 +1848,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "zero-to-launch",
@@ -1788,7 +1858,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install awesome-pm-skills@zeev-playground",
       "upstream": "menkesu/awesome-pm-skills",
-      "source_repo": "Zeev-L/awesome-pm-skills"
+      "source_repo": "Zeev-L/awesome-pm-skills",
+      "setup": "https"
     },
     {
       "skill": "claude-reviewer",
@@ -1797,7 +1868,8 @@
       "role": "Utilities",
       "install": "claude plugin install claude-reviewer@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "find-session",
@@ -1806,7 +1878,8 @@
       "role": "Utilities",
       "install": "claude plugin install find-session@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "gdoc-math",
@@ -1815,7 +1888,8 @@
       "role": "Utilities",
       "install": "claude plugin install gdoc-math@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "autoplan",
@@ -1824,7 +1898,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "benchmark",
@@ -1833,7 +1908,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "benchmark-models",
@@ -1842,7 +1918,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "browse",
@@ -1851,7 +1928,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "canary",
@@ -1860,7 +1938,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "careful",
@@ -1869,7 +1948,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "codex",
@@ -1878,7 +1958,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "context-restore",
@@ -1887,7 +1968,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "context-save",
@@ -1896,7 +1978,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "cso",
@@ -1905,7 +1988,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "design-consultation",
@@ -1914,7 +1998,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "design-html",
@@ -1923,7 +2008,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "design-review",
@@ -1932,7 +2018,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "design-shotgun",
@@ -1941,7 +2028,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "devex-review",
@@ -1950,7 +2038,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "diagram",
@@ -1959,7 +2048,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "document-generate",
@@ -1968,7 +2058,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "document-release",
@@ -1977,7 +2068,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "freeze",
@@ -1986,7 +2078,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack",
@@ -1995,7 +2088,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack-openclaw-ceo-review",
@@ -2004,7 +2098,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack-openclaw-investigate",
@@ -2013,7 +2108,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack-openclaw-office-hours",
@@ -2022,7 +2118,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack-openclaw-retro",
@@ -2031,7 +2128,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "gstack-upgrade",
@@ -2040,7 +2138,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "guard",
@@ -2049,7 +2148,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "hackernews-frontpage",
@@ -2058,7 +2158,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "health",
@@ -2067,7 +2168,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "investigate",
@@ -2076,7 +2178,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ios-clean",
@@ -2085,7 +2188,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ios-design-review",
@@ -2094,7 +2198,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ios-fix",
@@ -2103,7 +2208,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ios-qa",
@@ -2112,7 +2218,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ios-sync",
@@ -2121,7 +2228,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "land-and-deploy",
@@ -2130,7 +2238,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "landing-report",
@@ -2139,7 +2248,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "learn",
@@ -2148,7 +2258,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "make-pdf",
@@ -2157,7 +2268,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "office-hours",
@@ -2166,7 +2278,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "open-gstack-browser",
@@ -2175,7 +2288,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "pair-agent",
@@ -2184,7 +2298,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "plan-ceo-review",
@@ -2193,7 +2308,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "plan-design-review",
@@ -2202,7 +2318,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "plan-devex-review",
@@ -2211,7 +2328,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "plan-eng-review",
@@ -2220,7 +2338,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "plan-tune",
@@ -2229,7 +2348,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "qa",
@@ -2238,7 +2358,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "qa-only",
@@ -2247,7 +2368,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "retro",
@@ -2256,7 +2378,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "review",
@@ -2265,7 +2388,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "scrape",
@@ -2274,7 +2398,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "setup-browser-cookies",
@@ -2283,7 +2408,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "setup-deploy",
@@ -2292,7 +2418,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "setup-gbrain",
@@ -2301,7 +2428,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ship",
@@ -2310,7 +2438,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "skillify",
@@ -2319,7 +2448,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "spec",
@@ -2328,7 +2458,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "sync-gbrain",
@@ -2337,7 +2468,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "unfreeze",
@@ -2346,7 +2478,8 @@
       "role": "Software dev",
       "install": "claude plugin install gstack@zeev-playground",
       "upstream": "garrytan/gstack",
-      "source_repo": "Zeev-L/gstack"
+      "source_repo": "Zeev-L/gstack",
+      "setup": "https"
     },
     {
       "skill": "ab-testing",
@@ -2355,7 +2488,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "ad-creative",
@@ -2364,7 +2498,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "ads",
@@ -2373,7 +2508,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "ai-seo",
@@ -2382,7 +2518,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "analytics",
@@ -2391,7 +2528,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "aso",
@@ -2400,7 +2538,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "churn-prevention",
@@ -2409,7 +2548,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "co-marketing",
@@ -2418,7 +2558,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "cold-email",
@@ -2427,7 +2568,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "community-marketing",
@@ -2436,7 +2578,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "competitor-profiling",
@@ -2445,7 +2588,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "competitors",
@@ -2454,7 +2598,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "content-strategy",
@@ -2463,7 +2608,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "copy-editing",
@@ -2472,7 +2618,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "copywriting",
@@ -2481,7 +2628,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "cro",
@@ -2490,7 +2638,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "customer-research",
@@ -2499,7 +2648,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "directory-submissions",
@@ -2508,7 +2658,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "emails",
@@ -2517,7 +2668,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "free-tools",
@@ -2526,7 +2678,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "image",
@@ -2535,7 +2688,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "launch",
@@ -2544,7 +2698,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "lead-magnets",
@@ -2553,7 +2708,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "marketing-ideas",
@@ -2562,7 +2718,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "marketing-plan",
@@ -2571,7 +2728,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "marketing-psychology",
@@ -2580,7 +2738,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "onboarding",
@@ -2589,7 +2748,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "paywalls",
@@ -2598,7 +2758,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "popups",
@@ -2607,7 +2768,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "pricing",
@@ -2616,7 +2778,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "product-marketing",
@@ -2625,7 +2788,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "programmatic-seo",
@@ -2634,7 +2798,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "prospecting",
@@ -2643,7 +2808,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "public-relations",
@@ -2652,7 +2818,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "referrals",
@@ -2661,7 +2828,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "revops",
@@ -2670,7 +2838,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "sales-enablement",
@@ -2679,7 +2848,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "schema",
@@ -2688,7 +2858,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "seo-audit",
@@ -2697,7 +2868,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "signup",
@@ -2706,7 +2878,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "site-architecture",
@@ -2715,7 +2888,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "sms",
@@ -2724,7 +2898,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "social",
@@ -2733,7 +2908,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "video",
@@ -2742,7 +2918,8 @@
       "role": "PMM / Biz dev",
       "install": "claude plugin install marketing-skills@zeev-playground",
       "upstream": "coreyhaines31/marketingskills",
-      "source_repo": "Zeev-L/marketingskills"
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
     },
     {
       "skill": "intended-vs-implemented",
@@ -2751,7 +2928,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-ai-shipping@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "shipping-artifacts",
@@ -2760,7 +2938,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-ai-shipping@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "ab-test-analysis",
@@ -2769,7 +2948,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-data-analytics@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "cohort-analysis",
@@ -2778,7 +2958,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-data-analytics@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "sql-queries",
@@ -2787,7 +2968,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-data-analytics@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "brainstorm-okrs",
@@ -2796,7 +2978,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "create-prd",
@@ -2805,7 +2988,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "dummy-dataset",
@@ -2814,7 +2998,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "job-stories",
@@ -2823,7 +3008,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "outcome-roadmap",
@@ -2832,7 +3018,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "pre-mortem",
@@ -2841,7 +3028,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "prioritization-frameworks",
@@ -2850,7 +3038,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "release-notes",
@@ -2859,7 +3048,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "retro",
@@ -2868,7 +3058,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "sprint-plan",
@@ -2877,7 +3068,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "stakeholder-map",
@@ -2886,7 +3078,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "strategy-red-team",
@@ -2895,7 +3088,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "summarize-meeting",
@@ -2904,7 +3098,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "test-scenarios",
@@ -2913,7 +3108,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "user-stories",
@@ -2922,7 +3118,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "wwas",
@@ -2931,7 +3128,8 @@
       "role": "Project mgmt",
       "install": "claude plugin install pm-execution@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "competitor-analysis",
@@ -2940,7 +3138,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "customer-journey-map",
@@ -2949,7 +3148,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "market-segments",
@@ -2958,7 +3158,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "market-sizing",
@@ -2967,7 +3168,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "sentiment-analysis",
@@ -2976,7 +3178,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "user-personas",
@@ -2985,7 +3188,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "user-segmentation",
@@ -2994,7 +3198,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-market-research@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "analyze-feature-requests",
@@ -3003,7 +3208,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "brainstorm-experiments-existing",
@@ -3012,7 +3218,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "brainstorm-experiments-new",
@@ -3021,7 +3228,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "brainstorm-ideas-existing",
@@ -3030,7 +3238,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "brainstorm-ideas-new",
@@ -3039,7 +3248,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "identify-assumptions-existing",
@@ -3048,7 +3258,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "identify-assumptions-new",
@@ -3057,7 +3268,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "interview-script",
@@ -3066,7 +3278,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "metrics-dashboard",
@@ -3075,7 +3288,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "opportunity-solution-tree",
@@ -3084,7 +3298,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "prioritize-assumptions",
@@ -3093,7 +3308,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "prioritize-features",
@@ -3102,7 +3318,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "summarize-interview",
@@ -3111,7 +3328,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-discovery@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "ansoff-matrix",
@@ -3120,7 +3338,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "business-model",
@@ -3129,7 +3348,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "lean-canvas",
@@ -3138,7 +3358,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "monetization-strategy",
@@ -3147,7 +3368,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "pestle-analysis",
@@ -3156,7 +3378,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "porters-five-forces",
@@ -3165,7 +3388,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "pricing-strategy",
@@ -3174,7 +3398,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "product-strategy",
@@ -3183,7 +3408,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "product-vision",
@@ -3192,7 +3418,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "startup-canvas",
@@ -3201,7 +3428,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "swot-analysis",
@@ -3210,7 +3438,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "value-proposition",
@@ -3219,7 +3448,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-product-strategy@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "draft-nda",
@@ -3228,7 +3458,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "grammar-check",
@@ -3237,7 +3468,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "privacy-policy",
@@ -3246,7 +3478,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "review-resume",
@@ -3255,7 +3488,8 @@
       "role": "Product mgmt",
       "install": "claude plugin install pm-toolkit@zeev-playground",
       "upstream": "phuryn/pm-skills",
-      "source_repo": "Zeev-L/pm-skills"
+      "source_repo": "Zeev-L/pm-skills",
+      "setup": "zero"
     },
     {
       "skill": "setup-pulse",
@@ -3264,7 +3498,8 @@
       "role": "Utilities",
       "install": "claude plugin install setup-pulse@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "skill-reviewer",
@@ -3273,7 +3508,8 @@
       "role": "Utilities",
       "install": "claude plugin install skill-reviewer@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "bulletize",
@@ -3282,7 +3518,8 @@
       "role": "Utilities",
       "install": "claude plugin install text-tools@zeev-playground",
       "upstream": "Zeev-L (original)",
-      "source_repo": "Zeev-L/playground"
+      "source_repo": "Zeev-L/playground",
+      "setup": "zero"
     },
     {
       "skill": "read",
@@ -3291,7 +3528,8 @@
       "role": "Utilities",
       "install": "claude plugin install x@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     },
     {
       "skill": "tweet",
@@ -3300,9 +3538,11 @@
       "role": "Utilities",
       "install": "claude plugin install x@zeev-playground",
       "upstream": "omriariav/omri-cc-stuff",
-      "source_repo": "Zeev-L/omri-a.-cc-stuff"
+      "source_repo": "Zeev-L/omri-a.-cc-stuff",
+      "setup": "zero"
     }
   ],
   "total_skills": 221,
-  "total_plugins": 18
+  "total_plugins": 18,
+  "https_setup_cmd": "git config --global url.\"https://github.com/\".insteadOf \"git@github.com:\""
 }
