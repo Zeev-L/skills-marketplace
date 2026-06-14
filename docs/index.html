@@ -28,6 +28,12 @@
   h1 { margin:0 0 6px; font-size:28px; letter-spacing:-.02em; }
   .sub { color:var(--muted); margin:0; }
   .sub code { background:var(--code); padding:2px 6px; border-radius:6px; font-size:.85em; }
+  .install-all { display:flex; align-items:center; flex-wrap:wrap; gap:10px 14px; margin-top:16px; }
+  .copy-all { cursor:pointer; font-size:14px; font-weight:600; padding:10px 16px; border-radius:10px;
+    background:var(--accent); color:var(--accent-fg); border:1px solid var(--accent); white-space:nowrap; }
+  .copy-all:hover { filter:brightness(1.06); }
+  .copy-all.done { background:var(--ok); border-color:var(--ok); }
+  .install-all .hint { color:var(--muted); font-size:12.5px; max-width:560px; }
   .toolbar { position:sticky; top:0; z-index:5; background:var(--bg);
     padding:14px 0; border-bottom:1px solid var(--border); margin-bottom:20px; }
   .search { width:100%; padding:12px 14px; font-size:15px; color:var(--fg);
@@ -75,6 +81,10 @@
     <h1>zeev-playground · skill catalog</h1>
     <p class="sub" id="subtitle">Loading…</p>
     <p class="sub" style="margin-top:8px">Add the marketplace: <code>claude plugin marketplace add Zeev-L/playground</code></p>
+    <div class="install-all">
+      <button id="copyAll" class="copy-all">⧉ Copy all install commands</button>
+      <span class="hint">Pastes the marketplace-add command + all <span id="pluginCount">18</span> plugin installs. The whole-repo plugins note the one-time git-HTTPS config.</span>
+    </div>
   </header>
 
   <div class="toolbar">
@@ -104,6 +114,24 @@ function highlight(text, q) {
     const re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
     return e.replace(re, "<mark>$1</mark>");
   } catch { return e; }
+}
+
+function buildInstallAll() {
+  const d = state.data;
+  const L = [];
+  L.push(`# zeev-playground — install everything (${d.total_plugins} plugins, ${d.total_skills} skills)`);
+  L.push("# 1) Add the marketplace");
+  L.push("claude plugin marketplace add Zeev-L/playground");
+  L.push("");
+  L.push("# 2) One-time setup, ONLY for the whole-repo plugins marked below, and ONLY on a");
+  L.push("#    machine without a GitHub SSH key (otherwise those clones fail). Uncomment to run:");
+  L.push("# " + d.https_setup_cmd);
+  L.push("");
+  L.push("# 3) Install all plugins");
+  d.plugins.forEach(p => {
+    L.push(p.install + (p.setup === "https" ? "   # whole-repo — needs the git config in step 2" : ""));
+  });
+  return L.join("\n");
 }
 
 function render() {
@@ -156,6 +184,14 @@ function renderChips() {
 }
 
 document.addEventListener("click", (e) => {
+  const all = e.target.closest("#copyAll");
+  if (all) {
+    navigator.clipboard.writeText(buildInstallAll()).then(() => {
+      const t = all.textContent; all.textContent = "✓ Copied all commands!"; all.classList.add("done");
+      setTimeout(() => { all.textContent = t; all.classList.remove("done"); }, 1600);
+    });
+    return;
+  }
   const chip = e.target.closest(".chip");
   if (chip) { state.role = chip.dataset.role; renderChips(); render(); return; }
   const btn = e.target.closest(".copy");
@@ -172,6 +208,7 @@ fetch("./skills.json").then(r => r.json()).then(d => {
   state.data = d;
   $("#subtitle").innerHTML = `<strong>${d.total_skills}</strong> skills across <strong>${d.total_plugins}</strong> plugins` +
     (d.generated_at ? ` · updated ${esc(d.generated_at.slice(0,10))}` : "");
+  $("#pluginCount").textContent = d.total_plugins;
   renderChips(); render();
 }).catch(err => {
   $("#subtitle").textContent = "Failed to load skills.json";
