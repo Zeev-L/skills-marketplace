@@ -1230,7 +1230,7 @@
       "source_url": "https://github.com/coreyhaines31/marketingskills",
       "license": "MIT",
       "install": "claude plugin install marketing-skills@zeev-playground",
-      "skill_count": 44,
+      "skill_count": 45,
       "setup": "https",
       "skills": [
         {
@@ -1387,6 +1387,12 @@
           "skill": "marketing-psychology",
           "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavio…",
           "rel_path": "skills/marketing-psychology/SKILL.md",
+          "fm_author": ""
+        },
+        {
+          "skill": "offers",
+          "description": "When the user wants to design, construct, or improve an offer — the thing they actually sell — including value framing, bonus stacking, guarantee design, scarcity/urgency, naming, and payment structure. Also use when the user mentions 'offer,' 'offer design,' 'build an offer,'…",
+          "rel_path": "skills/offers/SKILL.md",
           "fm_author": ""
         },
         {
@@ -3338,6 +3344,18 @@
       "setup": "https"
     },
     {
+      "skill": "offers",
+      "description": "When the user wants to design, construct, or improve an offer — the thing they actually sell — including value framing, bonus stacking, guarantee design, scarcity/urgency, naming, and payment structure. Also use when the user mentions 'offer,' 'offer design,' 'build an offer,'…",
+      "plugin": "marketing-skills",
+      "role": "PMM / Biz dev",
+      "install": "claude plugin install marketing-skills@zeev-playground",
+      "author": "Corey Haines",
+      "source_url": "https://github.com/coreyhaines31/marketingskills",
+      "upstream": "coreyhaines31/marketingskills",
+      "source_repo": "Zeev-L/marketingskills",
+      "setup": "https"
+    },
+    {
       "skill": "onboarding",
       "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment…",
       "plugin": "marketing-skills",
@@ -4298,7 +4316,7 @@
       "setup": "zero"
     }
   ],
-  "total_skills": 221,
+  "total_skills": 222,
   "total_plugins": 18,
   "https_setup_cmd": "git config --global url.\"https://github.com/\".insteadOf \"git@github.com:\""
 }
