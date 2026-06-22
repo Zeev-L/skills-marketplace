@@ -315,14 +315,19 @@ function getTasksForWeb() {
       urgency: String(row[4] || ''),
       due: due,
       overdue: overdue,
-      notes: String(row[6] || '')
+      notes: String(row[6] || ''),
+      threadId: String(row[7] || '')
     };
   }).filter(t => t.task);
 
   return { tasks: tasks, colors: colors };
 }
 
-/** מעדכן סטטוס של משימה (לפי Task ID) וצובע מחדש. */
+/**
+ * מעדכן סטטוס של משימה (לפי Task ID) וצובע מחדש.
+ * הערה: כאן לא מוחקים את המייל לאשפה גם אם DONE — כדי לאפשר "ביטול" (Undo)
+ * מצד הלקוח בלי שהמייל ימחק מיד. מחיקת מיילים של DONE מתבצעת בסנכרון הרגיל.
+ */
 function webUpdateStatus(taskId, newStatus) {
   const ss = getSpreadsheet_();
   const sheet = ss.getSheetByName('משימות');
@@ -330,17 +335,46 @@ function webUpdateStatus(taskId, newStatus) {
   if (row < 0) throw new Error('המשימה לא נמצאה (ייתכן שסונכרנה מחדש).');
   sheet.getRange(row, 4).setValue(newStatus);
   applyColors(sheet, ss);
-  // אם סומן DONE — מעבירים את המייל המשויך לאשפה (כמו בסנכרון הרגיל).
-  if (newStatus === 'DONE') {
-    const tId = sheet.getRange(row, 8).getValue();
-    if (tId) {
-      try {
-        const th = GmailApp.getThreadById(tId);
-        if (th && !th.isInTrash()) th.moveToTrash();
-      } catch (err) {}
-    }
-  }
   return true;
+}
+
+/** עדכון סטטוס לכמה משימות בבת אחת (Bulk). מקבל מערך מזהים. */
+function webBulkUpdateStatus(taskIds, newStatus) {
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+  (taskIds || []).forEach(id => {
+    const row = findRowByTaskId_(sheet, id);
+    if (row > 0) sheet.getRange(row, 4).setValue(newStatus);
+  });
+  applyColors(sheet, ss);
+  return true;
+}
+
+/**
+ * הוספת משימה חדשה ידנית מתוך ה-Web App (לא ממייל).
+ * נכתבת בראש הטבלה, בלי Thread ID.
+ */
+function webAddTask(category, task, priority, due, notes) {
+  category = String(category || '').trim();
+  task = String(task || '').trim();
+  if (!task) throw new Error('חסר שם משימה.');
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+
+  // מזהה ייחודי — אם כבר קיים, מוסיפים סיומת קצרה.
+  let taskId = category ? (category + ' - ' + task) : task;
+  if (findRowByTaskId_(sheet, taskId) > 0) {
+    taskId = taskId + ' #' + String(new Date().getTime()).slice(-4);
+  }
+
+  let dueVal = '';
+  if (due) { try { dueVal = new Date(due); } catch (e) { dueVal = due; } }
+
+  const newRow = [taskId, category, task, 'OPEN', String(priority || ''), dueVal, String(notes || ''), ''];
+  sheet.insertRowsBefore(2, 1);
+  sheet.getRange(2, 1, 1, 8).setValues([newRow]);
+  applyColors(sheet, ss);
+  return getTasksForWeb();
 }
 
 /** מעדכן שדה טקסט/תאריך של משימה. field: 'urgency' | 'due' | 'notes'. */
@@ -357,6 +391,30 @@ function webUpdateField(taskId, field, value) {
   } else {
     sheet.getRange(row, col).setValue(value);
   }
+  return true;
+}
+
+/**
+ * עדכון כמה שדות של משימה בבת אחת (מפאנל העריכה / גרירה).
+ * fields יכול לכלול: category, task, status, priority, due, notes.
+ * חשוב: עמודת ה-Task ID (A) נשארת קבועה — כדי שסנכרון Gmail לא ייצור כפילויות.
+ */
+function webUpdateTask(taskId, fields) {
+  fields = fields || {};
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+  const row = findRowByTaskId_(sheet, taskId);
+  if (row < 0) throw new Error('המשימה לא נמצאה (ייתכן שסונכרנה מחדש).');
+  const rng = sheet.getRange(row, 1, 1, 8);
+  const v = rng.getValues()[0]; // [id, cat, task, status, priority, due, notes, thread]
+  if (fields.category !== undefined) v[1] = fields.category;
+  if (fields.task !== undefined)     v[2] = fields.task;
+  if (fields.status !== undefined)   v[3] = fields.status;
+  if (fields.priority !== undefined) v[4] = fields.priority;
+  if (fields.due !== undefined)      v[5] = fields.due ? new Date(fields.due) : '';
+  if (fields.notes !== undefined)    v[6] = fields.notes;
+  rng.setValues([v]); // עמודה A (v[0]) לא משתנה
+  applyColors(sheet, ss);
   return true;
 }
 

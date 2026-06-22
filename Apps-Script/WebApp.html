@@ -5,172 +5,194 @@
   <meta charset="utf-8">
   <style>
     :root {
-      --bg: #f4f6f9;
-      --surface: #ffffff;
-      --text: #1f2430;
-      --muted: #6b7280;
-      --border: #e6e9ef;
-      --shadow: 0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06);
-      --shadow-hover: 0 4px 12px rgba(16,24,40,.10), 0 12px 32px rgba(16,24,40,.12);
-      --radius: 14px;
-      --accent: #4f46e5;
-      --open: #4a90d9;
-      --progress: #1155cc;
-      --dependent: #595959;
-      --done: #34a853;
-      --danger: #d93025;
-      --danger-bg: #fce8e6;
+      --bg: #f3f5f9; --surface: #ffffff; --surface-2: #eef1f6;
+      --text: #1f2430; --muted: #6b7280; --border: #e5e8ef; --border-2:#dfe3ec;
+      --shadow: 0 1px 2px rgba(16,24,40,.05), 0 6px 20px rgba(16,24,40,.06);
+      --shadow-hover: 0 6px 16px rgba(16,24,40,.10), 0 14px 36px rgba(16,24,40,.13);
+      --shadow-panel: -16px 0 48px rgba(16,24,40,.18);
+      --radius: 14px; --accent: #4f46e5; --accent-soft:#eef0fe;
+      --open: #4a90d9; --progress: #1155cc; --dependent: #595959; --done: #34a853;
+      --danger: #d93025; --danger-bg: #fce8e6;
+      --p0:#d93025; --p1:#e8710a; --p2:#f9ab00; --p3:#1a73e8;
+      --card-pad: 12px; --card-gap: 10px; --font: 15px;
     }
+    [data-theme="dark"] {
+      --bg:#0f1218; --surface:#181c24; --surface-2:#1f242e;
+      --text:#e6e9ef; --muted:#9aa3b2; --border:#2a303b; --border-2:#333a47;
+      --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-hover:0 8px 28px rgba(0,0,0,.55);
+      --shadow-panel:-16px 0 48px rgba(0,0,0,.5); --accent:#7c83ff; --accent-soft:#23263a;
+      --danger-bg:#3a201e;
+    }
+    [data-density="compact"] { --card-pad:8px; --card-gap:6px; --font:14px; }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
+    html, body { margin:0; padding:0; }
     body {
-      font-family: 'Heebo', 'Assistant', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      font-family:'Heebo','Assistant','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+      background:var(--bg); color:var(--text); font-size:var(--font); line-height:1.5;
+      -webkit-font-smoothing:antialiased; transition:background .2s,color .2s;
     }
-    .wrap { max-width: 1280px; margin: 0 auto; padding: 20px 18px 64px; }
+    .wrap { max-width:1480px; margin:0 auto; padding:18px 16px 96px; }
 
-    /* ---------- Header ---------- */
-    .topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap; margin-bottom: 18px;
-    }
-    .title { display: flex; align-items: center; gap: 10px; }
-    .title h1 { font-size: 22px; margin: 0; font-weight: 800; letter-spacing: -.02em; }
-    .title .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
-    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .btn {
-      border: 1px solid var(--border); background: var(--surface); color: var(--text);
-      padding: 9px 14px; border-radius: 10px; font-size: 14px; font-weight: 600;
-      cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
-      transition: all .15s ease; font-family: inherit;
-    }
-    .btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn.ghost { background: transparent; }
-    .btn:disabled { opacity: .55; cursor: default; transform: none; box-shadow: none; }
+    /* Topbar */
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+    .title { display:flex; align-items:center; gap:10px; }
+    .title h1 { font-size:21px; margin:0; font-weight:800; letter-spacing:-.02em; }
+    .title .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .btn { border:1px solid var(--border); background:var(--surface); color:var(--text);
+      padding:9px 13px; border-radius:10px; font-size:14px; font-weight:600; cursor:pointer;
+      display:inline-flex; align-items:center; gap:6px; transition:all .15s; font-family:inherit; }
+    .btn:hover { box-shadow:var(--shadow); transform:translateY(-1px); }
+    .btn:active { transform:none; }
+    .btn.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .btn:disabled { opacity:.55; cursor:default; transform:none; box-shadow:none; }
+    .icon-only { width:38px; padding:9px 0; justify-content:center; }
 
-    /* ---------- Stat chips ---------- */
-    .stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
-    .chip {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
-      min-width: 120px;
-    }
-    .chip .num { font-size: 22px; font-weight: 800; line-height: 1; }
-    .chip .lbl { font-size: 12.5px; color: var(--muted); font-weight: 600; }
-    .chip .bar { width: 4px; align-self: stretch; border-radius: 4px; }
+    /* Stats */
+    .stats { display:flex; gap:9px; flex-wrap:wrap; margin-bottom:14px; }
+    .chip { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:9px 13px;
+      display:flex; align-items:center; gap:10px; box-shadow:var(--shadow); cursor:pointer; transition:all .15s; user-select:none; }
+    .chip:hover { transform:translateY(-1px); box-shadow:var(--shadow-hover); }
+    .chip.active { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft); }
+    .chip .num { font-size:20px; font-weight:800; line-height:1; }
+    .chip .lbl { font-size:12px; color:var(--muted); font-weight:600; }
+    .chip .bar { width:4px; align-self:stretch; border-radius:4px; }
 
-    /* ---------- Toolbar ---------- */
-    .toolbar {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 12px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-      box-shadow: var(--shadow); margin-bottom: 18px;
-    }
-    .field { display: flex; flex-direction: column; gap: 3px; }
-    .field label { font-size: 11px; color: var(--muted); font-weight: 700; padding-right: 2px; }
-    input, select, textarea {
-      font-family: inherit; font-size: 14px; color: var(--text);
-      border: 1px solid var(--border); border-radius: 9px; padding: 8px 10px; background: #fff;
-      outline: none; transition: border-color .15s, box-shadow .15s;
-    }
-    input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
-    .search { min-width: 220px; flex: 1; }
-    .search input { width: 100%; }
-    .toolbar .spacer { flex: 1; }
-    .toggle-views { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .toggle-views button {
-      border: none; background: #fff; padding: 9px 14px; cursor: pointer; font-family: inherit;
-      font-size: 13.5px; font-weight: 700; color: var(--muted);
-    }
-    .toggle-views button.active { background: var(--accent); color: #fff; }
-    .check { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--text); cursor: pointer; user-select: none; }
-    .check input { width: 16px; height: 16px; accent-color: var(--accent); }
+    /* Toolbar */
+    .toolbar { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+      padding:11px; display:flex; gap:9px; flex-wrap:wrap; align-items:flex-end; box-shadow:var(--shadow); margin-bottom:16px; }
+    .field { display:flex; flex-direction:column; gap:3px; }
+    .field > label { font-size:10.5px; color:var(--muted); font-weight:700; padding-inline-start:2px; }
+    input, select, textarea { font-family:inherit; font-size:14px; color:var(--text); background:var(--surface);
+      border:1px solid var(--border); border-radius:9px; padding:8px 10px; outline:none; transition:border-color .15s,box-shadow .15s; }
+    input:focus, select:focus, textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    .search { flex:1; min-width:200px; }
+    .search input { width:100%; }
+    .toolbar .spacer { flex:1; }
+    .toggle-views, .seg { display:inline-flex; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .toggle-views button, .seg button { border:none; background:var(--surface); padding:9px 13px; cursor:pointer;
+      font-family:inherit; font-size:13px; font-weight:700; color:var(--muted); }
+    .toggle-views button.active, .seg button.active { background:var(--accent); color:#fff; }
+    .check { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; cursor:pointer; user-select:none; padding-bottom:8px; }
+    .check input { width:16px; height:16px; accent-color:var(--accent); }
 
-    /* ---------- Board ---------- */
-    .board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
-    .col { background: #eef1f6; border-radius: var(--radius); padding: 10px; min-height: 120px; }
-    .col-head { display: flex; align-items: center; gap: 8px; padding: 4px 6px 10px; }
-    .col-head .name { font-weight: 800; font-size: 14px; }
-    .col-head .count { font-size: 12px; color: var(--muted); background: #fff; border-radius: 20px; padding: 1px 8px; font-weight: 700; }
-    .col-head .stripe { width: 10px; height: 10px; border-radius: 50%; }
+    /* Multi-select dropdown */
+    .ms { position:relative; }
+    .ms-btn { display:flex; align-items:center; gap:7px; min-width:130px; background:var(--surface);
+      border:1px solid var(--border); border-radius:9px; padding:8px 10px; cursor:pointer; font-size:14px; font-weight:600; }
+    .ms-btn .cnt { background:var(--accent); color:#fff; border-radius:20px; font-size:11px; padding:0 7px; font-weight:700; }
+    .ms-pop { position:absolute; z-index:40; top:calc(100% + 6px); inset-inline-start:0; width:240px; max-height:320px; overflow:auto;
+      background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:var(--shadow-hover); padding:8px; display:none; }
+    .ms-pop.open { display:block; }
+    .ms-pop input.search { width:100%; margin-bottom:6px; }
+    .ms-opt { display:flex; align-items:center; gap:8px; padding:7px 8px; border-radius:8px; cursor:pointer; font-size:13.5px; }
+    .ms-opt:hover { background:var(--surface-2); }
+    .ms-opt .sw { width:11px; height:11px; border-radius:3px; flex:none; }
+    .ms-opt input { accent-color:var(--accent); }
 
-    /* ---------- Cards ---------- */
-    .card {
-      background: var(--surface); border-radius: 12px; padding: 12px 13px; margin-bottom: 10px;
-      box-shadow: var(--shadow); border: 1px solid var(--border);
-      border-right: 5px solid var(--cat, #d0d4dc); transition: box-shadow .15s, transform .12s;
-    }
-    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); }
-    .card .cat { font-size: 11.5px; font-weight: 800; color: var(--muted); text-transform: none; }
-    .card .name { font-size: 15px; font-weight: 700; margin: 3px 0 8px; word-break: break-word; }
-    .card .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
-    .pill { font-size: 11.5px; font-weight: 700; border-radius: 20px; padding: 2px 9px; display: inline-flex; align-items: center; gap: 4px; }
-    .pill.due { background: #eef2f7; color: #475467; }
-    .pill.overdue { background: var(--danger-bg); color: var(--danger); }
-    .pill.urg { background: #fff4e5; color: #b54708; }
-    .card .row { display: flex; gap: 6px; align-items: center; }
-    .card select.status { flex: 1; font-size: 13px; font-weight: 700; }
-    .icon-btn {
-      border: 1px solid var(--border); background: #fff; border-radius: 9px; width: 36px; height: 36px;
-      cursor: pointer; font-size: 15px; display: inline-flex; align-items: center; justify-content: center;
-      transition: all .15s;
-    }
-    .icon-btn:hover { background: #f3f4f8; }
-    .card.done { opacity: .72; }
-    .card.done .name { text-decoration: line-through; text-decoration-color: #b9bec9; }
+    /* Board */
+    .board { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(270px,1fr); gap:13px; align-items:start; overflow-x:auto; padding-bottom:8px; }
+    .col { background:var(--surface-2); border-radius:var(--radius); padding:9px; transition:background .15s,box-shadow .15s; min-height:90px; }
+    .col.drop { background:var(--accent-soft); box-shadow:inset 0 0 0 2px var(--accent); }
+    .col-head { display:flex; align-items:center; gap:8px; padding:4px 6px 9px; position:sticky; top:0; }
+    .col-head .name { font-weight:800; font-size:13.5px; }
+    .col-head .count { font-size:11.5px; color:var(--muted); background:var(--surface); border-radius:20px; padding:1px 8px; font-weight:700; }
+    .col-head .stripe { width:10px; height:10px; border-radius:50%; flex:none; }
 
-    /* ---------- List view ---------- */
-    .list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-    .list-row { display: grid; grid-template-columns: 6px 1fr 150px 130px 150px 44px; gap: 12px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-    .list-row:last-child { border-bottom: none; }
-    .list-row .swatch { width: 6px; height: 34px; border-radius: 4px; background: var(--cat, #d0d4dc); }
-    .list-row .lname { font-weight: 700; }
-    .list-row .lcat { font-size: 12px; color: var(--muted); }
-    .list-head { background: #f7f8fb; font-size: 12px; font-weight: 800; color: var(--muted); }
-    .list-head .swatch { background: transparent; }
+    /* Card */
+    .card { position:relative; background:var(--surface); border-radius:12px; padding:var(--card-pad); margin-bottom:var(--card-gap);
+      box-shadow:var(--shadow); border:1px solid var(--border); border-inline-end:5px solid var(--cat,#cbd0db);
+      transition:box-shadow .15s,transform .12s,opacity .15s; cursor:grab; animation:pop .18s ease; }
+    @keyframes pop { from { opacity:0; transform:translateY(6px); } }
+    .card:hover { box-shadow:var(--shadow-hover); transform:translateY(-1px); }
+    .card.dragging { opacity:.4; }
+    .card.sel { box-shadow:0 0 0 2px var(--accent); }
+    .card .cat { font-size:11px; font-weight:800; color:var(--muted); padding-inline-end:22px; }
+    .card .name { font-size:14.5px; font-weight:700; margin:3px 0 8px; word-break:break-word; cursor:text; }
+    .card.done .name { text-decoration:line-through; text-decoration-color:#aeb4c0; }
+    .card.done { opacity:.7; }
+    .card .meta { display:flex; gap:5px; flex-wrap:wrap; align-items:center; margin-bottom:9px; }
+    .pill { font-size:11px; font-weight:700; border-radius:20px; padding:2px 8px; display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
+    .pill.due { background:var(--surface-2); color:var(--muted); }
+    .pill.overdue { background:var(--danger-bg); color:var(--danger); }
+    .pill.urg { background:#fff4e5; color:#b54708; }
+    [data-theme="dark"] .pill.urg { background:#3a2c14; color:#f5b66a; }
+    .pri { font-size:11px; font-weight:800; border-radius:6px; padding:2px 7px; color:#fff; }
+    .card .foot { display:flex; gap:6px; align-items:center; }
+    .card select.status { flex:1; font-size:12.5px; font-weight:700; padding:6px 8px; }
+    .mini { border:1px solid var(--border); background:var(--surface); border-radius:8px; width:32px; height:32px; cursor:pointer;
+      font-size:14px; display:inline-flex; align-items:center; justify-content:center; flex:none; text-decoration:none; color:var(--text); transition:background .15s; }
+    .mini:hover { background:var(--surface-2); }
+    .selbox { position:absolute; top:9px; inset-inline-start:9px; width:17px; height:17px; accent-color:var(--accent); cursor:pointer; opacity:0; transition:opacity .12s; z-index:2; }
+    .card:hover .selbox, .selbox:checked { opacity:1; }
+    select.status[data-s="OPEN"]{border-color:var(--open);} select.status[data-s="IN PROGRESS"]{border-color:var(--progress);}
+    select.status[data-s="DEPENDENT"]{border-color:var(--dependent);} select.status[data-s="DONE"]{border-color:var(--done);}
 
-    /* status select colors */
-    select.status[data-s="OPEN"] { border-color: var(--open); }
-    select.status[data-s="IN PROGRESS"] { border-color: var(--progress); }
-    select.status[data-s="DEPENDENT"] { border-color: var(--dependent); }
-    select.status[data-s="DONE"] { border-color: var(--done); }
+    /* List */
+    .list-sec { margin-bottom:18px; }
+    .list-sec .sec-head { display:flex; align-items:center; gap:8px; margin:0 2px 8px; font-weight:800; font-size:14px; }
+    .list-sec .sec-head .stripe { width:10px; height:10px; border-radius:50%; }
+    .list-sec .sec-head .count { font-size:11.5px; color:var(--muted); font-weight:700; }
+    .list { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+    .lrow { display:grid; grid-template-columns:18px 6px 1fr 110px 150px 150px 36px 36px; gap:10px; align-items:center; padding:10px 14px; border-bottom:1px solid var(--border); transition:background .12s; }
+    .lrow:last-child { border-bottom:none; } .lrow:hover { background:var(--surface-2); }
+    .lrow .sw { width:6px; height:32px; border-radius:4px; background:var(--cat,#cbd0db); }
+    .lrow .lname { font-weight:700; } .lrow .lcat { font-size:12px; color:var(--muted); }
+    .lrow.done .lname { text-decoration:line-through; color:var(--muted); }
 
-    /* ---------- Empty / loading ---------- */
-    .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
-    .empty .big { font-size: 40px; margin-bottom: 8px; }
-    .overlay { position: fixed; inset: 0; background: rgba(244,246,249,.7); display: none; align-items: center; justify-content: center; z-index: 50; backdrop-filter: blur(2px); }
-    .overlay.show { display: flex; }
-    .spinner { width: 38px; height: 38px; border: 4px solid #d9deea; border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    /* Side panel */
+    .scrim { position:fixed; inset:0; background:rgba(16,24,40,.45); opacity:0; pointer-events:none; transition:opacity .2s; z-index:55; }
+    .scrim.show { opacity:1; pointer-events:auto; }
+    .panel { position:fixed; top:0; inset-inline-start:0; height:100%; width:430px; max-width:92vw; background:var(--surface);
+      box-shadow:var(--shadow-panel); transform:translateX(-105%); transition:transform .25s cubic-bezier(.4,0,.2,1); z-index:60; display:flex; flex-direction:column; }
+    [dir="rtl"] .panel { transform:translateX(105%); }
+    .panel.show { transform:translateX(0) !important; }
+    .panel h3 { margin:0; padding:18px 20px; border-bottom:1px solid var(--border); font-size:17px; display:flex; justify-content:space-between; align-items:center; }
+    .panel .body { padding:18px 20px; overflow:auto; flex:1; display:flex; flex-direction:column; gap:15px; }
+    .panel label { font-size:12px; font-weight:700; color:var(--muted); display:block; margin-bottom:6px; }
+    .panel input, .panel select, .panel textarea { width:100%; }
+    .panel textarea { resize:vertical; min-height:74px; }
+    .panel .foot { padding:14px 20px; border-top:1px solid var(--border); display:flex; gap:8px; }
+    .date-chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:7px; }
+    .date-chips button { border:1px solid var(--border); background:var(--surface); border-radius:20px; padding:5px 11px; font-size:12.5px; font-weight:600; cursor:pointer; color:var(--text); }
+    .date-chips button:hover { border-color:var(--accent); color:var(--accent); }
+    .pri-pick { display:flex; gap:6px; }
+    .pri-pick button { flex:1; border:1px solid var(--border); background:var(--surface); border-radius:9px; padding:8px 0; font-weight:800; font-size:13px; cursor:pointer; color:var(--text); }
+    .pri-pick button.on { color:#fff; border-color:transparent; }
+    .open-mail { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; }
 
-    /* ---------- Modal ---------- */
-    .modal-bg { position: fixed; inset: 0; background: rgba(16,24,40,.45); display: none; align-items: center; justify-content: center; z-index: 60; padding: 16px; }
-    .modal-bg.show { display: flex; }
-    .modal { background: #fff; border-radius: 16px; width: 460px; max-width: 100%; box-shadow: 0 24px 64px rgba(16,24,40,.3); overflow: hidden; }
-    .modal h3 { margin: 0; padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 17px; }
-    .modal .body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
-    .modal .body label { font-size: 12px; font-weight: 700; color: var(--muted); display: block; margin-bottom: 5px; }
-    .modal .body input, .modal .body select, .modal .body textarea { width: 100%; }
-    .modal textarea { resize: vertical; min-height: 70px; }
-    .modal .foot { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-start; gap: 8px; }
-    .readonly-line { font-size: 15px; font-weight: 700; }
+    /* Bulk bar */
+    .bulk { position:fixed; bottom:18px; left:50%; transform:translateX(-50%) translateY(120%); transition:transform .25s;
+      background:var(--text); color:var(--bg); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px; box-shadow:var(--shadow-hover); z-index:50; flex-wrap:wrap; max-width:94vw; }
+    .bulk.show { transform:translateX(-50%) translateY(0); }
+    .bulk b { font-size:14px; } .bulk select { background:var(--surface); color:var(--text); }
+    .bulk .bbtn { background:transparent; border:1px solid rgba(255,255,255,.3); color:var(--bg); border-radius:9px; padding:7px 11px; cursor:pointer; font-weight:700; font-size:13px; }
 
-    /* ---------- Toast ---------- */
-    .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1f2430; color: #fff; padding: 11px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; opacity: 0; transition: all .25s; z-index: 80; box-shadow: var(--shadow-hover); }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .toast.err { background: var(--danger); }
+    /* Toast */
+    .toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:var(--bg);
+      padding:11px 16px; border-radius:11px; font-size:14px; font-weight:600; opacity:0; transition:all .25s; z-index:80; box-shadow:var(--shadow-hover); display:flex; align-items:center; gap:12px; }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+    .toast.err { background:var(--danger); color:#fff; }
+    .toast button { background:transparent; border:none; color:#8ab4ff; font-weight:800; cursor:pointer; font-size:14px; font-family:inherit; }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 980px) { .board { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 720px) {
-      .board { grid-template-columns: 1fr; }
-      .list-row { grid-template-columns: 6px 1fr 44px; }
-      .list-row .lstatus, .list-row .ldue, .list-row .lurg, .list-head .lstatus, .list-head .ldue, .list-head .lurg { display: none; }
-      .title h1 { font-size: 19px; }
+    /* Loading / empty */
+    .overlay { position:fixed; inset:0; background:rgba(0,0,0,.04); display:none; align-items:center; justify-content:center; z-index:45; }
+    .overlay.show { display:flex; }
+    .spinner { width:36px; height:36px; border:4px solid var(--border-2); border-top-color:var(--accent); border-radius:50%; animation:spin .8s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .skel { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(270px,1fr); gap:13px; }
+    .skel .scol { background:var(--surface-2); border-radius:var(--radius); padding:12px; height:300px; }
+    .skel .sc { background:var(--surface); border-radius:10px; height:70px; margin-bottom:10px; opacity:.6; animation:pulse 1.2s infinite; }
+    @keyframes pulse { 50% { opacity:.3; } }
+    .empty { text-align:center; padding:60px 20px; color:var(--muted); }
+    .empty .big { font-size:42px; margin-bottom:8px; }
+    .col-empty { text-align:center; color:var(--muted); font-size:12.5px; padding:14px 6px; border:1px dashed var(--border-2); border-radius:10px; }
+
+    @media (max-width:760px) {
+      .panel { width:100%; max-width:100%; }
+      .lrow { grid-template-columns:18px 6px 1fr 36px; }
+      .lrow .lstatus,.lrow .ldue,.lrow .lpri,.lrow .lmail { display:none; }
+      .title h1 { font-size:18px; }
     }
   </style>
 </head>
@@ -179,344 +201,426 @@
     <div class="topbar">
       <div class="title"><span class="dot"></span><h1>ניהול משימות</h1></div>
       <div class="actions">
-        <button class="btn" id="btnSync">🔄 סנכרן עכשיו</button>
-        <button class="btn" id="btnSummary">📧 שלח סיכום</button>
-        <button class="btn ghost" id="btnRefresh">↻ רענן</button>
+        <button class="btn primary" id="btnAdd">＋ משימה</button>
+        <button class="btn" id="btnSync">🔄 סנכרן</button>
+        <button class="btn" id="btnSummary">📧 סיכום</button>
+        <button class="btn icon-only" id="btnTheme" title="מצב כהה/בהיר">🌙</button>
+        <button class="btn icon-only" id="btnDensity" title="צפיפות תצוגה">↕</button>
+        <button class="btn icon-only" id="btnRefresh" title="רענן">↻</button>
       </div>
     </div>
 
     <div class="stats" id="stats"></div>
 
     <div class="toolbar">
-      <div class="field search">
-        <label>חיפוש</label>
-        <input type="search" id="search" placeholder="חפש משימה או קטגוריה…">
+      <div class="field search"><label>חיפוש</label><input type="search" id="search" placeholder="חפש משימה או קטגוריה…"></div>
+      <div class="field"><label>קטגוריות</label><div class="ms" id="msCat"></div></div>
+      <div class="field"><label>סטטוסים</label><div class="ms" id="msStatus"></div></div>
+      <div class="field"><label>קבץ לפי</label>
+        <select id="groupBy"><option value="status">סטטוס</option><option value="date">תאריך</option><option value="priority">עדיפות</option><option value="category">קטגוריה</option></select>
       </div>
-      <div class="field">
-        <label>קטגוריה</label>
-        <select id="fCat"><option value="">הכל</option></select>
+      <div class="field"><label>מיין</label>
+        <select id="sort"><option value="due">תאריך יעד</option><option value="priority">עדיפות</option><option value="name">שם</option></select>
       </div>
-      <div class="field">
-        <label>סטטוס</label>
-        <select id="fStatus">
-          <option value="">הכל</option>
-          <option value="OPEN">פתוח</option>
-          <option value="IN PROGRESS">בתהליך</option>
-          <option value="DEPENDENT">תלוי</option>
-          <option value="DONE">הושלם</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>מיון</label>
-        <select id="fSort">
-          <option value="due">לפי תאריך יעד</option>
-          <option value="cat">לפי קטגוריה</option>
-          <option value="status">לפי סטטוס</option>
-          <option value="name">לפי שם</option>
-        </select>
-      </div>
-      <label class="check"><input type="checkbox" id="fOverdue"> רק באיחור</label>
+      <label class="check"><input type="checkbox" id="hideDone" checked> הסתר שהושלמו</label>
       <div class="spacer"></div>
-      <div class="toggle-views">
-        <button id="viewBoard" class="active">לוח</button>
-        <button id="viewList">רשימה</button>
-      </div>
+      <div class="toggle-views"><button id="vBoard" class="active">לוח</button><button id="vList">רשימה</button></div>
     </div>
 
     <div id="content"></div>
   </div>
 
   <div class="overlay" id="overlay"><div class="spinner"></div></div>
+  <div class="bulk" id="bulk"></div>
   <div class="toast" id="toast"></div>
 
-  <!-- Edit modal -->
-  <div class="modal-bg" id="modalBg">
-    <div class="modal">
-      <h3>עריכת משימה</h3>
-      <div class="body">
-        <div>
-          <label>משימה</label>
-          <div class="readonly-line" id="mName"></div>
-          <div class="lcat" id="mCat" style="color:var(--muted);font-size:13px;"></div>
-        </div>
-        <div>
-          <label>סטטוס</label>
-          <select id="mStatus">
-            <option value="OPEN">פתוח</option>
-            <option value="IN PROGRESS">בתהליך</option>
-            <option value="DEPENDENT">תלוי</option>
-            <option value="DONE">הושלם</option>
-          </select>
-        </div>
-        <div>
-          <label>תאריך יעד</label>
-          <input type="date" id="mDue">
-        </div>
-        <div>
-          <label>דחיפות</label>
-          <input type="text" id="mUrg" placeholder="למשל: גבוהה">
-        </div>
-        <div>
-          <label>הערות</label>
-          <textarea id="mNotes" placeholder="הערות חופשיות…"></textarea>
-        </div>
+  <div class="scrim" id="scrim"></div>
+  <div class="panel" id="panel">
+    <h3><span id="pTitle">משימה</span><span class="mini" id="pClose" style="cursor:pointer">✕</span></h3>
+    <div class="body">
+      <div><label>משימה</label><input type="text" id="pTask" placeholder="מה צריך לעשות?"></div>
+      <div><label>קטגוריה</label><input type="text" id="pCat" list="catList" placeholder="למשל: לקוחות"><datalist id="catList"></datalist></div>
+      <div><label>סטטוס</label><select id="pStatus"></select></div>
+      <div><label>עדיפות</label><div class="pri-pick" id="pPri"></div></div>
+      <div><label>תאריך יעד</label><input type="date" id="pDue">
+        <div class="date-chips"><button data-d="0">היום</button><button data-d="1">מחר</button><button data-d="7">שבוע הבא</button><button data-d="-1">נקה</button></div>
       </div>
-      <div class="foot">
-        <button class="btn primary" id="mSave">💾 שמור</button>
-        <button class="btn ghost" id="mCancel">ביטול</button>
-      </div>
+      <div><label>הערות</label><textarea id="pNotes" placeholder="הערות חופשיות…"></textarea></div>
+      <div id="pMailWrap" style="display:none"><a class="open-mail" id="pMail" target="_blank">📩 פתח את המייל המקורי ב-Gmail</a></div>
     </div>
+    <div class="foot"><button class="btn primary" id="pSave">💾 שמור</button><button class="btn" id="pCancel">ביטול</button></div>
   </div>
 
 <script>
-  var STATE = { tasks: [], colors: {}, view: 'board', editing: null };
-  var STATUS_LABELS = { 'OPEN': 'פתוח', 'IN PROGRESS': 'בתהליך', 'DEPENDENT': 'תלוי', 'DONE': 'הושלם' };
-  var COLUMNS = [
-    { key: 'OPEN', label: 'פתוח', color: 'var(--open)' },
-    { key: 'IN PROGRESS', label: 'בתהליך', color: 'var(--progress)' },
-    { key: 'DEPENDENT', label: 'תלוי', color: 'var(--dependent)' },
-    { key: 'DONE', label: 'הושלם', color: 'var(--done)' }
+  var S = {
+    tasks:[], colors:{}, view:'board', groupBy:'status', sort:'due',
+    filters:{ cats:new Set(), statuses:new Set(), q:'', overdue:false, hideDone:true },
+    sel:new Set(), editing:null, theme:'light', density:'comfortable', pendingUndo:null
+  };
+  var STATUSES = [
+    {key:'OPEN',label:'פתוח',color:'var(--open)'},
+    {key:'IN PROGRESS',label:'בתהליך',color:'var(--progress)'},
+    {key:'DEPENDENT',label:'תלוי',color:'var(--dependent)'},
+    {key:'DONE',label:'הושלם',color:'var(--done)'}
+  ];
+  var PRIORITIES = [{key:'P0',color:'var(--p0)'},{key:'P1',color:'var(--p1)'},{key:'P2',color:'var(--p2)'},{key:'P3',color:'var(--p3)'}];
+  var DATE_BUCKETS = [
+    {key:'overdue',label:'באיחור',color:'var(--danger)'},
+    {key:'today',label:'היום',color:'var(--open)'},
+    {key:'tomorrow',label:'מחר',color:'var(--progress)'},
+    {key:'week',label:'השבוע',color:'var(--p2)'},
+    {key:'later',label:'מאוחר יותר',color:'var(--muted)'},
+    {key:'none',label:'ללא תאריך',color:'var(--dependent)'}
   ];
 
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function $(id) { return document.getElementById(id); }
-  function showOverlay(b) { $('overlay').classList.toggle('show', b); }
-  function toast(msg, isErr) {
-    var t = $('toast'); t.textContent = msg; t.className = 'toast show' + (isErr ? ' err' : '');
-    setTimeout(function(){ t.className = 'toast'; }, 2600);
-  }
-  function fmtDate(s) {
-    if (!s) return '';
-    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
-    return m ? m[3] + '/' + m[2] + '/' + m[1] : s;
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function $(id){ return document.getElementById(id); }
+  function showOverlay(b){ $('overlay').classList.toggle('show',b); }
+  function statusLabel(k){ var s=STATUSES.find(x=>x.key===k); return s?s.label:k; }
+  function statusColor(k){ var s=STATUSES.find(x=>x.key===k); return s?s.color:'var(--muted)'; }
+  function catColor(c){ return S.colors[c]||'#cbd0db'; }
+
+  function srun(method,args,ok,err){
+    var r=google.script.run
+      .withSuccessHandler(ok||function(){})
+      .withFailureHandler(err||function(e){ showOverlay(false); toast('שגיאה: '+(e&&e.message||e),true); });
+    r[method].apply(r,args||[]);
   }
 
-  /* ---------- Data load ---------- */
-  function load(initial) {
-    showOverlay(true);
-    google.script.run
-      .withSuccessHandler(function(res) {
-        STATE.tasks = res.tasks || [];
-        STATE.colors = res.colors || {};
-        buildCategoryFilter();
-        render();
-        showOverlay(false);
-      })
-      .withFailureHandler(function(err) { showOverlay(false); toast('שגיאה בטעינה: ' + err.message, true); })
-      .getTasksForWeb();
+  /* ---- dates ---- */
+  function isISO(s){ return /^\d{4}-\d{2}-\d{2}$/.test(s); }
+  function todayISO(){ var d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function addDaysISO(iso,n){ var d=new Date(iso+'T00:00:00'); d.setDate(d.getDate()+n);
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function dayDiff(iso){ var a=new Date(iso+'T00:00:00'), b=new Date(todayISO()+'T00:00:00'); return Math.round((a-b)/86400000); }
+  function relDate(due){ if(!isISO(due)) return due; var d=dayDiff(due);
+    if(d===0) return 'היום'; if(d===1) return 'מחר'; if(d===-1) return 'אתמול';
+    if(d>1&&d<=7) return 'בעוד '+d+' ימים'; if(d<-1) return 'לפני '+(-d)+' ימים';
+    var p=due.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; }
+  function dueBucket(t){ if(!t.due||!isISO(t.due)) return 'none'; var d=dayDiff(t.due);
+    if(d<0) return 'overdue'; if(d===0) return 'today'; if(d===1) return 'tomorrow'; if(d<=7) return 'week'; return 'later'; }
+  function normPri(t){ var m=/(p[0-3])/i.exec(t.urgency||''); return m?m[1].toUpperCase():''; }
+  function priColor(p){ var x=PRIORITIES.find(o=>o.key===p); return x?x.color:'var(--muted)'; }
+  function priRank(p){ var i=PRIORITIES.findIndex(o=>o.key===p); return i<0?9:i; }
+
+  /* ---- prefs ---- */
+  function savePrefs(){ try{ localStorage.setItem('tm_prefs', JSON.stringify({theme:S.theme,density:S.density,view:S.view,groupBy:S.groupBy,sort:S.sort,hideDone:S.filters.hideDone})); }catch(e){} }
+  function loadPrefs(){ try{ var p=JSON.parse(localStorage.getItem('tm_prefs')||'{}');
+    if(p.theme)S.theme=p.theme; if(p.density)S.density=p.density; if(p.view)S.view=p.view;
+    if(p.groupBy)S.groupBy=p.groupBy; if(p.sort)S.sort=p.sort; if(typeof p.hideDone==='boolean')S.filters.hideDone=p.hideDone; }catch(e){} }
+  function applyPrefs(){ document.documentElement.setAttribute('data-theme',S.theme);
+    document.documentElement.setAttribute('data-density',S.density);
+    $('btnTheme').textContent = S.theme==='dark'?'☀️':'🌙';
+    $('groupBy').value=S.groupBy; $('sort').value=S.sort; $('hideDone').checked=S.filters.hideDone;
+    $('vBoard').classList.toggle('active',S.view==='board'); $('vList').classList.toggle('active',S.view==='list'); }
+
+  /* ---- data ---- */
+  function load(initial){
+    if(initial) renderSkeleton(); else showOverlay(true);
+    srun('getTasksForWeb',[],function(res){ S.tasks=res.tasks||[]; S.colors=res.colors||{};
+      buildFilters(); render(); showOverlay(false); });
+  }
+  function find(id){ for(var i=0;i<S.tasks.length;i++) if(S.tasks[i].id===id) return S.tasks[i]; return null; }
+
+  /* ---- multi-select dropdowns ---- */
+  function buildMS(container, getOpts, selSet, searchable){
+    container.innerHTML='';
+    var btn=document.createElement('button'); btn.className='ms-btn';
+    var lbl=document.createElement('span'); var cnt=document.createElement('span'); cnt.className='cnt';
+    btn.appendChild(lbl); btn.appendChild(cnt);
+    var pop=document.createElement('div'); pop.className='ms-pop';
+    container.appendChild(btn); container.appendChild(pop);
+    function refreshLabel(){ lbl.textContent = selSet.size? selSet.size+' נבחרו':'הכל'; cnt.style.display=selSet.size?'inline':'none'; cnt.textContent=selSet.size; }
+    function build(){ pop.innerHTML=''; var opts=getOpts(); var q='';
+      if(searchable){ var si=document.createElement('input'); si.className='search'; si.placeholder='חפש…';
+        si.addEventListener('input',function(){ q=si.value.toLowerCase(); rows(); }); pop.appendChild(si); }
+      var holder=document.createElement('div'); pop.appendChild(holder);
+      function rows(){ holder.innerHTML='';
+        opts.filter(o=>!q||o.label.toLowerCase().indexOf(q)>=0).forEach(function(o){
+          var row=document.createElement('label'); row.className='ms-opt';
+          var c=document.createElement('input'); c.type='checkbox'; c.checked=selSet.has(o.key);
+          c.addEventListener('change',function(){ c.checked?selSet.add(o.key):selSet.delete(o.key); refreshLabel(); render(); });
+          row.appendChild(c);
+          if(o.color){ var sw=document.createElement('span'); sw.className='sw'; sw.style.background=o.color; row.appendChild(sw); }
+          var t=document.createElement('span'); t.textContent=o.label; row.appendChild(t); holder.appendChild(row);
+        });
+      }
+      rows();
+    }
+    btn.addEventListener('click',function(e){ e.stopPropagation(); var open=pop.classList.contains('open');
+      closeAllPops(); if(!open){ build(); pop.classList.add('open'); } });
+    refreshLabel();
+    return { refresh:refreshLabel };
+  }
+  function closeAllPops(){ document.querySelectorAll('.ms-pop.open').forEach(p=>p.classList.remove('open')); }
+  document.addEventListener('click',closeAllPops);
+
+  var msCatApi, msStatusApi;
+  function buildFilters(){
+    msCatApi = buildMS($('msCat'), function(){ var set={}; S.tasks.forEach(t=>{ if(t.category) set[t.category]=1; });
+      return Object.keys(set).sort().map(c=>({key:c,label:c,color:catColor(c)})); }, S.filters.cats, true);
+    msStatusApi = buildMS($('msStatus'), function(){ return STATUSES.map(s=>({key:s.key,label:s.label,color:s.color})); }, S.filters.statuses, false);
+    // datalist for panel category
+    var dl=$('catList'); var set={}; S.tasks.forEach(t=>{ if(t.category) set[t.category]=1; });
+    dl.innerHTML=Object.keys(set).sort().map(c=>'<option value="'+esc(c)+'">').join('');
   }
 
-  function buildCategoryFilter() {
-    var cats = {};
-    STATE.tasks.forEach(function(t){ if (t.category) cats[t.category] = true; });
-    var sel = $('fCat'); var cur = sel.value;
-    sel.innerHTML = '<option value="">הכל</option>';
-    Object.keys(cats).sort().forEach(function(c){
-      var o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
-    });
-    sel.value = cur;
-  }
-
-  /* ---------- Filtering + sorting ---------- */
-  function visibleTasks() {
-    var q = $('search').value.trim().toLowerCase();
-    var fc = $('fCat').value, fs = $('fStatus').value, ov = $('fOverdue').checked;
-    var list = STATE.tasks.filter(function(t){
-      if (fc && t.category !== fc) return false;
-      if (fs && t.status !== fs) return false;
-      if (ov && !t.overdue) return false;
-      if (q && (t.task + ' ' + t.category).toLowerCase().indexOf(q) < 0) return false;
+  /* ---- filtering / grouping ---- */
+  function visible(){
+    var f=S.filters, q=f.q.toLowerCase();
+    return S.tasks.filter(function(t){
+      if(f.hideDone && t.status==='DONE') return false;
+      if(f.statuses.size && !f.statuses.has(t.status)) return false;
+      if(f.cats.size && !f.cats.has(t.category)) return false;
+      if(f.overdue && !(dueBucket(t)==='overdue' && t.status!=='DONE')) return false;
+      if(q && (t.task+' '+t.category).toLowerCase().indexOf(q)<0) return false;
       return true;
     });
-    var sort = $('fSort').value;
-    list.sort(function(a, b){
-      if (sort === 'due') {
-        if (!a.due && !b.due) return 0; if (!a.due) return 1; if (!b.due) return -1;
-        return a.due < b.due ? -1 : a.due > b.due ? 1 : 0;
-      }
-      if (sort === 'cat') return a.category.localeCompare(b.category, 'he');
-      if (sort === 'name') return a.task.localeCompare(b.task, 'he');
-      if (sort === 'status') {
-        var order = { 'OPEN':0, 'IN PROGRESS':1, 'DEPENDENT':2, 'DONE':3 };
-        return (order[a.status] || 0) - (order[b.status] || 0);
-      }
+  }
+  function sortTasks(arr){ var s=S.sort;
+    return arr.slice().sort(function(a,b){
+      if(s==='due'){ var ab=dueBucket(a)==='overdue', bb=dueBucket(b)==='overdue';
+        if(ab!==bb) return ab?-1:1;
+        if(!a.due&&!b.due) return 0; if(!a.due) return 1; if(!b.due) return -1; return a.due<b.due?-1:a.due>b.due?1:0; }
+      if(s==='priority') return priRank(normPri(a))-priRank(normPri(b));
+      if(s==='name') return (a.task||'').localeCompare(b.task||'','he');
       return 0;
     });
-    return list;
+  }
+  function groups(){
+    if(S.groupBy==='status') return STATUSES.filter(s=> !(S.filters.hideDone && s.key==='DONE')).map(s=>({key:s.key,label:s.label,color:s.color}));
+    if(S.groupBy==='priority') return PRIORITIES.map(p=>({key:p.key,label:p.key,color:p.color})).concat([{key:'',label:'ללא עדיפות',color:'var(--muted)'}]);
+    if(S.groupBy==='date') return DATE_BUCKETS.slice();
+    // category
+    var set={}; S.tasks.forEach(t=>{ set[t.category||'(ללא קטגוריה)']=1; });
+    return Object.keys(set).sort().map(c=>({key:c,label:c,color:catColor(c)}));
+  }
+  function groupKeyOf(t){
+    if(S.groupBy==='status') return t.status;
+    if(S.groupBy==='priority') return normPri(t);
+    if(S.groupBy==='date') return dueBucket(t);
+    return t.category||'(ללא קטגוריה)';
   }
 
-  /* ---------- Stats ---------- */
-  function renderStats() {
-    var c = { 'OPEN':0, 'IN PROGRESS':0, 'DEPENDENT':0, 'DONE':0, overdue:0 };
-    STATE.tasks.forEach(function(t){ c[t.status] = (c[t.status]||0)+1; if (t.overdue && t.status !== 'DONE') c.overdue++; });
-    var html = '';
-    html += chip(c['OPEN'], 'פתוחות', 'var(--open)');
-    html += chip(c['IN PROGRESS'], 'בתהליך', 'var(--progress)');
-    html += chip(c['DEPENDENT'], 'תלויות', 'var(--dependent)');
-    html += chip(c.overdue, 'באיחור', 'var(--danger)');
-    html += chip(c['DONE'], 'הושלמו', 'var(--done)');
-    $('stats').innerHTML = html;
-  }
-  function chip(num, lbl, color) {
-    return '<div class="chip"><span class="bar" style="background:' + color + '"></span>' +
-           '<div><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div></div>';
-  }
-
-  /* ---------- Render ---------- */
-  function render() {
-    renderStats();
-    if (STATE.tasks.length === 0) {
-      $('content').innerHTML = '<div class="empty"><div class="big">📭</div><b>אין משימות עדיין</b>' +
-        '<p>לחץ "סנכרן עכשיו" כדי למשוך מיילים מתויגים.</p></div>';
-      return;
+  /* ---- stats ---- */
+  function renderStats(){
+    var c={'OPEN':0,'IN PROGRESS':0,'DEPENDENT':0,'DONE':0,overdue:0};
+    S.tasks.forEach(t=>{ c[t.status]=(c[t.status]||0)+1; if(dueBucket(t)==='overdue'&&t.status!=='DONE') c.overdue++; });
+    function chip(key,num,lbl,color,kind){
+      var active = kind==='overdue'? S.filters.overdue : S.filters.statuses.has(key);
+      return '<div class="chip'+(active?' active':'')+'" data-kind="'+kind+'" data-key="'+esc(key||'')+'">'+
+        '<span class="bar" style="background:'+color+'"></span><div><div class="num">'+num+'</div><div class="lbl">'+lbl+'</div></div></div>';
     }
-    STATE.view === 'board' ? renderBoard() : renderList();
+    $('stats').innerHTML =
+      chip('OPEN',c['OPEN'],'פתוחות','var(--open)','status')+
+      chip('IN PROGRESS',c['IN PROGRESS'],'בתהליך','var(--progress)','status')+
+      chip('DEPENDENT',c['DEPENDENT'],'תלויות','var(--dependent)','status')+
+      chip('',c.overdue,'באיחור','var(--danger)','overdue')+
+      chip('DONE',c['DONE'],'הושלמו','var(--done)','status');
+    $('stats').querySelectorAll('.chip').forEach(function(el){
+      el.addEventListener('click',function(){
+        var kind=el.getAttribute('data-kind'), key=el.getAttribute('data-key');
+        if(kind==='overdue'){ S.filters.overdue=!S.filters.overdue; }
+        else { S.filters.statuses.has(key)?S.filters.statuses.delete(key):S.filters.statuses.add(key); if(msStatusApi)msStatusApi.refresh(); }
+        render();
+      });
+    });
   }
 
-  function catColor(cat) { return STATE.colors[cat] || '#d0d4dc'; }
-
-  function statusSelect(t) {
-    var opts = COLUMNS.map(function(col){
-      return '<option value="' + col.key + '"' + (t.status === col.key ? ' selected' : '') + '>' + col.label + '</option>';
-    }).join('');
-    return '<select class="status" data-s="' + esc(t.status) + '" data-id="' + esc(t.id) + '" onchange="onStatusChange(this)">' + opts + '</select>';
+  /* ---- render ---- */
+  function render(){
+    renderStats();
+    if(!S.tasks.length){ $('content').innerHTML='<div class="empty"><div class="big">📭</div><b>אין משימות עדיין</b><p>לחץ "＋ משימה" או "סנכרן" כדי להתחיל.</p></div>'; return; }
+    S.view==='board'?renderBoard():renderList();
+    renderBulk();
   }
-
-  function metaPills(t) {
-    var h = '';
-    if (t.due) h += '<span class="pill ' + (t.overdue && t.status !== 'DONE' ? 'overdue' : 'due') + '">' +
-      (t.overdue && t.status !== 'DONE' ? '⚠ ' : '📅 ') + esc(fmtDate(t.due)) + '</span>';
-    if (t.urgency) h += '<span class="pill urg">🔥 ' + esc(t.urgency) + '</span>';
+  function priPillHtml(t){ var p=normPri(t); if(p) return '<span class="pri" style="background:'+priColor(p)+'">'+p+'</span>'; return ''; }
+  function metaHtml(t){ var h='';
+    if(t.due){ var od=dueBucket(t)==='overdue'&&t.status!=='DONE';
+      h+='<span class="pill '+(od?'overdue':'due')+'">'+(od?'⚠ ':'📅 ')+esc(relDate(t.due))+'</span>'; }
+    var p=normPri(t); var cu=(t.urgency||'').trim();
+    if(cu && !p) h+='<span class="pill urg">🔥 '+esc(cu)+'</span>';
     return h;
   }
+  function mailBtn(t){ return t.threadId? '<a class="mini" title="פתח מייל" target="_blank" href="https://mail.google.com/mail/u/0/#all/'+encodeURIComponent(t.threadId)+'">📩</a>':''; }
+  function statusSel(t){ return '<select class="status" data-s="'+esc(t.status)+'" data-id="'+esc(t.id)+'" onchange="onStatus(this)">'+
+      STATUSES.map(s=>'<option value="'+s.key+'"'+(t.status===s.key?' selected':'')+'>'+s.label+'</option>').join('')+'</select>'; }
 
-  function renderBoard() {
-    var list = visibleTasks();
-    var byStatus = {}; COLUMNS.forEach(function(c){ byStatus[c.key] = []; });
-    list.forEach(function(t){ (byStatus[t.status] || (byStatus[t.status]=[])).push(t); });
+  function cardHtml(t){
+    return '<div class="card'+(t.status==='DONE'?' done':'')+(S.sel.has(t.id)?' sel':'')+'" draggable="true" data-id="'+esc(t.id)+'">'+
+      '<input type="checkbox" class="selbox" '+(S.sel.has(t.id)?'checked':'')+' onclick="onSel(event,\''+encodeURIComponent(t.id)+'\')">'+
+      '<div class="cat">'+priPillHtml(t)+' '+esc(t.category||'—')+'</div>'+
+      '<div class="name" onclick="openEdit(\''+encodeURIComponent(t.id)+'\')">'+esc(t.task)+'</div>'+
+      (metaHtml(t)?'<div class="meta">'+metaHtml(t)+'</div>':'')+
+      '<div class="foot">'+statusSel(t)+mailBtn(t)+'<button class="mini" title="עריכה" onclick="openEdit(\''+encodeURIComponent(t.id)+'\')">✎</button></div>'+
+    '</div>';
+  }
 
-    var html = '<div class="board">';
-    COLUMNS.forEach(function(col){
-      var items = byStatus[col.key] || [];
-      html += '<div class="col"><div class="col-head"><span class="stripe" style="background:' + col.color + '"></span>' +
-        '<span class="name">' + col.label + '</span><span class="count">' + items.length + '</span></div>';
-      items.forEach(function(t){ html += cardHtml(t); });
-      html += '</div>';
+  function renderBoard(){
+    var list=visible(), gs=groups();
+    var byKey={}; gs.forEach(g=>byKey[g.key]=[]);
+    list.forEach(t=>{ var k=groupKeyOf(t); if(!byKey[k])byKey[k]=[]; byKey[k].push(t); });
+    var html='<div class="board">';
+    gs.forEach(function(g){ var items=sortTasks(byKey[g.key]||[]);
+      html+='<div class="col" data-key="'+esc(g.key)+'" ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">'+
+        '<div class="col-head"><span class="stripe" style="background:'+g.color+'"></span><span class="name">'+esc(g.label)+'</span><span class="count">'+items.length+'</span></div>'+
+        (items.length?items.map(cardHtml).join(''):'<div class="col-empty">ריק</div>')+'</div>';
     });
-    html += '</div>';
-    $('content').innerHTML = html;
+    html+='</div>'; $('content').innerHTML=html; wireDrag();
   }
-
-  function cardHtml(t) {
-    return '<div class="card' + (t.status === 'DONE' ? ' done' : '') + '" style="--cat:' + catColor(t.category) + '">' +
-      '<div class="cat">' + esc(t.category || '—') + '</div>' +
-      '<div class="name">' + esc(t.task) + '</div>' +
-      (metaPills(t) ? '<div class="meta">' + metaPills(t) + '</div>' : '') +
-      '<div class="row">' + statusSelect(t) +
-      '<button class="icon-btn" title="עריכה" onclick="openEdit(\'' + encodeURIComponent(t.id) + '\')">✎</button></div>' +
-      '</div>';
-  }
-
-  function renderList() {
-    var list = visibleTasks();
-    var html = '<div class="list">';
-    html += '<div class="list-row list-head"><div class="swatch"></div><div>משימה</div>' +
-      '<div class="lstatus">סטטוס</div><div class="ldue">תאריך יעד</div><div class="lurg">דחיפות</div><div></div></div>';
-    list.forEach(function(t){
-      html += '<div class="list-row' + (t.status === 'DONE' ? ' done' : '') + '" style="--cat:' + catColor(t.category) + '">' +
-        '<div class="swatch"></div>' +
-        '<div><div class="lname">' + esc(t.task) + '</div><div class="lcat">' + esc(t.category || '—') + '</div></div>' +
-        '<div class="lstatus">' + statusSelect(t) + '</div>' +
-        '<div class="ldue">' + (t.due ? '<span class="pill ' + (t.overdue && t.status!=='DONE' ? 'overdue' : 'due') + '">' + esc(fmtDate(t.due)) + '</span>' : '<span style="color:var(--muted)">—</span>') + '</div>' +
-        '<div class="lurg">' + (t.urgency ? esc(t.urgency) : '<span style="color:var(--muted)">—</span>') + '</div>' +
-        '<button class="icon-btn" title="עריכה" onclick="openEdit(\'' + encodeURIComponent(t.id) + '\')">✎</button>' +
+  function renderList(){
+    var list=visible(), gs=groups();
+    var byKey={}; gs.forEach(g=>byKey[g.key]=[]);
+    list.forEach(t=>{ var k=groupKeyOf(t); if(!byKey[k])byKey[k]=[]; byKey[k].push(t); });
+    var html='';
+    gs.forEach(function(g){ var items=sortTasks(byKey[g.key]||[]); if(!items.length) return;
+      html+='<div class="list-sec"><div class="sec-head"><span class="stripe" style="background:'+g.color+'"></span>'+esc(g.label)+' <span class="count">('+items.length+')</span></div><div class="list">';
+      items.forEach(function(t){
+        html+='<div class="lrow'+(t.status==='DONE'?' done':'')+'" style="--cat:'+catColor(t.category)+'">'+
+          '<input type="checkbox" class="selbox" style="opacity:1;position:static" '+(S.sel.has(t.id)?'checked':'')+' onclick="onSel(event,\''+encodeURIComponent(t.id)+'\')">'+
+          '<div class="sw"></div>'+
+          '<div><div class="lname" onclick="openEdit(\''+encodeURIComponent(t.id)+'\')">'+priPillHtml(t)+' '+esc(t.task)+'</div><div class="lcat">'+esc(t.category||'—')+'</div></div>'+
+          '<div class="lpri">'+(metaHtml(t)||'<span style="color:var(--muted)">—</span>')+'</div>'+
+          '<div class="lstatus">'+statusSel(t)+'</div>'+
+          '<div class="ldue"></div>'+
+          '<div class="lmail">'+mailBtn(t)+'</div>'+
+          '<button class="mini" onclick="openEdit(\''+encodeURIComponent(t.id)+'\')">✎</button>'+
         '</div>';
+      });
+      html+='</div></div>';
     });
-    html += '</div>';
-    $('content').innerHTML = html;
+    $('content').innerHTML = html || '<div class="empty"><div class="big">🔍</div><b>אין משימות שתואמות לסינון</b></div>';
   }
+  function renderSkeleton(){ var h='<div class="skel">'; for(var i=0;i<4;i++){ h+='<div class="scol">'; for(var j=0;j<3;j++)h+='<div class="sc"></div>'; h+='</div>'; } h+='</div>'; $('content').innerHTML=h; }
 
-  /* ---------- Mutations ---------- */
-  function findTask(id) { for (var i=0;i<STATE.tasks.length;i++){ if (STATE.tasks[i].id === id) return STATE.tasks[i]; } return null; }
-
-  window.onStatusChange = function(sel) {
-    var id = decodeURIComponent(sel.getAttribute('data-id'));
-    var newStatus = sel.value;
-    var t = findTask(id); if (!t) return;
-    var prev = t.status;
-    showOverlay(true);
-    google.script.run
-      .withSuccessHandler(function(){ t.status = newStatus; showOverlay(false); render(); toast('הסטטוס עודכן ✓'); })
-      .withFailureHandler(function(err){ showOverlay(false); toast('שגיאה: ' + err.message, true); t.status = prev; render(); })
-      .webUpdateStatus(id, newStatus);
+  /* ---- drag & drop ---- */
+  var dragId=null;
+  function wireDrag(){ document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('dragstart',function(e){ dragId=c.getAttribute('data-id'); c.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+    c.addEventListener('dragend',function(){ c.classList.remove('dragging'); dragId=null; }); }); }
+  window.onDragOver=function(e){ e.preventDefault(); e.currentTarget.classList.add('drop'); };
+  window.onDragLeave=function(e){ e.currentTarget.classList.remove('drop'); };
+  window.onDrop=function(e){ e.preventDefault(); e.currentTarget.classList.remove('drop');
+    if(!dragId) return; var key=e.currentTarget.getAttribute('data-key'); var t=find(dragId); if(!t) return;
+    if(S.groupBy==='status'){ if(t.status!==key) changeStatus(dragId,key); }
+    else if(S.groupBy==='priority'){ setField(dragId,'priority',key,function(){ t.urgency=key; render(); }); }
+    else if(S.groupBy==='category'){ var c=key==='(ללא קטגוריה)'?'':key; setField(dragId,'category',c,function(){ t.category=c; buildFilters(); render(); }); }
+    else if(S.groupBy==='date'){ var iso=bucketToDate(key); setField(dragId,'due',iso,function(){ t.due=iso; render(); }); }
   };
+  function bucketToDate(k){ var today=todayISO();
+    if(k==='today')return today; if(k==='tomorrow')return addDaysISO(today,1); if(k==='week')return addDaysISO(today,7);
+    if(k==='later')return addDaysISO(today,30); if(k==='none')return ''; if(k==='overdue')return addDaysISO(today,-1); return ''; }
 
-  window.openEdit = function(encId) {
-    var id = decodeURIComponent(encId);
-    var t = findTask(id); if (!t) return;
-    STATE.editing = id;
-    $('mName').textContent = t.task;
-    $('mCat').textContent = t.category || '—';
-    $('mStatus').value = t.status;
-    $('mDue').value = /^\d{4}-\d{2}-\d{2}$/.test(t.due) ? t.due : '';
-    $('mUrg').value = t.urgency || '';
-    $('mNotes').value = t.notes || '';
-    $('modalBg').classList.add('show');
-  };
-  function closeModal() { $('modalBg').classList.remove('show'); STATE.editing = null; }
+  /* ---- mutations ---- */
+  function changeStatus(id,newStatus){ var t=find(id); if(!t) return; var prev=t.status; t.status=newStatus; render();
+    srun('webUpdateStatus',[id,newStatus],function(){
+      if(newStatus==='DONE'){ toastUndo('סומן כהושלם ✓', function(){ revertStatus(id,prev); }); }
+      else { toast('עודכן ✓'); }
+    }, function(e){ t.status=prev; render(); toast('שגיאה: '+e.message,true); });
+  }
+  function revertStatus(id,prev){ var t=find(id); if(!t)return; t.status=prev; render();
+    srun('webUpdateStatus',[id,prev],function(){ toast('בוטל'); }); }
+  window.onStatus=function(sel){ changeStatus(sel.getAttribute('data-id'), sel.value); };
+  function setField(id,field,value,ok){ var o={}; o[field]=value; srun('webUpdateTask',[id,o], ok||function(){toast('נשמר ✓');}); }
 
-  function saveEdit() {
-    var id = STATE.editing; var t = findTask(id); if (!t) { closeModal(); return; }
-    var newStatus = $('mStatus').value, newDue = $('mDue').value, newUrg = $('mUrg').value, newNotes = $('mNotes').value;
-    var calls = [];
-    if (newStatus !== t.status) calls.push(['webUpdateStatus', [id, newStatus], function(){ t.status = newStatus; }]);
-    if (newDue !== (/^\d{4}-\d{2}-\d{2}$/.test(t.due) ? t.due : '')) calls.push(['webUpdateField', [id, 'due', newDue], function(){ t.due = newDue; t.overdue = newDue && newDue < new Date().toISOString().slice(0,10); }]);
-    if (newUrg !== (t.urgency||'')) calls.push(['webUpdateField', [id, 'urgency', newUrg], function(){ t.urgency = newUrg; }]);
-    if (newNotes !== (t.notes||'')) calls.push(['webUpdateField', [id, 'notes', newNotes], function(){ t.notes = newNotes; }]);
-    if (!calls.length) { closeModal(); return; }
+  /* ---- selection / bulk ---- */
+  window.onSel=function(ev,encId){ ev.stopPropagation(); var id=decodeURIComponent(encId);
+    S.sel.has(id)?S.sel.delete(id):S.sel.add(id); render(); };
+  function renderBulk(){ var b=$('bulk');
+    if(!S.sel.size){ b.classList.remove('show'); return; }
+    b.innerHTML='<b>'+S.sel.size+' נבחרו</b>'+
+      '<select id="bulkStatus"><option value="">שנה סטטוס…</option>'+STATUSES.map(s=>'<option value="'+s.key+'">'+s.label+'</option>').join('')+'</select>'+
+      '<button class="bbtn" id="bulkDone">סמן כהושלם</button><button class="bbtn" id="bulkClear">נקה בחירה</button>';
+    b.classList.add('show');
+    $('bulkStatus').addEventListener('change',function(){ if(this.value) bulkStatus(this.value); });
+    $('bulkDone').addEventListener('click',function(){ bulkStatus('DONE'); });
+    $('bulkClear').addEventListener('click',function(){ S.sel.clear(); render(); });
+  }
+  function bulkStatus(st){ var ids=Array.from(S.sel); ids.forEach(id=>{ var t=find(id); if(t)t.status=st; });
+    S.sel.clear(); render(); showOverlay(true);
+    srun('webBulkUpdateStatus',[ids,st],function(){ showOverlay(false); toast(ids.length+' משימות עודכנו ✓'); }); }
+
+  /* ---- edit / add panel ---- */
+  function openPanel(){ $('scrim').classList.add('show'); $('panel').classList.add('show'); }
+  function closePanel(){ $('scrim').classList.remove('show'); $('panel').classList.remove('show'); S.editing=null; }
+  function fillPriPicker(cur){ var el=$('pPri'); el.innerHTML='';
+    [{key:'',label:'—',color:'var(--muted)'}].concat(PRIORITIES).forEach(function(p){
+      var btn=document.createElement('button'); btn.textContent=p.label||p.key; btn.dataset.k=p.key;
+      if((normalizeCur(cur))===p.key){ btn.classList.add('on'); btn.style.background=p.color; }
+      btn.addEventListener('click',function(){ el.querySelectorAll('button').forEach(x=>{x.classList.remove('on');x.style.background='';});
+        btn.classList.add('on'); btn.style.background=p.color; el.dataset.val=p.key; });
+      el.appendChild(btn);
+    }); el.dataset.val=normalizeCur(cur);
+  }
+  function normalizeCur(cur){ var m=/(p[0-3])/i.exec(cur||''); return m?m[1].toUpperCase():''; }
+  window.openEdit=function(encId){ var id=decodeURIComponent(encId); var t=find(id); if(!t)return; S.editing=id;
+    $('pTitle').textContent='עריכת משימה'; $('pTask').value=t.task; $('pCat').value=t.category||'';
+    $('pStatus').innerHTML=STATUSES.map(s=>'<option value="'+s.key+'">'+s.label+'</option>').join(''); $('pStatus').value=t.status;
+    $('pDue').value=isISO(t.due)?t.due:''; $('pNotes').value=t.notes||''; fillPriPicker(t.urgency);
+    if(t.threadId){ $('pMailWrap').style.display='block'; $('pMail').href='https://mail.google.com/mail/u/0/#all/'+encodeURIComponent(t.threadId); }
+    else $('pMailWrap').style.display='none';
+    openPanel(); };
+  function openNew(){ S.editing='__new__'; $('pTitle').textContent='משימה חדשה'; $('pTask').value=''; $('pCat').value='';
+    $('pStatus').innerHTML=STATUSES.map(s=>'<option value="'+s.key+'">'+s.label+'</option>').join(''); $('pStatus').value='OPEN';
+    $('pDue').value=''; $('pNotes').value=''; fillPriPicker(''); $('pMailWrap').style.display='none'; openPanel(); setTimeout(()=>$('pTask').focus(),250); }
+  function savePanel(){ var task=$('pTask').value.trim(); if(!task){ toast('חסר שם משימה',true); $('pTask').focus(); return; }
+    var cat=$('pCat').value.trim(), st=$('pStatus').value, pri=$('pPri').dataset.val||'', due=$('pDue').value, notes=$('pNotes').value;
     showOverlay(true);
-    runCalls(calls, 0, function(ok){
-      showOverlay(false); closeModal(); render();
-      ok ? toast('נשמר ✓') : toast('חלק מהשינויים נכשלו', true);
-    });
-  }
-  function runCalls(calls, i, done) {
-    if (i >= calls.length) { done(true); return; }
-    var c = calls[i];
-    google.script.run
-      .withSuccessHandler(function(){ c[2](); runCalls(calls, i+1, done); })
-      .withFailureHandler(function(){ done(false); })[c[0]].apply(null, c[1]);
+    if(S.editing==='__new__'){
+      srun('webAddTask',[cat,task,pri,due,notes],function(res){ S.tasks=res.tasks||[]; S.colors=res.colors||{}; buildFilters(); render(); showOverlay(false); closePanel(); toast('משימה נוספה ✓'); });
+    } else {
+      var id=S.editing, t=find(id);
+      srun('webUpdateTask',[id,{category:cat,task:task,status:st,priority:pri,due:due,notes:notes}],function(){
+        if(t){ t.category=cat; t.task=task; t.status=st; t.urgency=pri; t.due=due; t.overdue=isISO(due)&&dayDiff(due)<0; t.notes=notes; }
+        buildFilters(); render(); showOverlay(false); closePanel(); toast('נשמר ✓'); });
+    }
   }
 
-  /* ---------- Top actions ---------- */
-  function syncNow() {
-    showOverlay(true); $('btnSync').disabled = true;
-    google.script.run
-      .withSuccessHandler(function(res){ STATE.tasks = res.tasks||[]; STATE.colors = res.colors||{}; buildCategoryFilter(); render(); showOverlay(false); $('btnSync').disabled = false; toast('סונכרן מ-Gmail ✓'); })
-      .withFailureHandler(function(err){ showOverlay(false); $('btnSync').disabled = false; toast('שגיאה בסנכרון: ' + err.message, true); })
-      .webRunSync();
-  }
-  function sendSummary() {
-    $('btnSummary').disabled = true;
-    google.script.run
-      .withSuccessHandler(function(){ $('btnSummary').disabled = false; toast('מייל הסיכום נשלח ✓'); })
-      .withFailureHandler(function(err){ $('btnSummary').disabled = false; toast('שגיאה: ' + err.message, true); })
-      .webSendSummary();
-  }
+  /* ---- toast ---- */
+  var toastTimer=null;
+  function toast(msg,err){ var t=$('toast'); t.innerHTML=esc(msg); t.className='toast show'+(err?' err':'');
+    clearTimeout(toastTimer); toastTimer=setTimeout(()=>{t.className='toast';},2600); }
+  function toastUndo(msg,onUndo){ var t=$('toast'); t.innerHTML=esc(msg)+' <button id="undoBtn">בטל</button>'; t.className='toast show';
+    clearTimeout(toastTimer); $('undoBtn').addEventListener('click',function(){ clearTimeout(toastTimer); t.className='toast'; onUndo(); });
+    toastTimer=setTimeout(()=>{t.className='toast';},5000); }
 
-  /* ---------- Wire up ---------- */
-  ['search','fCat','fStatus','fSort'].forEach(function(id){ $(id).addEventListener('input', render); });
-  $('fOverdue').addEventListener('change', render);
-  $('btnSync').addEventListener('click', syncNow);
-  $('btnSummary').addEventListener('click', sendSummary);
-  $('btnRefresh').addEventListener('click', function(){ load(); });
-  $('viewBoard').addEventListener('click', function(){ STATE.view='board'; $('viewBoard').classList.add('active'); $('viewList').classList.remove('active'); render(); });
-  $('viewList').addEventListener('click', function(){ STATE.view='list'; $('viewList').classList.add('active'); $('viewBoard').classList.remove('active'); render(); });
-  $('mSave').addEventListener('click', saveEdit);
-  $('mCancel').addEventListener('click', closeModal);
-  $('modalBg').addEventListener('click', function(e){ if (e.target === $('modalBg')) closeModal(); });
+  /* ---- top actions ---- */
+  function syncNow(){ showOverlay(true); $('btnSync').disabled=true;
+    srun('webRunSync',[],function(res){ S.tasks=res.tasks||[]; S.colors=res.colors||{}; buildFilters(); render(); showOverlay(false); $('btnSync').disabled=false; toast('סונכרן מ-Gmail ✓'); },
+      function(e){ showOverlay(false); $('btnSync').disabled=false; toast('שגיאה: '+e.message,true); }); }
+  function sendSummary(){ $('btnSummary').disabled=true;
+    srun('webSendSummary',[],function(){ $('btnSummary').disabled=false; toast('מייל הסיכום נשלח ✓'); },
+      function(e){ $('btnSummary').disabled=false; toast('שגיאה: '+e.message,true); }); }
 
-  load(true);
+  /* ---- wire up ---- */
+  $('search').addEventListener('input',function(){ S.filters.q=this.value; render(); });
+  $('groupBy').addEventListener('change',function(){ S.groupBy=this.value; savePrefs(); render(); });
+  $('sort').addEventListener('change',function(){ S.sort=this.value; savePrefs(); render(); });
+  $('hideDone').addEventListener('change',function(){ S.filters.hideDone=this.checked; savePrefs(); render(); });
+  $('vBoard').addEventListener('click',function(){ S.view='board'; applyPrefs(); savePrefs(); render(); });
+  $('vList').addEventListener('click',function(){ S.view='list'; applyPrefs(); savePrefs(); render(); });
+  $('btnAdd').addEventListener('click',openNew);
+  $('btnSync').addEventListener('click',syncNow);
+  $('btnSummary').addEventListener('click',sendSummary);
+  $('btnRefresh').addEventListener('click',function(){ load(); });
+  $('btnTheme').addEventListener('click',function(){ S.theme=S.theme==='dark'?'light':'dark'; applyPrefs(); savePrefs(); });
+  $('btnDensity').addEventListener('click',function(){ S.density=S.density==='compact'?'comfortable':'compact'; applyPrefs(); savePrefs(); });
+  $('pSave').addEventListener('click',savePanel);
+  $('pCancel').addEventListener('click',closePanel);
+  $('pClose').addEventListener('click',closePanel);
+  $('scrim').addEventListener('click',closePanel);
+  $('pPri').addEventListener('click',function(e){ e.stopPropagation(); });
+  document.querySelectorAll('.date-chips button').forEach(function(b){ b.addEventListener('click',function(){
+    var d=parseInt(b.dataset.d,10); $('pDue').value = d<0?'':addDaysISO(todayISO(),d); }); });
+  document.addEventListener('keydown',function(e){
+    var typing=/INPUT|TEXTAREA|SELECT/.test((e.target.tagName||''));
+    if(e.key==='Escape'){ if($('panel').classList.contains('show'))closePanel(); else if(S.sel.size){S.sel.clear();render();} return; }
+    if(typing) return;
+    if(e.key==='/'){ e.preventDefault(); $('search').focus(); }
+    else if(e.key.toLowerCase()==='c'){ openNew(); }
+  });
+
+  loadPrefs(); applyPrefs(); load(true);
 </script>
 </body>
 </html>
