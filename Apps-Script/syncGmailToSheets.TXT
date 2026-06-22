@@ -9,9 +9,215 @@ function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('ניהול משימות')
       .addItem('🔄 סנכרן מיילים (Refresh)', 'syncGmailToSheetsV2') // הותאם לשם הפונקציה
-      .addSeparator()
       .addItem('🎨 כפה צביעה מחדש', 'applyColors')
+      .addSeparator()
+      .addItem('📧 שלח סיכום עכשיו', 'sendDailySummary')
+      .addSeparator()
+      .addItem('⏰ הפעל סנכרון אוטומטי (כל שעה)', 'enableAutoSync')
+      .addItem('⏹️ בטל סנכרון אוטומטי', 'disableAutoSync')
+      .addSeparator()
+      .addItem('📧 הפעל סיכום יומי (08:00)', 'enableDailySummary')
+      .addItem('🔕 בטל סיכום יומי', 'disableDailySummary')
       .addToUi();
+}
+
+/* =====================================================================
+ *  אוטומציה: טריגרים מבוססי-זמן (רצים גם כשהגיליון סגור)
+ * ===================================================================== */
+
+/**
+ * עוזר פנימי: מוחק את כל הטריגרים שמפעילים פונקציה מסוימת.
+ * מונע כפילויות כשמפעילים אוטומציה פעמיים.
+ */
+function deleteTriggersFor_(functionName) {
+  let count = 0;
+  ScriptApp.getProjectTriggers().forEach(t => {
+    if (t.getHandlerFunction() === functionName) {
+      ScriptApp.deleteTrigger(t);
+      count++;
+    }
+  });
+  return count;
+}
+
+/** מפעיל סנכרון אוטומטי כל שעה. */
+function enableAutoSync() {
+  deleteTriggersFor_('syncGmailToSheetsV2'); // ניקוי קודם — בלי כפילויות
+  ScriptApp.newTrigger('syncGmailToSheetsV2')
+    .timeBased()
+    .everyHours(1)
+    .create();
+  SpreadsheetApp.getUi().alert('✅ סנכרון אוטומטי הופעל — הסקריפט יסתנכרן כל שעה, גם כשהגיליון סגור.');
+}
+
+/** מבטל את הסנכרון האוטומטי. */
+function disableAutoSync() {
+  const n = deleteTriggersFor_('syncGmailToSheetsV2');
+  SpreadsheetApp.getUi().alert(n > 0
+    ? '⏹️ הסנכרון האוטומטי בוטל.'
+    : 'לא היה סנכרון אוטומטי פעיל.');
+}
+
+/** מפעיל מייל סיכום יומי ב-08:00 (לפי אזור הזמן של הפרויקט). */
+function enableDailySummary() {
+  deleteTriggersFor_('sendDailySummary');
+  ScriptApp.newTrigger('sendDailySummary')
+    .timeBased()
+    .everyDays(1)
+    .atHour(8)
+    .create();
+  SpreadsheetApp.getUi().alert('✅ סיכום יומי הופעל — תקבל מייל כל בוקר בסביבות 08:00.');
+}
+
+/** מבטל את הסיכום היומי. */
+function disableDailySummary() {
+  const n = deleteTriggersFor_('sendDailySummary');
+  SpreadsheetApp.getUi().alert(n > 0
+    ? '🔕 הסיכום היומי בוטל.'
+    : 'לא היה סיכום יומי פעיל.');
+}
+
+/* =====================================================================
+ *  מייל סיכום יומי
+ * ===================================================================== */
+
+/**
+ * בונה ושולח מייל HTML עם כל המשימות הפתוחות, מקובצות לפי קטגוריה.
+ * מדגיש משימות באיחור (תאריך יעד שעבר) ומשימות דחופות.
+ * נשלח לחשבון שמריץ את הסקריפט — נייד לכל מקום.
+ */
+function sendDailySummary() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName('משימות');
+  const recipient = Session.getEffectiveUser().getEmail();
+  const subjectLine = '📋 סיכום משימות יומי — ' +
+    Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'dd/MM/yyyy');
+
+  // אין גיליון או אין נתונים → שולחים הודעת "אין משימות".
+  if (!sheet || sheet.getLastRow() < 2) {
+    MailApp.sendEmail({ to: recipient, subject: subjectLine, htmlBody: emptyStateHtml_() });
+    return;
+  }
+
+  const data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 8).getValues();
+
+  // אזור זמן + תחילת היום (להשוואת איחור)
+  const tz = Session.getScriptTimeZone();
+  const todayStr = Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd');
+
+  // קיבוץ לפי קטגוריה, רק מה שלא DONE
+  const groups = {};            // category -> [{task, status, urgency, due, overdue}]
+  let countOpen = 0, countInProgress = 0, countDependent = 0;
+
+  data.forEach(row => {
+    const category = String(row[1] || '').trim();
+    const task = String(row[2] || '').trim();
+    const status = String(row[3] || '').toUpperCase().trim();
+    const urgency = String(row[4] || '').trim();
+    const dueRaw = row[5];
+
+    if (status === 'DONE' || !task) return;
+
+    if (status === 'OPEN') countOpen++;
+    else if (status === 'IN PROGRESS') countInProgress++;
+    else if (status === 'DEPENDENT') countDependent++;
+
+    // חישוב איחור: אם תאריך היעד הוא תאריך תקין שעבר
+    let dueStr = '';
+    let overdue = false;
+    if (dueRaw instanceof Date) {
+      dueStr = Utilities.formatDate(dueRaw, tz, 'dd/MM/yyyy');
+      overdue = Utilities.formatDate(dueRaw, tz, 'yyyy-MM-dd') < todayStr;
+    } else if (dueRaw) {
+      dueStr = String(dueRaw).trim();
+    }
+
+    const key = category || '(ללא קטגוריה)';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push({ task, status, urgency, due: dueStr, overdue });
+  });
+
+  const totalOpen = countOpen + countInProgress + countDependent;
+  if (totalOpen === 0) {
+    MailApp.sendEmail({ to: recipient, subject: subjectLine, htmlBody: emptyStateHtml_() });
+    return;
+  }
+
+  const html = buildSummaryHtml_(groups, { countOpen, countInProgress, countDependent, totalOpen });
+  MailApp.sendEmail({ to: recipient, subject: subjectLine, htmlBody: html });
+}
+
+/** HTML למצב "אין משימות פתוחות". */
+function emptyStateHtml_() {
+  return '<div style="font-family:Arial,Helvetica,sans-serif;direction:rtl;text-align:right;' +
+    'padding:24px;color:#202124;">' +
+    '<h2 style="margin:0 0 8px;">אין משימות פתוחות 🎉</h2>' +
+    '<p style="color:#5f6368;margin:0;">כל המשימות סגורות. תהנה מהיום!</p></div>';
+}
+
+/** בונה את גוף ה-HTML של הסיכום. */
+function buildSummaryHtml_(groups, stats) {
+  const statusColors = {
+    'OPEN': '#cfe2f3',
+    'IN PROGRESS': '#1155cc',
+    'DEPENDENT': '#595959',
+  };
+  const statusTextColors = { 'OPEN': '#202124', 'IN PROGRESS': '#ffffff', 'DEPENDENT': '#ffffff' };
+  const statusLabels = { 'OPEN': 'פתוח', 'IN PROGRESS': 'בתהליך', 'DEPENDENT': 'תלוי' };
+
+  let html = '<div style="font-family:Arial,Helvetica,sans-serif;direction:rtl;text-align:right;' +
+    'max-width:640px;margin:0 auto;padding:24px;color:#202124;">';
+
+  // כותרת + ספירות
+  html += '<h2 style="margin:0 0 4px;">📋 סיכום משימות יומי</h2>';
+  html += '<p style="color:#5f6368;margin:0 0 16px;">יש לך <b>' + stats.totalOpen +
+    '</b> משימות פתוחות &nbsp;·&nbsp; פתוחות: ' + stats.countOpen +
+    ' &nbsp;·&nbsp; בתהליך: ' + stats.countInProgress +
+    ' &nbsp;·&nbsp; תלויות: ' + stats.countDependent + '</p>';
+
+  // קטגוריות
+  Object.keys(groups).sort().forEach(category => {
+    const items = groups[category];
+    html += '<div style="margin:18px 0 6px;font-size:15px;font-weight:bold;border-bottom:2px solid #e0e0e0;' +
+      'padding-bottom:4px;">' + escapeHtml_(category) + ' <span style="color:#9aa0a6;font-weight:normal;">(' +
+      items.length + ')</span></div>';
+
+    html += '<table style="width:100%;border-collapse:collapse;font-size:14px;">';
+    items.forEach(it => {
+      const badgeBg = statusColors[it.status] || '#eeeeee';
+      const badgeFg = statusTextColors[it.status] || '#202124';
+      const badge = '<span style="background:' + badgeBg + ';color:' + badgeFg +
+        ';border-radius:10px;padding:2px 8px;font-size:12px;white-space:nowrap;">' +
+        (statusLabels[it.status] || it.status) + '</span>';
+
+      let meta = '';
+      if (it.due) {
+        meta += it.overdue
+          ? ' <span style="color:#d93025;font-weight:bold;">⚠ באיחור: ' + escapeHtml_(it.due) + '</span>'
+          : ' <span style="color:#5f6368;">📅 ' + escapeHtml_(it.due) + '</span>';
+      }
+      if (it.urgency) meta += ' <span style="color:#5f6368;">· ' + escapeHtml_(it.urgency) + '</span>';
+
+      html += '<tr style="border-bottom:1px solid #f1f3f4;">' +
+        '<td style="padding:6px 0;vertical-align:top;">' + escapeHtml_(it.task) + meta + '</td>' +
+        '<td style="padding:6px 0;text-align:left;vertical-align:top;white-space:nowrap;">' + badge + '</td>' +
+        '</tr>';
+    });
+    html += '</table>';
+  });
+
+  html += '<p style="color:#9aa0a6;font-size:12px;margin-top:24px;">נשלח אוטומטית ממנהל המשימות ב-Google Sheets.</p>';
+  html += '</div>';
+  return html;
+}
+
+/** בריחת תווים מיוחדים ל-HTML (מונע שבירת עיצוב). */
+function escapeHtml_(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 // שמרתי על השם V2 כדי שהכפתור שלך יעבוד, אבל הלוגיקה היא של v3.0
