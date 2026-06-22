@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --text: #1f2430;
+      --muted: #6b7280;
+      --border: #e6e9ef;
+      --shadow: 0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.06);
+      --shadow-hover: 0 4px 12px rgba(16,24,40,.10), 0 12px 32px rgba(16,24,40,.12);
+      --radius: 14px;
+      --accent: #4f46e5;
+      --open: #4a90d9;
+      --progress: #1155cc;
+      --dependent: #595959;
+      --done: #34a853;
+      --danger: #d93025;
+      --danger-bg: #fce8e6;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Heebo', 'Assistant', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 20px 18px 64px; }
+
+    /* ---------- Header ---------- */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .title { display: flex; align-items: center; gap: 10px; }
+    .title h1 { font-size: 22px; margin: 0; font-weight: 800; letter-spacing: -.02em; }
+    .title .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      padding: 9px 14px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+      transition: all .15s ease; font-family: inherit;
+    }
+    .btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.ghost { background: transparent; }
+    .btn:disabled { opacity: .55; cursor: default; transform: none; box-shadow: none; }
+
+    /* ---------- Stat chips ---------- */
+    .stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .chip {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
+      min-width: 120px;
+    }
+    .chip .num { font-size: 22px; font-weight: 800; line-height: 1; }
+    .chip .lbl { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+    .chip .bar { width: 4px; align-self: stretch; border-radius: 4px; }
+
+    /* ---------- Toolbar ---------- */
+    .toolbar {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 12px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      box-shadow: var(--shadow); margin-bottom: 18px;
+    }
+    .field { display: flex; flex-direction: column; gap: 3px; }
+    .field label { font-size: 11px; color: var(--muted); font-weight: 700; padding-right: 2px; }
+    input, select, textarea {
+      font-family: inherit; font-size: 14px; color: var(--text);
+      border: 1px solid var(--border); border-radius: 9px; padding: 8px 10px; background: #fff;
+      outline: none; transition: border-color .15s, box-shadow .15s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
+    .search { min-width: 220px; flex: 1; }
+    .search input { width: 100%; }
+    .toolbar .spacer { flex: 1; }
+    .toggle-views { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .toggle-views button {
+      border: none; background: #fff; padding: 9px 14px; cursor: pointer; font-family: inherit;
+      font-size: 13.5px; font-weight: 700; color: var(--muted);
+    }
+    .toggle-views button.active { background: var(--accent); color: #fff; }
+    .check { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--text); cursor: pointer; user-select: none; }
+    .check input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+    /* ---------- Board ---------- */
+    .board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: start; }
+    .col { background: #eef1f6; border-radius: var(--radius); padding: 10px; min-height: 120px; }
+    .col-head { display: flex; align-items: center; gap: 8px; padding: 4px 6px 10px; }
+    .col-head .name { font-weight: 800; font-size: 14px; }
+    .col-head .count { font-size: 12px; color: var(--muted); background: #fff; border-radius: 20px; padding: 1px 8px; font-weight: 700; }
+    .col-head .stripe { width: 10px; height: 10px; border-radius: 50%; }
+
+    /* ---------- Cards ---------- */
+    .card {
+      background: var(--surface); border-radius: 12px; padding: 12px 13px; margin-bottom: 10px;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+      border-right: 5px solid var(--cat, #d0d4dc); transition: box-shadow .15s, transform .12s;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+    .card .cat { font-size: 11.5px; font-weight: 800; color: var(--muted); text-transform: none; }
+    .card .name { font-size: 15px; font-weight: 700; margin: 3px 0 8px; word-break: break-word; }
+    .card .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+    .pill { font-size: 11.5px; font-weight: 700; border-radius: 20px; padding: 2px 9px; display: inline-flex; align-items: center; gap: 4px; }
+    .pill.due { background: #eef2f7; color: #475467; }
+    .pill.overdue { background: var(--danger-bg); color: var(--danger); }
+    .pill.urg { background: #fff4e5; color: #b54708; }
+    .card .row { display: flex; gap: 6px; align-items: center; }
+    .card select.status { flex: 1; font-size: 13px; font-weight: 700; }
+    .icon-btn {
+      border: 1px solid var(--border); background: #fff; border-radius: 9px; width: 36px; height: 36px;
+      cursor: pointer; font-size: 15px; display: inline-flex; align-items: center; justify-content: center;
+      transition: all .15s;
+    }
+    .icon-btn:hover { background: #f3f4f8; }
+    .card.done { opacity: .72; }
+    .card.done .name { text-decoration: line-through; text-decoration-color: #b9bec9; }
+
+    /* ---------- List view ---------- */
+    .list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .list-row { display: grid; grid-template-columns: 6px 1fr 150px 130px 150px 44px; gap: 12px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    .list-row:last-child { border-bottom: none; }
+    .list-row .swatch { width: 6px; height: 34px; border-radius: 4px; background: var(--cat, #d0d4dc); }
+    .list-row .lname { font-weight: 700; }
+    .list-row .lcat { font-size: 12px; color: var(--muted); }
+    .list-head { background: #f7f8fb; font-size: 12px; font-weight: 800; color: var(--muted); }
+    .list-head .swatch { background: transparent; }
+
+    /* status select colors */
+    select.status[data-s="OPEN"] { border-color: var(--open); }
+    select.status[data-s="IN PROGRESS"] { border-color: var(--progress); }
+    select.status[data-s="DEPENDENT"] { border-color: var(--dependent); }
+    select.status[data-s="DONE"] { border-color: var(--done); }
+
+    /* ---------- Empty / loading ---------- */
+    .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .empty .big { font-size: 40px; margin-bottom: 8px; }
+    .overlay { position: fixed; inset: 0; background: rgba(244,246,249,.7); display: none; align-items: center; justify-content: center; z-index: 50; backdrop-filter: blur(2px); }
+    .overlay.show { display: flex; }
+    .spinner { width: 38px; height: 38px; border: 4px solid #d9deea; border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- Modal ---------- */
+    .modal-bg { position: fixed; inset: 0; background: rgba(16,24,40,.45); display: none; align-items: center; justify-content: center; z-index: 60; padding: 16px; }
+    .modal-bg.show { display: flex; }
+    .modal { background: #fff; border-radius: 16px; width: 460px; max-width: 100%; box-shadow: 0 24px 64px rgba(16,24,40,.3); overflow: hidden; }
+    .modal h3 { margin: 0; padding: 18px 20px; border-bottom: 1px solid var(--border); font-size: 17px; }
+    .modal .body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+    .modal .body label { font-size: 12px; font-weight: 700; color: var(--muted); display: block; margin-bottom: 5px; }
+    .modal .body input, .modal .body select, .modal .body textarea { width: 100%; }
+    .modal textarea { resize: vertical; min-height: 70px; }
+    .modal .foot { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-start; gap: 8px; }
+    .readonly-line { font-size: 15px; font-weight: 700; }
+
+    /* ---------- Toast ---------- */
+    .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1f2430; color: #fff; padding: 11px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; opacity: 0; transition: all .25s; z-index: 80; box-shadow: var(--shadow-hover); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.err { background: var(--danger); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 980px) { .board { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) {
+      .board { grid-template-columns: 1fr; }
+      .list-row { grid-template-columns: 6px 1fr 44px; }
+      .list-row .lstatus, .list-row .ldue, .list-row .lurg, .list-head .lstatus, .list-head .ldue, .list-head .lurg { display: none; }
+      .title h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="title"><span class="dot"></span><h1>ניהול משימות</h1></div>
+      <div class="actions">
+        <button class="btn" id="btnSync">🔄 סנכרן עכשיו</button>
+        <button class="btn" id="btnSummary">📧 שלח סיכום</button>
+        <button class="btn ghost" id="btnRefresh">↻ רענן</button>
+      </div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="toolbar">
+      <div class="field search">
+        <label>חיפוש</label>
+        <input type="search" id="search" placeholder="חפש משימה או קטגוריה…">
+      </div>
+      <div class="field">
+        <label>קטגוריה</label>
+        <select id="fCat"><option value="">הכל</option></select>
+      </div>
+      <div class="field">
+        <label>סטטוס</label>
+        <select id="fStatus">
+          <option value="">הכל</option>
+          <option value="OPEN">פתוח</option>
+          <option value="IN PROGRESS">בתהליך</option>
+          <option value="DEPENDENT">תלוי</option>
+          <option value="DONE">הושלם</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>מיון</label>
+        <select id="fSort">
+          <option value="due">לפי תאריך יעד</option>
+          <option value="cat">לפי קטגוריה</option>
+          <option value="status">לפי סטטוס</option>
+          <option value="name">לפי שם</option>
+        </select>
+      </div>
+      <label class="check"><input type="checkbox" id="fOverdue"> רק באיחור</label>
+      <div class="spacer"></div>
+      <div class="toggle-views">
+        <button id="viewBoard" class="active">לוח</button>
+        <button id="viewList">רשימה</button>
+      </div>
+    </div>
+
+    <div id="content"></div>
+  </div>
+
+  <div class="overlay" id="overlay"><div class="spinner"></div></div>
+  <div class="toast" id="toast"></div>
+
+  <!-- Edit modal -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <h3>עריכת משימה</h3>
+      <div class="body">
+        <div>
+          <label>משימה</label>
+          <div class="readonly-line" id="mName"></div>
+          <div class="lcat" id="mCat" style="color:var(--muted);font-size:13px;"></div>
+        </div>
+        <div>
+          <label>סטטוס</label>
+          <select id="mStatus">
+            <option value="OPEN">פתוח</option>
+            <option value="IN PROGRESS">בתהליך</option>
+            <option value="DEPENDENT">תלוי</option>
+            <option value="DONE">הושלם</option>
+          </select>
+        </div>
+        <div>
+          <label>תאריך יעד</label>
+          <input type="date" id="mDue">
+        </div>
+        <div>
+          <label>דחיפות</label>
+          <input type="text" id="mUrg" placeholder="למשל: גבוהה">
+        </div>
+        <div>
+          <label>הערות</label>
+          <textarea id="mNotes" placeholder="הערות חופשיות…"></textarea>
+        </div>
+      </div>
+      <div class="foot">
+        <button class="btn primary" id="mSave">💾 שמור</button>
+        <button class="btn ghost" id="mCancel">ביטול</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  var STATE = { tasks: [], colors: {}, view: 'board', editing: null };
+  var STATUS_LABELS = { 'OPEN': 'פתוח', 'IN PROGRESS': 'בתהליך', 'DEPENDENT': 'תלוי', 'DONE': 'הושלם' };
+  var COLUMNS = [
+    { key: 'OPEN', label: 'פתוח', color: 'var(--open)' },
+    { key: 'IN PROGRESS', label: 'בתהליך', color: 'var(--progress)' },
+    { key: 'DEPENDENT', label: 'תלוי', color: 'var(--dependent)' },
+    { key: 'DONE', label: 'הושלם', color: 'var(--done)' }
+  ];
+
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function $(id) { return document.getElementById(id); }
+  function showOverlay(b) { $('overlay').classList.toggle('show', b); }
+  function toast(msg, isErr) {
+    var t = $('toast'); t.textContent = msg; t.className = 'toast show' + (isErr ? ' err' : '');
+    setTimeout(function(){ t.className = 'toast'; }, 2600);
+  }
+  function fmtDate(s) {
+    if (!s) return '';
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+    return m ? m[3] + '/' + m[2] + '/' + m[1] : s;
+  }
+
+  /* ---------- Data load ---------- */
+  function load(initial) {
+    showOverlay(true);
+    google.script.run
+      .withSuccessHandler(function(res) {
+        STATE.tasks = res.tasks || [];
+        STATE.colors = res.colors || {};
+        buildCategoryFilter();
+        render();
+        showOverlay(false);
+      })
+      .withFailureHandler(function(err) { showOverlay(false); toast('שגיאה בטעינה: ' + err.message, true); })
+      .getTasksForWeb();
+  }
+
+  function buildCategoryFilter() {
+    var cats = {};
+    STATE.tasks.forEach(function(t){ if (t.category) cats[t.category] = true; });
+    var sel = $('fCat'); var cur = sel.value;
+    sel.innerHTML = '<option value="">הכל</option>';
+    Object.keys(cats).sort().forEach(function(c){
+      var o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
+    });
+    sel.value = cur;
+  }
+
+  /* ---------- Filtering + sorting ---------- */
+  function visibleTasks() {
+    var q = $('search').value.trim().toLowerCase();
+    var fc = $('fCat').value, fs = $('fStatus').value, ov = $('fOverdue').checked;
+    var list = STATE.tasks.filter(function(t){
+      if (fc && t.category !== fc) return false;
+      if (fs && t.status !== fs) return false;
+      if (ov && !t.overdue) return false;
+      if (q && (t.task + ' ' + t.category).toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+    var sort = $('fSort').value;
+    list.sort(function(a, b){
+      if (sort === 'due') {
+        if (!a.due && !b.due) return 0; if (!a.due) return 1; if (!b.due) return -1;
+        return a.due < b.due ? -1 : a.due > b.due ? 1 : 0;
+      }
+      if (sort === 'cat') return a.category.localeCompare(b.category, 'he');
+      if (sort === 'name') return a.task.localeCompare(b.task, 'he');
+      if (sort === 'status') {
+        var order = { 'OPEN':0, 'IN PROGRESS':1, 'DEPENDENT':2, 'DONE':3 };
+        return (order[a.status] || 0) - (order[b.status] || 0);
+      }
+      return 0;
+    });
+    return list;
+  }
+
+  /* ---------- Stats ---------- */
+  function renderStats() {
+    var c = { 'OPEN':0, 'IN PROGRESS':0, 'DEPENDENT':0, 'DONE':0, overdue:0 };
+    STATE.tasks.forEach(function(t){ c[t.status] = (c[t.status]||0)+1; if (t.overdue && t.status !== 'DONE') c.overdue++; });
+    var html = '';
+    html += chip(c['OPEN'], 'פתוחות', 'var(--open)');
+    html += chip(c['IN PROGRESS'], 'בתהליך', 'var(--progress)');
+    html += chip(c['DEPENDENT'], 'תלויות', 'var(--dependent)');
+    html += chip(c.overdue, 'באיחור', 'var(--danger)');
+    html += chip(c['DONE'], 'הושלמו', 'var(--done)');
+    $('stats').innerHTML = html;
+  }
+  function chip(num, lbl, color) {
+    return '<div class="chip"><span class="bar" style="background:' + color + '"></span>' +
+           '<div><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div></div>';
+  }
+
+  /* ---------- Render ---------- */
+  function render() {
+    renderStats();
+    if (STATE.tasks.length === 0) {
+      $('content').innerHTML = '<div class="empty"><div class="big">📭</div><b>אין משימות עדיין</b>' +
+        '<p>לחץ "סנכרן עכשיו" כדי למשוך מיילים מתויגים.</p></div>';
+      return;
+    }
+    STATE.view === 'board' ? renderBoard() : renderList();
+  }
+
+  function catColor(cat) { return STATE.colors[cat] || '#d0d4dc'; }
+
+  function statusSelect(t) {
+    var opts = COLUMNS.map(function(col){
+      return '<option value="' + col.key + '"' + (t.status === col.key ? ' selected' : '') + '>' + col.label + '</option>';
+    }).join('');
+    return '<select class="status" data-s="' + esc(t.status) + '" data-id="' + esc(t.id) + '" onchange="onStatusChange(this)">' + opts + '</select>';
+  }
+
+  function metaPills(t) {
+    var h = '';
+    if (t.due) h += '<span class="pill ' + (t.overdue && t.status !== 'DONE' ? 'overdue' : 'due') + '">' +
+      (t.overdue && t.status !== 'DONE' ? '⚠ ' : '📅 ') + esc(fmtDate(t.due)) + '</span>';
+    if (t.urgency) h += '<span class="pill urg">🔥 ' + esc(t.urgency) + '</span>';
+    return h;
+  }
+
+  function renderBoard() {
+    var list = visibleTasks();
+    var byStatus = {}; COLUMNS.forEach(function(c){ byStatus[c.key] = []; });
+    list.forEach(function(t){ (byStatus[t.status] || (byStatus[t.status]=[])).push(t); });
+
+    var html = '<div class="board">';
+    COLUMNS.forEach(function(col){
+      var items = byStatus[col.key] || [];
+      html += '<div class="col"><div class="col-head"><span class="stripe" style="background:' + col.color + '"></span>' +
+        '<span class="name">' + col.label + '</span><span class="count">' + items.length + '</span></div>';
+      items.forEach(function(t){ html += cardHtml(t); });
+      html += '</div>';
+    });
+    html += '</div>';
+    $('content').innerHTML = html;
+  }
+
+  function cardHtml(t) {
+    return '<div class="card' + (t.status === 'DONE' ? ' done' : '') + '" style="--cat:' + catColor(t.category) + '">' +
+      '<div class="cat">' + esc(t.category || '—') + '</div>' +
+      '<div class="name">' + esc(t.task) + '</div>' +
+      (metaPills(t) ? '<div class="meta">' + metaPills(t) + '</div>' : '') +
+      '<div class="row">' + statusSelect(t) +
+      '<button class="icon-btn" title="עריכה" onclick="openEdit(\'' + encodeURIComponent(t.id) + '\')">✎</button></div>' +
+      '</div>';
+  }
+
+  function renderList() {
+    var list = visibleTasks();
+    var html = '<div class="list">';
+    html += '<div class="list-row list-head"><div class="swatch"></div><div>משימה</div>' +
+      '<div class="lstatus">סטטוס</div><div class="ldue">תאריך יעד</div><div class="lurg">דחיפות</div><div></div></div>';
+    list.forEach(function(t){
+      html += '<div class="list-row' + (t.status === 'DONE' ? ' done' : '') + '" style="--cat:' + catColor(t.category) + '">' +
+        '<div class="swatch"></div>' +
+        '<div><div class="lname">' + esc(t.task) + '</div><div class="lcat">' + esc(t.category || '—') + '</div></div>' +
+        '<div class="lstatus">' + statusSelect(t) + '</div>' +
+        '<div class="ldue">' + (t.due ? '<span class="pill ' + (t.overdue && t.status!=='DONE' ? 'overdue' : 'due') + '">' + esc(fmtDate(t.due)) + '</span>' : '<span style="color:var(--muted)">—</span>') + '</div>' +
+        '<div class="lurg">' + (t.urgency ? esc(t.urgency) : '<span style="color:var(--muted)">—</span>') + '</div>' +
+        '<button class="icon-btn" title="עריכה" onclick="openEdit(\'' + encodeURIComponent(t.id) + '\')">✎</button>' +
+        '</div>';
+    });
+    html += '</div>';
+    $('content').innerHTML = html;
+  }
+
+  /* ---------- Mutations ---------- */
+  function findTask(id) { for (var i=0;i<STATE.tasks.length;i++){ if (STATE.tasks[i].id === id) return STATE.tasks[i]; } return null; }
+
+  window.onStatusChange = function(sel) {
+    var id = decodeURIComponent(sel.getAttribute('data-id'));
+    var newStatus = sel.value;
+    var t = findTask(id); if (!t) return;
+    var prev = t.status;
+    showOverlay(true);
+    google.script.run
+      .withSuccessHandler(function(){ t.status = newStatus; showOverlay(false); render(); toast('הסטטוס עודכן ✓'); })
+      .withFailureHandler(function(err){ showOverlay(false); toast('שגיאה: ' + err.message, true); t.status = prev; render(); })
+      .webUpdateStatus(id, newStatus);
+  };
+
+  window.openEdit = function(encId) {
+    var id = decodeURIComponent(encId);
+    var t = findTask(id); if (!t) return;
+    STATE.editing = id;
+    $('mName').textContent = t.task;
+    $('mCat').textContent = t.category || '—';
+    $('mStatus').value = t.status;
+    $('mDue').value = /^\d{4}-\d{2}-\d{2}$/.test(t.due) ? t.due : '';
+    $('mUrg').value = t.urgency || '';
+    $('mNotes').value = t.notes || '';
+    $('modalBg').classList.add('show');
+  };
+  function closeModal() { $('modalBg').classList.remove('show'); STATE.editing = null; }
+
+  function saveEdit() {
+    var id = STATE.editing; var t = findTask(id); if (!t) { closeModal(); return; }
+    var newStatus = $('mStatus').value, newDue = $('mDue').value, newUrg = $('mUrg').value, newNotes = $('mNotes').value;
+    var calls = [];
+    if (newStatus !== t.status) calls.push(['webUpdateStatus', [id, newStatus], function(){ t.status = newStatus; }]);
+    if (newDue !== (/^\d{4}-\d{2}-\d{2}$/.test(t.due) ? t.due : '')) calls.push(['webUpdateField', [id, 'due', newDue], function(){ t.due = newDue; t.overdue = newDue && newDue < new Date().toISOString().slice(0,10); }]);
+    if (newUrg !== (t.urgency||'')) calls.push(['webUpdateField', [id, 'urgency', newUrg], function(){ t.urgency = newUrg; }]);
+    if (newNotes !== (t.notes||'')) calls.push(['webUpdateField', [id, 'notes', newNotes], function(){ t.notes = newNotes; }]);
+    if (!calls.length) { closeModal(); return; }
+    showOverlay(true);
+    runCalls(calls, 0, function(ok){
+      showOverlay(false); closeModal(); render();
+      ok ? toast('נשמר ✓') : toast('חלק מהשינויים נכשלו', true);
+    });
+  }
+  function runCalls(calls, i, done) {
+    if (i >= calls.length) { done(true); return; }
+    var c = calls[i];
+    google.script.run
+      .withSuccessHandler(function(){ c[2](); runCalls(calls, i+1, done); })
+      .withFailureHandler(function(){ done(false); })[c[0]].apply(null, c[1]);
+  }
+
+  /* ---------- Top actions ---------- */
+  function syncNow() {
+    showOverlay(true); $('btnSync').disabled = true;
+    google.script.run
+      .withSuccessHandler(function(res){ STATE.tasks = res.tasks||[]; STATE.colors = res.colors||{}; buildCategoryFilter(); render(); showOverlay(false); $('btnSync').disabled = false; toast('סונכרן מ-Gmail ✓'); })
+      .withFailureHandler(function(err){ showOverlay(false); $('btnSync').disabled = false; toast('שגיאה בסנכרון: ' + err.message, true); })
+      .webRunSync();
+  }
+  function sendSummary() {
+    $('btnSummary').disabled = true;
+    google.script.run
+      .withSuccessHandler(function(){ $('btnSummary').disabled = false; toast('מייל הסיכום נשלח ✓'); })
+      .withFailureHandler(function(err){ $('btnSummary').disabled = false; toast('שגיאה: ' + err.message, true); })
+      .webSendSummary();
+  }
+
+  /* ---------- Wire up ---------- */
+  ['search','fCat','fStatus','fSort'].forEach(function(id){ $(id).addEventListener('input', render); });
+  $('fOverdue').addEventListener('change', render);
+  $('btnSync').addEventListener('click', syncNow);
+  $('btnSummary').addEventListener('click', sendSummary);
+  $('btnRefresh').addEventListener('click', function(){ load(); });
+  $('viewBoard').addEventListener('click', function(){ STATE.view='board'; $('viewBoard').classList.add('active'); $('viewList').classList.remove('active'); render(); });
+  $('viewList').addEventListener('click', function(){ STATE.view='list'; $('viewList').classList.add('active'); $('viewBoard').classList.remove('active'); render(); });
+  $('mSave').addEventListener('click', saveEdit);
+  $('mCancel').addEventListener('click', closeModal);
+  $('modalBg').addEventListener('click', function(e){ if (e.target === $('modalBg')) closeModal(); });
+
+  load(true);
+</script>
+</body>
+</html>

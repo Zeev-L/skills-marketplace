@@ -18,7 +18,20 @@ function onOpen() {
       .addSeparator()
       .addItem('📧 הפעל סיכום יומי (08:00)', 'enableDailySummary')
       .addItem('🔕 בטל סיכום יומי', 'disableDailySummary')
+      .addSeparator()
+      .addItem('🌐 הצג כתובת ה-Web App', 'showWebAppUrl')
       .addToUi();
+}
+
+/** מציג את כתובת ה-Web App (אחרי שפרסמת אותו דרך Deploy). */
+function showWebAppUrl() {
+  const url = ScriptApp.getService().getUrl();
+  const ui = SpreadsheetApp.getUi();
+  if (url) {
+    ui.alert('🌐 כתובת ה-Web App', url + '\n\nהעתק את הכתובת ופתח אותה בדפדפן (או הוסף למסך הבית בטלפון).', ui.ButtonSet.OK);
+  } else {
+    ui.alert('עדיין לא פרסמת את ה-Web App. ב-Apps Script: Deploy → New deployment → Web app.');
+  }
 }
 
 /* =====================================================================
@@ -218,6 +231,145 @@ function escapeHtml_(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/* =====================================================================
+ *  Web App — תצוגה אינטראקטיבית לטבלת המשימות
+ *  פרסום: Deploy → New deployment → Web app → Execute as: Me →
+ *          Who has access: Anyone with the link → Deploy → אשר הרשאות.
+ *  קובץ ה-HTML חייב להיקרא "WebApp" בפרויקט (ראה WebApp.html).
+ * ===================================================================== */
+
+/** נקודת הכניסה של ה-Web App. */
+function doGet(e) {
+  // רשת ביטחון אופציונלית: אם הוגדר ACCESS_TOKEN ב-Script Properties,
+  // הדף ייפתח רק עם הכתובת ...?token=<הטוקן>.
+  const token = PropertiesService.getScriptProperties().getProperty('ACCESS_TOKEN');
+  if (token) {
+    const given = e && e.parameter ? e.parameter.token : '';
+    if (given !== token) {
+      return HtmlService.createHtmlOutput(
+        '<div style="font-family:Arial;direction:rtl;text-align:center;padding:48px;color:#5f6368;">' +
+        '<h2>🔒 גישה נדחתה</h2><p>חסר טוקן גישה תקין בכתובת.</p></div>');
+    }
+  }
+  return HtmlService.createHtmlOutputFromFile('WebApp')
+    .setTitle('ניהול משימות')
+    .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+/** עוזר: מחזיר את הגיליון, גם בהקשר Web App. */
+function getSpreadsheet_() {
+  const active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) return active;
+  const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
+  if (id) return SpreadsheetApp.openById(id);
+  throw new Error('לא נמצא גיליון. הגדר SPREADSHEET_ID ב-Script Properties.');
+}
+
+/** עוזר: מאתר שורה לפי Task ID (עמודה A) — יציב גם אם נוספו שורות. */
+function findRowByTaskId_(sheet, taskId) {
+  const last = sheet.getLastRow();
+  if (last < 2) return -1;
+  const ids = sheet.getRange(2, 1, last - 1, 1).getValues();
+  for (let i = 0; i < ids.length; i++) {
+    if (String(ids[i][0]) === String(taskId)) return i + 2;
+  }
+  return -1;
+}
+
+/** מחזיר ל-Web App את כל המשימות + מפת צבעי הקטגוריות. */
+function getTasksForWeb() {
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+
+  const colors = {};
+  const cs = ss.getSheetByName('צבעים');
+  if (cs && cs.getLastRow() > 1) {
+    cs.getRange(2, 1, cs.getLastRow() - 1, 2).getValues().forEach(r => {
+      if (r[0]) colors[String(r[0])] = r[1];
+    });
+  }
+
+  if (!sheet || sheet.getLastRow() < 2) return { tasks: [], colors: colors };
+
+  const data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 8).getValues();
+  const tz = Session.getScriptTimeZone();
+  const todayStr = Utilities.formatDate(new Date(), tz, 'yyyy-MM-dd');
+
+  const tasks = data.map(row => {
+    const dueRaw = row[5];
+    let due = '', overdue = false;
+    if (dueRaw instanceof Date) {
+      due = Utilities.formatDate(dueRaw, tz, 'yyyy-MM-dd');
+      overdue = due < todayStr;
+    } else if (dueRaw) {
+      due = String(dueRaw).trim();
+    }
+    return {
+      id: String(row[0]),
+      category: String(row[1] || ''),
+      task: String(row[2] || ''),
+      status: String(row[3] || 'OPEN').toUpperCase().trim() || 'OPEN',
+      urgency: String(row[4] || ''),
+      due: due,
+      overdue: overdue,
+      notes: String(row[6] || '')
+    };
+  }).filter(t => t.task);
+
+  return { tasks: tasks, colors: colors };
+}
+
+/** מעדכן סטטוס של משימה (לפי Task ID) וצובע מחדש. */
+function webUpdateStatus(taskId, newStatus) {
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+  const row = findRowByTaskId_(sheet, taskId);
+  if (row < 0) throw new Error('המשימה לא נמצאה (ייתכן שסונכרנה מחדש).');
+  sheet.getRange(row, 4).setValue(newStatus);
+  applyColors(sheet, ss);
+  // אם סומן DONE — מעבירים את המייל המשויך לאשפה (כמו בסנכרון הרגיל).
+  if (newStatus === 'DONE') {
+    const tId = sheet.getRange(row, 8).getValue();
+    if (tId) {
+      try {
+        const th = GmailApp.getThreadById(tId);
+        if (th && !th.isInTrash()) th.moveToTrash();
+      } catch (err) {}
+    }
+  }
+  return true;
+}
+
+/** מעדכן שדה טקסט/תאריך של משימה. field: 'urgency' | 'due' | 'notes'. */
+function webUpdateField(taskId, field, value) {
+  const colByField = { urgency: 5, due: 6, notes: 7 };
+  const col = colByField[field];
+  if (!col) throw new Error('שדה לא חוקי: ' + field);
+  const ss = getSpreadsheet_();
+  const sheet = ss.getSheetByName('משימות');
+  const row = findRowByTaskId_(sheet, taskId);
+  if (row < 0) throw new Error('המשימה לא נמצאה (ייתכן שסונכרנה מחדש).');
+  if (field === 'due' && value) {
+    sheet.getRange(row, col).setValue(new Date(value));
+  } else {
+    sheet.getRange(row, col).setValue(value);
+  }
+  return true;
+}
+
+/** מריץ סנכרון Gmail מתוך ה-Web App ומחזיר את הרשימה המעודכנת. */
+function webRunSync() {
+  syncGmailToSheetsV2();
+  return getTasksForWeb();
+}
+
+/** שולח את מייל הסיכום מתוך ה-Web App. */
+function webSendSummary() {
+  sendDailySummary();
+  return true;
 }
 
 // שמרתי על השם V2 כדי שהכפתור שלך יעבוד, אבל הלוגיקה היא של v3.0
